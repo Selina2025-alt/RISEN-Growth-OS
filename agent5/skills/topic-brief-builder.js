@@ -4,9 +4,34 @@
  *
  * 输入：选题 + 方向 + 素材（来自Skill 8）
  * 输出：Topic Brief → Agent 6
+ *
+ * Phase 2.3: brief 新增 content_type 字段（兼容 Agent 6 skill-selector 路由）
  */
 
 const crypto = require('crypto');
+
+/**
+ * 将 content_form 映射为 content_type enum
+ * @param {string} contentForm - 分发路由或方向指定的 content_form
+ * @returns {string} content_type enum
+ */
+function mapContentType(contentForm) {
+  const form = (contentForm || '').toLowerCase();
+  if (form.includes('短视频') || form.includes('视频') || form.includes('抖音') || form.includes('youtube') || form.includes('视频号')) {
+    return 'tutorial';
+  }
+  if (form.includes('小红书') || form.includes('微博') || form.includes('朋友圈') || form.includes('推特') || form.includes('twitter')) {
+    return 'marketing';
+  }
+  if (form.includes('案例') || form.includes('case') || form.includes('客户')) {
+    return 'case_study';
+  }
+  if (form.includes('新闻') || form.includes('pr') || form.includes('公告') || form.includes('快讯')) {
+    return 'news';
+  }
+  // 默认：分析深度文章
+  return 'analysis';
+}
 
 /**
  * 主函数
@@ -50,6 +75,8 @@ function buildTopicBrief(opts = {}) {
   const brief = {
     brief_id: briefId,
     brief_type: 'Trend Brief',   // PRD要求命名
+    // Phase 2.3: content_type 字段（Agent 6 skill-selector 路由依赖此字段）
+    content_type: mapContentType(distributionRoute.content_form || direction.content_form),
     meta: {
       topic_id: topic.topic_id,
       direction_id: direction.direction_id,
