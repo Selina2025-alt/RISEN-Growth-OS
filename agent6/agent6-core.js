@@ -146,7 +146,7 @@ async function generateContent(topicBrief, insertionStrategy, companyName) {
 /**
  * 主函数
  */
-async function runAgent6({ topicBrief, strategyContext }) {
+async function runAgent6({ topicBrief, strategyContext, pendingKeywords }) {
   // === 0. 启动时同步 ===
   const companyName = process.env.COMPANY_NAME;
   if (!companyName) {
@@ -241,8 +241,33 @@ async function main() {
 
   const topicBrief = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
 
+  // ── Phase 1.4: pending_keywords.json 空数组检测 ──────────────────────────
+  const PENDING_KW_PATH = path.join(__dirname, 'knowledge/pending_keywords.json');
+  if (!fs.existsSync(PENDING_KW_PATH)) {
+    console.error('[agent6] ❌ pending_keywords.json 不存在，请先配置 knowledge/pending_keywords.json');
+    process.exit(1);
+  }
+  let pendingKeywords;
   try {
-    const article = await runAgent6({ topicBrief });
+    pendingKeywords = JSON.parse(fs.readFileSync(PENDING_KW_PATH, 'utf8'));
+  } catch (e) {
+    console.error(`[agent6] ❌ pending_keywords.json 解析失败: ${e.message}`);
+    process.exit(1);
+  }
+  if (!Array.isArray(pendingKeywords)) {
+    console.error('[agent6] ❌ pending_keywords.json 根必须是数组');
+    process.exit(1);
+  }
+  if (pendingKeywords.length === 0) {
+    console.warn('[agent6] ⚠️  WARN: pending_keywords.json 为空数组，建议填充后再试');
+    console.warn('[agent6] ⚠️  参考: 从 PRD Section 3/4 提取关键词写入 knowledge/pending_keywords.json');
+    // 不阻断，继续执行（符合 v2.0 计划：WARN 不阻断）
+  } else {
+    console.log(`[agent6] ✓ pending_keywords.json 加载成功 (${pendingKeywords.length} 条关键词)`);
+  }
+
+  try {
+    const article = await runAgent6({ topicBrief, pendingKeywords });
 
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
     const outPath = path.join(outputDir, `${article.article_id}.json`);
