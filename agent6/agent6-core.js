@@ -38,6 +38,53 @@ function replacePlaceholders(content, companyName) {
 }
 
 /**
+ * 通过 Jova Agent Session 触发 show_ui Skill 调用
+ * @param {string} skillId - 不带 'skill::' 前缀
+ * @param {Object} params - { topicBrief, insertionStrategy, companyName }
+ * @returns {Promise<string>} Skill 返回的内容
+ */
+async function invokeJovaSkill(skillId, params) {
+  // 延迟加载 invoker（避免循环 require）
+  const { invokeSkill } = require('./lib/jova-skill-invoker');
+  return invokeSkill(skillId, params);
+}
+
+/**
+ * 根据 skill 类型构造 Skill 调用指令
+ */
+function buildSkillPrompt(skillId, params) {
+  const { topicBrief, insertionStrategy, companyName } = params;
+  const topic = topicBrief.topic_title || '未命名主题';
+  const brief = topicBrief.brief || '';
+  const keywords = (topicBrief.keywords || []).join('、');
+
+  if (skillId === 'khazix-writer') {
+    return `你是数字生命卡兹克，用卡兹克的风格写一篇公众号长文。
+
+【主题】${topic}
+【摘要】${brief}
+【关键词】${keywords || 'AI、行业洞察、技术趋势'}
+【公司】${companyName}
+
+要求：
+- 有见识的普通人在认真聊一件打动他的事
+- 讲人话，像个活人，有温度
+- 不用小标题，从头到尾一口气顺下来
+- 禁用"首先、其次、最后"、"综上所述"、"值得注意的是"
+- 不用冒号和破折号
+- 结尾callback开头埋的钩子
+- 字数1500-2500字`;
+  }
+
+  // 通用 Skill 指令
+  return `用 ${skillId} 技能，基于以下信息生成内容：
+【主题】${topic}
+【摘要】${brief}
+【关键词】${keywords}
+【公司】${companyName}`;
+}
+
+/**
  * 生成文章内容（通过 Skill 选择器调用主笔+辅笔）
  */
 async function generateContent(topicBrief, insertionStrategy, companyName) {
@@ -46,7 +93,7 @@ async function generateContent(topicBrief, insertionStrategy, companyName) {
 
   console.log(`[agent6] 写作模式: ${mode}，主笔: ${primarySkill}`);
 
-  // 主笔执行（带超时）
+  // 主笔执行（带超时 + Jova Skill 路由）
   let content;
   try {
     content = await runSkill(primarySkill, () =>
@@ -54,14 +101,19 @@ async function generateContent(topicBrief, insertionStrategy, companyName) {
       { timeoutMs: 60000 }
     );
   } catch (err) {
-    if (err instanceof SkillTimeoutError) {
+    // Jova Skill 真实调用（show_ui 路径）
+    if (err.code === 'JOVA_SKILL_REQUIRED') {
+      console.log(`[agent6] 真实 Skill 调用: ${err.skillId}，通过 Jova 会话触发`);
+      content = await invokeJovaSkill(err.skillId, err.params);
+    } else if (err instanceof SkillTimeoutError) {
       console.warn(`[agent6] 主笔 ${primarySkill} 超时，触发 HumanActionRequiredError`);
       throw new HumanActionRequiredError(`主笔 Skill ${primarySkill} 执行超时（60s），需要人工介入`);
+    } else {
+      throw err;
     }
-    throw err;
   }
 
-  // 辅笔并发执行（不阻塞主流程）
+  // 辅笔并发执行（不阻塞主流程，Jova Skill 路径同理）
   const auxSkills = getAuxSkills(mode);
   if (auxSkills.length > 0) {
     const auxResults = await Promise.allSettled(
@@ -70,7 +122,15 @@ async function generateContent(topicBrief, insertionStrategy, companyName) {
           runWritingSkill(skillId, { topicBrief, insertionStrategy, companyName }),
           { timeoutMs: 30000 }
         ).then(r => ({ skill: skillId, content: r }))
-        .catch(err => ({ skill: skillId, error: err.message }))
+        .catch(err => {
+          // 辅笔 Jova Skill 路径
+          if (err.code === 'JOVA_SKILL_REQUIRED') {
+            return invokeJovaSkill(err.skillId, err.params)
+              .then(c => ({ skill: skillId, content: c }))
+              .catch(e => ({ skill: skillId, error: e.message }));
+          }
+          return { skill: skillId, error: err.message };
+        })
       )
     );
 
@@ -94,6 +154,10 @@ async function runAgent6({ topicBrief, strategyContext }) {
   }
 
   console.log(`[agent6] 启动，主题：「${topicBrief.topic_title}」`);
+
+  // 预加载所有 Skill 的 SKILL.md（用于 sessions_spawn 子 agent 执行写作）
+  const { preloadSkills } = require('./lib/jova-skill-invoker');
+  await preloadSkills(['khazix-writer', 'ljg-writes', 'hv-analysis', 'ljg-think', 'ljg-rank', 'ljg-card', 'huashu-douyin-script']);
 
   // 同步 Agent2/3 知识
   await buildCapabilityIndex({ source: 'agent2' });

@@ -136,13 +136,15 @@ async function runWritingSkill(skillId, params) {
     return fn(topicBrief, insertionStrategy, companyName);
   }
 
-  // Jova Skill（show_ui 触发）
+// Jova Skill（show_ui 触发）
   if (registryEntry && registryEntry.startsWith('skill::')) {
-    // TODO: 通过 Jova skill 调用机制执行
-    // 目前降级到 stub
-    console.warn(`[skill-selector] Jova skill ${skillId} not yet integrated, using stub`);
-    const stub = SKILL_REGISTRY['local-stub'];
-    return stub(topicBrief, insertionStrategy, companyName);
+    // 通过 Jova show_ui 工具调用真实 Skill
+    // 将 skillId 和 params 封装进 JovaSkillRequiredError，由调用方在 agent6-core.js 捕获并执行 show_ui
+    const skillError = new Error(`JOVA_SKILL_REQ:${skillId}`);
+    skillError.code = 'JOVA_SKILL_REQUIRED';
+    skillError.skillId = skillId.replace('skill::', '');
+    skillError.params = { topicBrief, insertionStrategy, companyName };
+    throw skillError;
   }
 
   // 未知 skill

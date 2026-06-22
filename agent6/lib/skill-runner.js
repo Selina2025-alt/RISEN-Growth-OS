@@ -31,6 +31,8 @@ async function runSkill(skillName, fn, { timeoutMs = 30000 } = {}) {
       setTimeout(() => reject(new SkillTimeoutError(skillName, timeoutMs)), timeoutMs)
     )
   ]).catch(err => {
+    // JovaSkillRequiredError：Skill 路由层抛出的真实 Skill 调用请求，不要包装
+    if (err && err.code === 'JOVA_SKILL_REQUIRED') throw err;
     if (err instanceof SkillTimeoutError) throw err;
     throw new SkillError(skillName, err.message);
   });
