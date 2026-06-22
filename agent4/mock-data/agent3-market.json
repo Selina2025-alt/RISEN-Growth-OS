@@ -1,0 +1,164 @@
+{
+  "id": "market_brief_jova_2024_q2",
+  "version": "v1",
+  "tenant_id": "tenant_jova",
+  "created_by": "agent_3",
+  "created_at": "2024-06-10T08:00:00Z",
+  "status": "approved",
+
+  "market_context": {
+    "market_name": "企业AI智能体平台",
+    "market_size": "2024年全球市场规模约47亿美元，预计年复合增长率42%",
+    "growth_rate": "42% CAGR",
+    "key_trends": [
+      "企业级 AI Agent 从概念验证进入规模化部署阶段",
+      "多智能体协同成为复杂业务场景的标配",
+      "企业更关注 AI 的可观测性、安全合规和 ROI",
+      "垂直行业解决方案需求增长"
+    ],
+    "competitive_landscape": {
+      "direct_competitors": [
+        {"name": "Dify", "strength": "开源生态活跃", "weakness": "企业级功能不完善"},
+        {"name": "Coze", "strength": "字节跳动背景", "weakness": "出海为主"},
+        {"name": "LangChain", "strength": "开发者生态强大", "weakness": "生产部署复杂"},
+        {"name": "CrewAI", "strength": "多智能体概念清晰", "weakness": "规模有限"}
+      ],
+      "differentiated_space": "企业级、多租户、安全合规、全链路可观测"
+    }
+  },
+
+  "icp": {
+    "company_profile": {
+      "industry": ["企业服务", "SaaS", "软件开发", "金融科技", "电商"],
+      "company_size": "50-2000人",
+      "annual_revenue": "500万-10亿人民币",
+      "department": "IT部门 / 数字化转型部门 / 业务部门"
+    },
+    "buyer_persona": {
+      "role": "IT总监 / CTO / 数字化负责人",
+      "background": "有技术背景，正在推动企业 AI 落地",
+      "goals": [
+        "找到可落地的企业 AI 解决方案",
+        "降低 AI 试错成本",
+        "构建可持续的 AI 运营能力"
+      ],
+      "pain_points": [
+        "市面方案要么太技术要么功能单一",
+        "安全和合规是采购的硬门槛",
+        "团队缺乏 AI 落地经验",
+        "不知道如何衡量 AI ROI"
+      ],
+      "buying_triggers": [
+        "老板要求今年要有 AI 应用落地",
+        "现有方案出了安全事件",
+        "竞品已经开始用 AI 提效",
+        "团队有重复性工作想自动化"
+      ]
+    },
+    "customer_problems": [
+      {
+        "problem_id": "prob_001",
+        "problem": "客服团队重复性问题占比高，人力浪费严重",
+        "frequency": "高频",
+        "impact": "高",
+        "current_solutions": "人工回复 + 简单FAQ"
+      },
+      {
+        "problem_id": "prob_002",
+        "problem": "跨部门协作流程繁琐，审批周期长",
+        "frequency": "中高",
+        "impact": "中",
+        "current_solutions": "OA系统 + 人工催办"
+      },
+      {
+        "problem_id": "prob_003",
+        "problem": "销售团队需要快速响应客户咨询，但人手不够",
+        "frequency": "高频",
+        "impact": "高",
+        "current_solutions": "电话 + 微信"
+      },
+      {
+        "problem_id": "prob_004",
+        "problem": "市场团队内容生产效率低，无法快速响应热点",
+        "frequency": "中",
+        "impact": "中",
+        "current_solutions": "外包 + 人工撰写"
+      }
+    ]
+  },
+
+  "target_accounts": [
+    {
+      "account_id": "acct_001",
+      "company_name": "华新科技",
+      "industry": "企业服务",
+      "size": "500人",
+      "annual_revenue": "3亿",
+      "target_department": "IT部门",
+      "contact_persona": "IT总监 张明",
+      "intent_signals": [
+        "官网浏览了 AI 相关页面",
+        "下载了私有化部署白皮书",
+        "参加了线上产品演示"
+      ],
+      "priority_score": 85,
+      "buying_stage": "consideration"
+    },
+    {
+      "account_id": "acct_002",
+      "company_name": "云链金融",
+      "industry": "金融科技",
+      "size": "300人",
+      "annual_revenue": "8亿",
+      "target_department": "数字化转型部",
+      "contact_persona": "CTO 李强",
+      "intent_signals": [
+        "关注了 Jova AI 公众号",
+        "加入了产品交流群",
+        "申请了试用"
+      ],
+      "priority_score": 92,
+      "buying_stage": "decision"
+    },
+    {
+      "account_id": "acct_003",
+      "company_name": "远航电商",
+      "industry": "电商",
+      "size": "800人",
+      "annual_revenue": "10亿",
+      "target_department": "运营部",
+      "contact_persona": "COO 王芳",
+      "intent_signals": [
+        "搜索了智能客服解决方案",
+        "竞品官网停留时间长",
+        "参加了行业展会"
+      ],
+      "priority_score": 78,
+      "buying_stage": "awareness"
+    }
+  ],
+
+  "buying_committee": [
+    {
+      "role": "Economic Buyer",
+      "title": "CEO / 总裁",
+      "concerns": ["ROI", "战略价值", "品牌风险"]
+    },
+    {
+      "role": "Technical Buyer",
+      "title": "CTO / IT总监",
+      "concerns": ["技术可行性", "安全合规", "集成难度"]
+    },
+    {
+      "role": "User",
+      "title": "部门负责人",
+      "concerns": ["易用性", "工作效率提升", "培训成本"]
+    }
+  ],
+
+  "campaign_notes": {
+    "target_market": "中国华东 + 华南 企业服务/金融科技/电商行业",
+    "target_geography": ["上海", "深圳", "广州", "杭州", "北京"],
+    "campaign_focus": "AI 智能体落地 / 企业级安全合规 / 降本增效"
+  }
+}

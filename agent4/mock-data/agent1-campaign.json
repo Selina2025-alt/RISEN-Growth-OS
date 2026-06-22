@@ -1,0 +1,81 @@
+{
+  "id": "campaign_2024_h2_jova",
+  "version": "v1",
+  "tenant_id": "tenant_jova",
+  "created_by": "agent_1",
+  "created_at": "2024-06-15T08:00:00Z",
+  "status": "active",
+
+  "campaign_info": {
+    "name": "Jova AI 2024下半年品牌增长战役",
+    "objective": "线索获取 + 品牌认知",
+    "description": "通过图文内容矩阵，在知乎、微信公众号等平台建立 Jova AI 在企业级 AI 智能体领域的技术领导力，吸引目标客户关注并获取销售线索"
+  },
+
+  "goal": {
+    "type": "lead_generation_and_brand_awareness",
+    "business_objective": "在企业级 AI 智能体市场建立技术领导形象，获取高质量销售线索",
+    "target_leads": 200,
+    "target_conversion_rate": 0.03,
+    "target_market_share_in_niche": "提升15%品牌提及率",
+    "timeline": {
+      "start_date": "2024-07-01",
+      "end_date": "2024-12-31",
+      "duration_months": 6
+    },
+    "budget": {
+      "total": 500000,
+      "currency": "CNY",
+      "breakdown": {
+        "content_production": 200000,
+        "paid_promotion": 150000,
+        "tools_and_platforms": 50000,
+        "contingency": 100000
+      }
+    }
+  },
+
+  "target_market": {
+    "primary": ["企业服务", "金融科技", "SaaS"],
+    "secondary": ["电商", "制造业", "医疗健康"],
+    "geography": ["华东", "华南"],
+    "company_size": "50-2000人"
+  },
+
+  "constraints": {
+    "max_content_per_week": 5,
+    "approval_required": true,
+    "brand_guidelines_strict": true,
+    "compliance_check_required": true
+  },
+
+  "success_metrics": {
+    "primary_kpi": "SQL (Sales Qualified Lead) 数量 >= 200",
+    "secondary_kpi": [
+      "品牌关键词搜索量提升30%",
+      "官网自然搜索流量提升20%",
+      "知乎文章平均阅读量 >= 5000",
+      "微信公众号关注增长 >= 5000"
+    ],
+    "stop_conditions": [
+      "CPA (每线索成本) > 2500 CNY",
+      "负面舆情出现",
+      "内容通过率 < 60%"
+    ],
+    "scale_conditions": [
+      "SQL数量在90天内突破150，且CPA < 2000",
+      "某内容类型ROI明显高于其他",
+      "客户反馈正向"
+    ]
+  },
+
+  "scope": {
+    "content_types": ["技术白皮书", "案例分析", "产品教程", "行业洞察", "观点文章"],
+    "platforms": {
+      "primary": ["知乎", "微信公众号", "百家号"],
+      "secondary": ["今日头条", "雪球", "网易新闻", "搜狐号", "腾讯新闻", "新浪新闻", "凤凰新闻"]
+    },
+    "languages": ["中文"],
+    "note": "MVP阶段聚焦图文内容，视频类内容后续扩展"
+  }
+}

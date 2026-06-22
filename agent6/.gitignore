@@ -1,0 +1,14 @@
+node_modules/
+output/
+*.log
+.DS_Store
+.env
+*.tmp.*
+*.bak
+knowledge/
+!knowledge/docs/
+!knowledge/product/
+!knowledge/market/
+!knowledge/company/
+!knowledge/_index.json
+!knowledge/pending_keywords.json

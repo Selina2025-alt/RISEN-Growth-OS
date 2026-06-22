@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-06-17T04:22:56.266Z",
+  "summary": {
+    "strategy_card": {
+      "id": "STR-001",
+      "version": "v2",
+      "strategic_bet": "内容营销建立技术领导力，带来高质量线索",
+      "value_proposition": "Jova AI：让企业 AI 落地不再困难",
+      "channel_count": 10,
+      "total_budget": 300000,
+      "decision": "CONTINUE"
+    },
+    "verification": [
+      {
+        "label": "Strategy Card 生成",
+        "pass": true
+      },
+      {
+        "label": "10个平台都在",
+        "pass": true
+      },
+      {
+        "label": "预算分配=100%",
+        "pass": true
+      },
+      {
+        "label": "Stop/Scale决策有效",
+        "pass": true
+      },
+      {
+        "label": "版本Diff有变更",
+        "pass": true
+      },
+      {
+        "label": "Narrative约束已生成",
+        "pass": true
+      }
+    ],
+    "routing_tasks": 2
+  }
+}

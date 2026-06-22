@@ -1,0 +1,121 @@
+{
+  "timestamp": "2026-06-17T03:54:51.619Z",
+  "experiment_results_summary": {
+    "experiments_count": 1,
+    "avg_roi": 0.5,
+    "stop_scale_decision": "STOP"
+  },
+  "routing_decisions": [
+    {
+      "target": "agent_4",
+      "signals": [
+        "value_prop_error"
+      ],
+      "consolidated_payload": {
+        "reason": "高流量但低转化，价值主张可能不匹配客户需求",
+        "details": {
+          "conversion_rate": 0.005,
+          "expected": 0.02
+        },
+        "recommended_action": "审视并重建价值主张"
+      },
+      "max_confidence": 0.6,
+      "requires_immediate_action": false
+    },
+    {
+      "target": "agent_5",
+      "signals": [
+        "topic_error"
+      ],
+      "consolidated_payload": {
+        "reason": "Stop/Scale决策: STOP",
+        "stop_scale_decision": "STOP",
+        "routing_signal": "topic_adjustment",
+        "data": {
+          "reason": "low_roi_content_type",
+          "avoid_topics": null
+        },
+        "recommended_action": "stop_experiment_document_lesson"
+      },
+      "max_confidence": 0.75,
+      "requires_immediate_action": false
+    }
+  ],
+  "prioritized_actions": [
+    {
+      "target": "agent_5",
+      "signals": [
+        "topic_error"
+      ],
+      "consolidated_payload": {
+        "reason": "Stop/Scale决策: STOP",
+        "stop_scale_decision": "STOP",
+        "routing_signal": "topic_adjustment",
+        "data": {
+          "reason": "low_roi_content_type",
+          "avoid_topics": null
+        },
+        "recommended_action": "stop_experiment_document_lesson"
+      },
+      "max_confidence": 0.75,
+      "requires_immediate_action": false
+    },
+    {
+      "target": "agent_4",
+      "signals": [
+        "value_prop_error"
+      ],
+      "consolidated_payload": {
+        "reason": "高流量但低转化，价值主张可能不匹配客户需求",
+        "details": {
+          "conversion_rate": 0.005,
+          "expected": 0.02
+        },
+        "recommended_action": "审视并重建价值主张"
+      },
+      "max_confidence": 0.6,
+      "requires_immediate_action": false
+    }
+  ],
+  "downstream_tasks": [
+    {
+      "task_id": "task_1781668491619_agent_4",
+      "assigned_to": "agent_4",
+      "signal_type": "value_prop_error",
+      "payload": {
+        "reason": "高流量但低转化，价值主张可能不匹配客户需求",
+        "details": {
+          "conversion_rate": 0.005,
+          "expected": 0.02
+        },
+        "recommended_action": "审视并重建价值主张"
+      },
+      "priority": "normal",
+      "deadline": "within_24h",
+      "strategy_card_version": "requires_update"
+    },
+    {
+      "task_id": "task_1781668491619_agent_5",
+      "assigned_to": "agent_5",
+      "signal_type": "topic_error",
+      "payload": {
+        "reason": "Stop/Scale决策: STOP",
+        "stop_scale_decision": "STOP",
+        "routing_signal": "topic_adjustment",
+        "data": {
+          "reason": "low_roi_content_type",
+          "avoid_topics": null
+        },
+        "recommended_action": "stop_experiment_document_lesson"
+      },
+      "priority": "normal",
+      "deadline": "within_24h",
+      "strategy_card_version": "requires_update"
+    }
+  ],
+  "strategy_rebuild_signal": {
+    "trigger": "pivot",
+    "reason": "高流量但低转化，价值主张可能不匹配客户需求",
+    "requires_full_rebuild": false
+  }
+}

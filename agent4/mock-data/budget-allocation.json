@@ -1,0 +1,231 @@
+{
+  "total_budget": 300000,
+  "currency": "CNY",
+  "channel_budgets": {
+    "owned_media": {
+      "type": "owned_media",
+      "amount": 195000,
+      "pct": 0.65,
+      "description": "自有渠道（公众号、官网、邮件）"
+    },
+    "paid_media": {
+      "type": "paid_media",
+      "amount": 75000,
+      "pct": 0.25,
+      "description": "付费渠道（广告、投放）"
+    },
+    "earned_media": {
+      "type": "earned_media",
+      "amount": 30000,
+      "pct": 0.1,
+      "description": "赢得渠道（PR、媒体转载）"
+    }
+  },
+  "content_budgets": {
+    "short_videos": {
+      "type": "short_videos",
+      "amount": 105000,
+      "pct": 0.35,
+      "description": "抖音、视频号、B站"
+    },
+    "text_articles": {
+      "type": "text_articles",
+      "amount": 75000,
+      "pct": 0.25,
+      "description": "长文、知乎回答、百家号文章"
+    },
+    "design_assets": {
+      "type": "design_assets",
+      "amount": 45000,
+      "pct": 0.15,
+      "description": "封面图、信息图、PPT"
+    },
+    "distribution": {
+      "type": "distribution",
+      "amount": 45000,
+      "pct": 0.15,
+      "description": "KOL转发、媒体投放、代运营"
+    }
+  },
+  "platform_budgets": {
+    "wechat_official": {
+      "platform": "wechat_official",
+      "amount": 99435,
+      "pct": 0.51,
+      "priority": 1,
+      "min_budget": 30000
+    },
+    "zhihu": {
+      "platform": "zhihu",
+      "amount": 27378,
+      "pct": 0.14,
+      "priority": 2,
+      "min_budget": 20000
+    },
+    "toutiao": {
+      "platform": "toutiao",
+      "amount": 17461,
+      "pct": 0.09,
+      "priority": 3,
+      "min_budget": 15000
+    },
+    "baijiahao": {
+      "platform": "baijiahao",
+      "amount": 10726,
+      "pct": 0.06,
+      "priority": 4,
+      "min_budget": 10000
+    },
+    "xueqiu": {
+      "platform": "xueqiu",
+      "amount": 8000,
+      "pct": 0.04,
+      "priority": 5,
+      "min_budget": 8000
+    },
+    "netEase_news": {
+      "platform": "netEase_news",
+      "amount": 8000,
+      "pct": 0.04,
+      "priority": 6,
+      "min_budget": 8000
+    },
+    "sohu_news": {
+      "platform": "sohu_news",
+      "amount": 6000,
+      "pct": 0.03,
+      "priority": 7,
+      "min_budget": 6000
+    },
+    "tencent_news": {
+      "platform": "tencent_news",
+      "amount": 6000,
+      "pct": 0.03,
+      "priority": 8,
+      "min_budget": 6000
+    },
+    "sina_news": {
+      "platform": "sina_news",
+      "amount": 6000,
+      "pct": 0.03,
+      "priority": 9,
+      "min_budget": 6000
+    },
+    "ifeng_news": {
+      "platform": "ifeng_news",
+      "amount": 6000,
+      "pct": 0.03,
+      "priority": 10,
+      "min_budget": 6000
+    }
+  },
+  "experiment_budgets": [
+    {
+      "experiment_id": "exp_1",
+      "amount": 65000,
+      "duration_weeks": 4,
+      "weekly_budget": 16250
+    },
+    {
+      "experiment_id": "exp_2",
+      "amount": 65000,
+      "duration_weeks": 4,
+      "weekly_budget": 16250
+    },
+    {
+      "experiment_id": "exp_3",
+      "amount": 65000,
+      "duration_weeks": 4,
+      "weekly_budget": 16250
+    }
+  ],
+  "budget_utilization": {
+    "allocated": 300000,
+    "utilization_rate": 1,
+    "contingency_reserve": 0
+  },
+  "metadata": {
+    "experiment_count": 3,
+    "experiment_duration_weeks": 4,
+    "short_video_heavy": false,
+    "is_new_market": true,
+    "generated_at": "2026-06-17T03:48:02.133Z"
+  },
+  "experiment_timeline": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "冷启动",
+        "weeks": [
+          1,
+          2
+        ],
+        "budget_pct": 0.15,
+        "objectives": [
+          "验证渠道可行性",
+          "收集初期数据"
+        ],
+        "success_criteria": {
+          "min_sample_size": 200,
+          "min_engagement": 0.01
+        }
+      },
+      {
+        "phase": 2,
+        "name": "快速迭代",
+        "weeks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "budget_pct": 0.35,
+        "objectives": [
+          "扩大有效策略",
+          "淘汰低效策略"
+        ],
+        "success_criteria": {
+          "min_sample_size": 800,
+          "roi_threshold": 1
+        }
+      },
+      {
+        "phase": 3,
+        "name": "放大",
+        "weeks": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "budget_pct": 0.35,
+        "objectives": [
+          "放大高效渠道",
+          "优化内容形式"
+        ],
+        "success_criteria": {
+          "min_sample_size": 1500,
+          "roi_threshold": 1.3
+        }
+      },
+      {
+        "phase": 4,
+        "name": "收割",
+        "weeks": [
+          11,
+          12
+        ],
+        "budget_pct": 0.15,
+        "objectives": [
+          "最大化高效渠道",
+          "准备下一轮"
+        ],
+        "success_criteria": {
+          "min_sample_size": 2000,
+          "roi_threshold": 1.5
+        }
+      }
+    ],
+    "total_weeks": 12
+  }
+}

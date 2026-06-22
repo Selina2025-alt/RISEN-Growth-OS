@@ -1,0 +1,62 @@
+{
+  "decision_id": "dec_1781668084750",
+  "timestamp": "2026-06-17T03:48:04.750Z",
+  "primary_decision": {
+    "decision": "SCALE",
+    "reason": "ROI 1.80 超过目标 1.2 的 1.5倍，置信度85%，样本量1200",
+    "evidence": {
+      "roi_ratio": 1.5,
+      "confidence": 0.85,
+      "sample_size": 1200
+    },
+    "recommended_action": "double_budget",
+    "scale_factor": 2,
+    "priority": "high"
+  },
+  "all_decisions": [
+    {
+      "decision": "SCALE",
+      "reason": "ROI 1.80 超过目标 1.2 的 1.5倍，置信度85%，样本量1200",
+      "evidence": {
+        "roi_ratio": 1.5,
+        "confidence": 0.85,
+        "sample_size": 1200
+      },
+      "recommended_action": "double_budget",
+      "scale_factor": 2,
+      "priority": "high"
+    }
+  ],
+  "strategy_id": "stg_v2",
+  "strategy_version": "v2",
+  "experiment_summary": {
+    "actual_roi": 1.8,
+    "confidence": 0.85,
+    "sample_size": 1200,
+    "time_in_market_days": 14,
+    "winning_variant": "content_type_b"
+  },
+  "agent_routing": {
+    "target_agent": "agent_5",
+    "signal_type": "scale_topics",
+    "payload": {
+      "expand_winning_content_type": "content_type_b",
+      "scale_factor": 2
+    }
+  },
+  "next_actions": [
+    {
+      "action": "increase_budget",
+      "factor": 2
+    },
+    {
+      "action": "expand_winning_content",
+      "variant": "document_winning_variant"
+    },
+    {
+      "action": "schedule_next_review",
+      "days": 7
+    }
+  ],
+  "approval_status": "auto_approved"
+}

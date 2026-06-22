@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent 4 Strategy Card</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Noto Sans CJK SC", "Noto Serif CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; padding: 24px; }
+.container { max-width: 680px; margin: 0 auto; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #1e3a5f, #2d5a87); color: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+.header h1 { font-size: 18px; font-weight: 700; }
+.header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+
+/* Cards */
+.card { background: white; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 14px; overflow: hidden; }
+.card-header { padding: 12px 16px; font-size: 13px; font-weight: 600; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; background: #f8fafc; display: flex; align-items: center; gap: 8px; }
+.card-header .icon { font-size: 16px; }
+.card-body { padding: 0; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; }
+tr { border-bottom: 1px solid #f1f5f9; }
+tr:last-child { border-bottom: none; }
+td { padding: 10px 14px; font-size: 13px; vertical-align: top; }
+td:first-child { color: #64748b; font-weight: 500; width: 130px; white-space: nowrap; }
+td:last-child { color: #1e293b; }
+
+/* Status badges */
+.badge { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; font-weight: 700; margin-right: 6px; }
+.badge-pass { background: #dcfce7; color: #166534; }
+.badge-warn { background: #fef9c3; color: #854d0e; }
+.badge-fail { background: #fee2e2; color: #991b1b; }
+
+/* Budget bar */
+.budget-section { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
+.budget-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+.budget-row:last-child { margin-bottom: 0; }
+.budget-label { width: 70px; font-weight: 500; color: #475569; }
+.budget-bar-bg { flex: 1; height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; }
+.budget-bar-fill { height: 100%; border-radius: 5px; }
+.budget-owned { background: #22c55e; }
+.budget-paid { background: #eab308; }
+.budget-earned { background: #38bdf8; }
+.budget-amount { font-size: 12px; color: #64748b; width: 90px; text-align: right; }
+
+/* Channels grid */
+.channel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #e2e8f0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin: 12px 16px; }
+.channel-item { background: white; padding: 10px 12px; font-size: 12px; }
+.channel-name { font-weight: 600; color: #1e293b; margin-bottom: 2px; }
+.channel-meta { color: #94a3b8; }
+.channel-role { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-left: 4px; }
+.role-primary { background: #dcfce7; color: #166534; }
+.role-test { background: #f1f5f9; color: #64748b; }
+
+/* Narrative constraints */
+.nc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 14px 16px; }
+.nc-item { background: #f8fafc; border-radius: 8px; padding: 12px; border: 1px solid #e2e8f0; }
+.nc-name { font-size: 12px; font-weight: 700; color: #1e3a5f; margin-bottom: 6px; }
+.nc-role { font-size: 10px; color: #64748b; margin-bottom: 4px; }
+.nc-constraint { font-size: 11px; color: #475569; line-height: 1.4; }
+
+/* Experiments */
+.exp-item { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; }
+.exp-item:last-child { border-bottom: none; }
+.exp-name { font-size: 13px; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+.exp-hyp { font-size: 12px; color: #64748b; line-height: 1.4; }
+
+/* Version history */
+.ver-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #f1f5f9; }
+.ver-item:last-child { border-bottom: none; }
+.ver-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; margin-left: 2px; }
+.ver-active { background: #22c55e; }
+.ver-old { background: #94a3b8; }
+.ver-content { flex: 1; }
+.ver-title { font-size: 13px; font-weight: 600; color: #1e293b; }
+.ver-meta { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.ver-changes { font-size: 11px; color: #166534; margin-top: 4px; }
+
+/* Feedback routing */
+.routing-item { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+.routing-item:last-child { border-bottom: none; }
+.routing-arrow { color: #94a3b8; font-size: 12px; }
+.routing-agent { font-weight: 600; color: #1e3a5f; }
+.routing-signal { color: #64748b; font-size: 12px; }
+.priority-high { color: #dc2626; }
+.priority-normal { color: #eab308; }
+
+/* Decision banner */
+.decision-banner { display: flex; align-items: center; gap: 16px; padding: 14px 16px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; margin: 12px 16px; }
+.decision-icon { font-size: 24px; }
+.decision-content { flex: 1; }
+.decision-label { font-size: 11px; color: #92400e; font-weight: 600; text-transform: uppercase; }
+.decision-value { font-size: 15px; font-weight: 700; color: #92400e; }
+.decision-reason { font-size: 11px; color: #b45309; margin-top: 2px; }
+
+/* Footer */
+.footer { text-align: center; font-size: 11px; color: #94a3b8; padding: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>Agent 4 · Strategy Card</h1>
+  <div class="subtitle">RISEN Growth OS · 策略与实验智能体 · H2 2024 Campaign</div>
+</div>
+
+<!-- Strategy Card -->
+<div class="card">
+  <div class="card-header"><span class="icon">📋</span> Strategy Card</div>
+  <div class="card-body">
+    <table>
+      <tr><td><span class="badge badge-pass">✓</span>Strategic Bet</td><td>内容营销建立技术领导力，带来高质量线索</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>Approach</td><td>thought_leadership</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>Value Prop</td><td>Jova AI：让企业 AI 落地不再困难</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>预算</td><td>¥300,000</td></tr>
+      <tr><td><span class="badge badge-warn">⚠</span>Decision</td><td><strong>CONTINUE</strong> · ROI 1.4x > 1.2x threshold</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Decision -->
+<div class="decision-banner">
+  <div class="decision-icon">⚡</div>
+  <div class="decision-content">
+    <div class="decision-label">Stop / Scale Decision</div>
+    <div class="decision-value">CONTINUE</div>
+    <div class="decision-reason">ROI 1.40 在可接受范围，继续观察积累数据</div>
+  </div>
+</div>
+
+<!-- Budget -->
+<div class="card">
+  <div class="card-header"><span class="icon">💰</span> Budget Allocation · ¥300,000</div>
+  <div class="card-body">
+    <div class="budget-section">
+      <div class="budget-row">
+        <div class="budget-label">Owned 65%</div>
+        <div class="budget-bar-bg"><div class="budget-bar-fill budget-owned" style="width:65%"></div></div>
+        <div class="budget-amount">¥195,000</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Paid 25%</div>
+        <div class="budget-bar-bg"><div class="budget-bar-fill budget-paid" style="width:25%"></div></div>
+        <div class="budget-amount">¥75,000</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Earned 10%</div>
+        <div class="budget-bar-bg"><div class="budget-bar-fill budget-earned" style="width:10%"></div></div>
+        <div class="budget-amount">¥30,000</div>
+      </div>
+    </div>
+    <table>
+      <tr><td><span class="badge badge-pass">✓</span>实验周期</td><td>12周：冷启动(2周) → 快速迭代(4周) → 放大(4周) → 收割(2周)</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>成功阈值</td><td>ROI &gt; 1.2x · 置信度 &gt; 70% · 样本量 &gt; 500</td></tr>
+      <tr><td><span class="badge badge-fail">✗</span>停止阈值</td><td>ROI &lt; 0.6x · 样本量 &gt; 300 → 停止实验</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Channel Mix -->
+<div class="card">
+  <div class="card-header"><span class="icon">📡</span> Channel Mix · 10个平台</div>
+  <div class="card-body">
+    <div class="channel-grid">
+      <div class="channel-item">
+        <div class="channel-name">知乎 <span class="channel-role role-primary">Primary</span></div>
+        <div class="channel-meta">13% · 长文回答 · 逻辑严密有洞见</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">微信公众号 <span class="channel-role role-primary">Primary</span></div>
+        <div class="channel-meta">13% · 长文文章 · 深度专业</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">百家号 <span class="channel-role role-primary">Primary</span></div>
+        <div class="channel-meta">13% · 资讯文章 · 资讯快讯</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">今日头条 <span class="channel-role role-test">Test</span></div>
+        <div class="channel-meta">6% · 资讯文章 · 通俗易懂</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">雪球 <span class="channel-role role-test">Test</span></div>
+        <div class="channel-meta">6% · 分析文章 · 投资分析风</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">网易新闻 <span class="channel-role role-test">Test</span></div>
+        <div class="channel-meta">6% · 新闻资讯 · 新闻通稿+深度</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">搜狐号 <span class="channel-role role-test">Test</span></div>
+        <div class="channel-meta">6% · 新闻资讯 · 新闻通稿</div>
+      </div>
+      <div class="channel-item">
+        <div class="channel-name">腾讯/新浪/凤凰 <span class="channel-role role-test">Test</span></div>
+        <div class="channel-meta">各6% · 新闻资讯 · 新闻通稿</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Experiments -->
+<div class="card">
+  <div class="card-header"><span class="icon">🔬</span> Experiments · 3个并行策略实验</div>
+  <div class="card-body">
+    <div class="exp-item">
+      <div class="exp-name">1. 叙事角度对比：技术深度 vs 案例驱动</div>
+      <div class="exp-hyp">案例驱动的内容相比纯技术内容，能带来更高质量的销售线索（留资率提升 &gt;= 30%）</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-name">2. 渠道优先级验证：知乎优先 vs 微信优先</div>
+      <div class="exp-hyp">以知乎为主攻渠道能带来更高质量的品牌线索（SEO流量转化率高）</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-name">3. 内容长度测试：长文 vs 短文</div>
+      <div class="exp-hyp">长文内容的线索转化率高于短文（深度内容建立信任）</div>
+    </div>
+  </div>
+</div>
+
+<!-- Version History -->
+<div class="card">
+  <div class="card-header"><span class="icon">📜</span> Version History · 策略版本管理</div>
+  <div class="card-body">
+    <div class="ver-item">
+      <div class="ver-dot ver-old"></div>
+      <div class="ver-content">
+        <div class="ver-title">v1 · 初始版本</div>
+        <div class="ver-meta">trigger: initial · status: superseded</div>
+      </div>
+    </div>
+    <div class="ver-item">
+      <div class="ver-dot ver-active"></div>
+      <div class="ver-content">
+        <div class="ver-title">v2 · Agent9反馈优化</div>
+        <div class="ver-meta">trigger: agent9_feedback · status: active</div>
+        <div class="ver-changes">变更: strategic_bet · value_proposition · channel_mix</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Three Account Strategy -->
+<div class="card">
+  <div class="card-header"><span class="icon">🎯</span> Narrative约束 · 三账号策略（传递给Agent5）</div>
+  <div class="card-body">
+    <div class="nc-grid">
+      <div class="nc-item">
+        <div class="nc-name">艾氪智能OS</div>
+        <div class="nc-role">awareness · 短视频钩子</div>
+        <div class="nc-constraint">轻产品露出（&lt;10%）<br>重行业解释权<br>3秒注意力钩子</div>
+      </div>
+      <div class="nc-item">
+        <div class="nc-name">公众号</div>
+        <div class="nc-role">trust · 完整叙事</div>
+        <div class="nc-constraint">深度内容完整叙事<br>可复用资产<br>数据+案例支撑</div>
+      </div>
+      <div class="nc-item">
+        <div class="nc-name">JovaAI视频号</div>
+        <div class="nc-role">conversion · 场景Demo</div>
+        <div class="nc-constraint">产品化叙事<br>真实场景+量化结果<br>明确CTA</div>
+      </div>
+    </div>
+    <table>
+      <tr><td><span class="badge badge-pass">✓</span>内容比例</td><td>竞品对比20-25% · 方法论25-30% · 案例25-30% · 趋势15-20%</td></tr>
+      <tr><td><span class="badge badge-fail">✗</span>禁止方向</td><td>硬广 · 绝对化表述 · 无证据声明 · 竞品贬低</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Feedback Routing -->
+<div class="card">
+  <div class="card-header"><span class="icon">🔀</span> Feedback Routing · Agent9 → 下游</div>
+  <div class="card-body">
+    <div class="routing-item">
+      <div class="routing-arrow">▸</div>
+      <div class="routing-agent">agent_4</div>
+      <div class="routing-signal">value_prop_error</div>
+      <div class="priority-normal">normal</div>
+    </div>
+    <div class="routing-item">
+      <div class="routing-arrow">▸</div>
+      <div class="routing-agent">agent_5</div>
+      <div class="routing-signal">topic_error</div>
+      <div class="priority-normal">normal</div>
+    </div>
+  </div>
+</div>
+
+<!-- Verification -->
+<div class="card">
+  <div class="card-header"><span class="icon">✅</span> Verification Checklist</div>
+  <div class="card-body">
+    <table>
+      <tr><td><span class="badge badge-pass">✓</span>Strategy Card生成</td><td>strategic_bet.bet_on 已填入</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>10个平台都在</td><td>channel_mix.length = 10</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>预算分配=100%</td><td>Owned65% + Paid25% + Earned10% = 100%</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>Stop/Scale决策</td><td>CONTINUE · ROI 1.4x</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>版本Diff</td><td>v1→v2 · 3项变更</td></tr>
+      <tr><td><span class="badge badge-pass">✓</span>Narrative约束</td><td>主轴+三账号+分发规则 已生成</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  Agent 4 · 策略与实验智能体 · RISEN Growth OS<br>
+  输出文件: risen-agent4/mock-data/agent4-complete-output.json
+</div>
+
+</div>
+</body>
+</html>

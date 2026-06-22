@@ -1,0 +1,9 @@
+{
+  "components": [
+    {
+      "name": "StrategyCard",
+      "js": "StrategyCardUI.js",
+      "version": "1.0.0"
+    }
+  ]
+}

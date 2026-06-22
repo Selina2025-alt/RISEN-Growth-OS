@@ -1,0 +1,93 @@
+{
+  "narrative_constraints": {
+    "main_axis": "Jova AI：让企业 AI 落地不再困难",
+    "forbidden_directions": [
+      "纯功能介绍（无场景无数据）",
+      "没有证据支撑的能力声明",
+      "硬广式宣传",
+      "对比贬低竞品",
+      "绝对化表述（最/第一/唯一）"
+    ],
+    "encouraged_directions": [
+      "竞品客观对比（用数据说话）",
+      "企业AI落地方法论",
+      "真实场景+量化结果",
+      "产业趋势判断",
+      "客户故事/案例"
+    ],
+    "content_ratio_constraints": {
+      "竞品对比类": "20-25%",
+      "企业AI落地方法论": "25-30%",
+      "真实场景案例": "25-30%",
+      "行业趋势判断": "15-20%"
+    },
+    "narrative_style": {
+      "tone": "围绕\"Jova AI：让企业 AI 落地不再困难\"展开",
+      "emotional_anchor": "帮助企业主看到AI落地的可行路径",
+      "brand_voice": "专业、清晰、有洞察"
+    },
+    "account_differentiation": {
+      "艾氪智能OS": {
+        "role": "awareness",
+        "constraint": "轻产品露出，重行业解释权，建立艾氪判断力",
+        "narrative_type": "短视频钩子+热点解读"
+      },
+      "公众号": {
+        "role": "trust",
+        "constraint": "深度内容，完整叙事，可复用资产",
+        "narrative_type": "完整Narrative（30秒/2分钟/完整版）"
+      },
+      "JovaAI视频号": {
+        "role": "conversion",
+        "constraint": "产品化叙事，落到真实场景和销售线索",
+        "narrative_type": "短视频场景Demo+产品价值"
+      }
+    },
+    "short_video_hooks": {
+      "must_have": [
+        "3秒抓注意力钩子",
+        "具体业务场景",
+        "JovaAI如何解决问题",
+        "可量化的结果"
+      ],
+      "formats": {
+        "艾氪洞察": "60-90秒热点解读，无JovaAI露出",
+        "AItoB产业观察": "2-3分钟，先产业再产品",
+        "JovaAI真实场景": "2-3分钟产品Demo，场景+演示"
+      }
+    },
+    "repurposing_rules": {
+      "source_accounts": {
+        "艾氪洞察": [
+          "公众号:全球企业AI案例拆解",
+          "JovaAI视频号:AItoB产业观察"
+        ],
+        "公众号": [
+          "知乎",
+          "百家号",
+          "今日头条"
+        ],
+        "JovaAI视频号": [
+          "公众号:JovaAI真实场景"
+        ]
+      },
+      "priority_order": [
+        "高反馈内容 → 公众号深化 → 图文平台",
+        "高反馈内容 → 更多角度 → 图文平台",
+        "短视频高反馈 → 判断是否深化公众号"
+      ]
+    }
+  },
+  "topic_brief_constraints": {
+    "must_include": [
+      "具体业务场景（不是泛泛的\"提升效率\"）",
+      "可量化的结果指标",
+      "JovaAI在这个场景的角色"
+    ],
+    "must_not_include": [
+      "未经验证的Claims",
+      "绝对化表述",
+      "未经授权的客户信息"
+    ]
+  }
+}

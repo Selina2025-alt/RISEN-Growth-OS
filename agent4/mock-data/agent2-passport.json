@@ -1,0 +1,167 @@
+{
+  "id": "passport_jova_2024",
+  "version": "v1",
+  "tenant_id": "tenant_jova",
+  "promoted_object_id": "obj_jova_ai",
+  "object_type": "product",
+  "object_name": "Jova AI",
+  "created_by": "agent_2",
+  "created_at": "2024-01-15T08:00:00Z",
+  "status": "approved",
+  
+  "enterprise_profile": {
+    "name": "Jova AI",
+    "description": "Jova AI 是一款企业级 AI 智能体开发与运营平台，帮助企业快速构建、部署和管理 AI 智能体，实现业务流程自动化",
+    "founded": "2023",
+    "headquarters": "中国",
+    "industry": "AI / 企业软件"
+  },
+
+  "product_capabilities": [
+    {
+      "id": "cap_001",
+      "capability": "多智能体编排",
+      "description": "支持多个 AI 智能体协同工作，自动编排复杂业务流程",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_001"
+    },
+    {
+      "id": "cap_002",
+      "capability": "企业级安全合规",
+      "description": "提供多租户隔离、权限控制、操作审计等企业级安全功能",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_002"
+    },
+    {
+      "id": "cap_003",
+      "capability": "全链路可观测性",
+      "description": "内置 Langfuse/OpenTelemetry 支持，实现从 Prompt 到结果的完整追踪",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_003"
+    },
+    {
+      "id": "cap_004",
+      "capability": "Skill 生态",
+      "description": "支持从 ClawHub/GitHub 灵活安装和管理 AI Skills，扩展智能体能力",
+      "evidence_status": "pending",
+      "evidence_ref": null
+    },
+    {
+      "id": "cap_005",
+      "capability": "多渠道集成",
+      "description": "支持国内外主流社交媒体、内容平台、CRM 等渠道的 API 接入",
+      "evidence_status": "pending",
+      "evidence_ref": null
+    },
+    {
+      "id": "cap_006",
+      "capability": "私有化部署",
+      "description": "支持私有化部署，数据不出企业环境，满足数据驻留要求",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_004"
+    }
+  ],
+
+  "brand_policy": {
+    "voice": "专业、清晰、有洞察",
+    "tone": "自信但不傲慢，用数据说话",
+    "key_messages": [
+      "Jova AI 让企业 AI 落地不再困难",
+      "从原型到生产，Jova AI 全程护航",
+      "专业的 AI 智能体平台，企业信赖的选择"
+    ],
+    "forbidden_expressions": [
+      "最最好的",
+      "绝对第一",
+      "颠覆行业"
+    ]
+  },
+
+  "claims": [
+    {
+      "id": "clm_001",
+      "claim": "Jova AI 支持分钟级构建企业级智能体",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_005",
+      "last_verified": "2024-06-01"
+    },
+    {
+      "id": "clm_002",
+      "claim": "已有超过 500+ 企业客户使用 Jova AI",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_006",
+      "last_verified": "2024-06-01"
+    },
+    {
+      "id": "clm_003",
+      "claim": "Jova AI 智能体可节省 60% 运营人力成本",
+      "evidence_status": "pending",
+      "evidence_ref": null,
+      "note": "需要客户案例数据支撑"
+    },
+    {
+      "id": "clm_004",
+      "claim": "支持私有化部署，数据完全留在企业环境",
+      "evidence_status": "verified",
+      "evidence_ref": "ev_004",
+      "last_verified": "2024-06-01"
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "ev_001",
+      "type": "technical_demo",
+      "title": "多智能体编排演示",
+      "url": "https://docs.jova.ai/multi-agent",
+      "description": "演示了两个智能体协同处理客服工单的全流程",
+      "authority_score": 0.9,
+      "bias_risk": "low"
+    },
+    {
+      "id": "ev_002",
+      "type": "security_cert",
+      "title": "SOC 2 Type II 认证",
+      "url": "https://jova.ai/security",
+      "description": "2024年3月获得第三方安全认证",
+      "authority_score": 0.95,
+      "bias_risk": "low"
+    },
+    {
+      "id": "ev_003",
+      "type": "technical_doc",
+      "title": "可观测性架构文档",
+      "url": "https://docs.jova.ai/observability",
+      "description": "描述了 Langfuse 集成的技术实现",
+      "authority_score": 0.85,
+      "bias_risk": "low"
+    },
+    {
+      "id": "ev_004",
+      "type": "technical_doc",
+      "title": "私有化部署白皮书",
+      "url": "https://jova.ai/private-deploy",
+      "description": "描述了数据隔离和私有化部署方案",
+      "authority_score": 0.88,
+      "bias_risk": "low"
+    },
+    {
+      "id": "ev_005",
+      "type": "product_demo",
+      "title": "5分钟构建智能体演示",
+      "url": "https://jova.ai/quickstart",
+      "description": "从注册到部署一个客服智能体全程5分钟",
+      "authority_score": 0.8,
+      "bias_risk": "low"
+    },
+    {
+      "id": "ev_006",
+      "type": "customer_count",
+      "title": "企业客户数量",
+      "url": "https://jova.ai/customers",
+      "description": "官网公开展示客户数量超过500家",
+      "authority_score": 0.75,
+      "bias_risk": "low"
+    }
+  ]
+}

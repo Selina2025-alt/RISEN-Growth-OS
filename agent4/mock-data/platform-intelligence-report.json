@@ -1,0 +1,377 @@
+{
+  "generated_at": "2026-06-17T03:21:25.317Z",
+  "platforms_scanned": [
+    "zhihu",
+    "baijiahao",
+    "toutiao"
+  ],
+  "reports": [
+    {
+      "platform": "zhihu",
+      "strategy_version": "v1",
+      "generated_at": "2026-06-17T03:21:09.393Z",
+      "scrape_summary": {
+        "status": "completed",
+        "results_captured": 3,
+        "results_failed": 0
+      },
+      "competitor_content_analysis": {
+        "patterns_found": [
+          {
+            "competitor": "Dify",
+            "typicalAngle": "技术对比测评类（Dify vs 其他）",
+            "reason": "开源生态活跃，开发者社区庞大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "Coze（扣子）",
+            "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+            "reason": "字节跳动背景，资源丰富",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "LangChain",
+            "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+            "reason": "开发者生态最强大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "CrewAI",
+            "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+            "reason": "多智能体概念清晰，易理解",
+            "engagementLevel": "high"
+          }
+        ],
+        "content_gaps": [
+          {
+            "gap": "企业级AI落地方法论视角",
+            "reason": "竞品多讲技术，少讲企业落地路径",
+            "opportunity": "JovaAI可以用真实案例填补这个空白"
+          },
+          {
+            "gap": "vs竞品的客观技术对比",
+            "reason": "市场缺乏中立深度的对比分析",
+            "opportunity": "用数据和场景说话，而非软文"
+          },
+          {
+            "gap": "AItoB产业趋势判断",
+            "reason": "竞品多聚焦工具，少谈产业格局",
+            "opportunity": "建立行业解释权，吸引老板群体"
+          }
+        ],
+        "recommended_angles": [
+          {
+            "angle": "技术对比：Dify vs JovaAI",
+            "platforms": [
+              "知乎",
+              "百家号",
+              "今日头条"
+            ],
+            "contentType": "对比测评",
+            "priority": "high"
+          },
+          {
+            "angle": "企业AI落地30天指南",
+            "platforms": [
+              "知乎",
+              "公众号"
+            ],
+            "contentType": "方法论",
+            "priority": "high"
+          },
+          {
+            "angle": "AItoB产业趋势判断",
+            "platforms": [
+              "知乎",
+              "雪球"
+            ],
+            "contentType": "观点分析",
+            "priority": "medium"
+          }
+        ]
+      },
+      "platform_content_strategy": {
+        "best_posting_frequency": "每周2-3篇，重点文章周中发布",
+        "optimal_length": "2000-3500字",
+        "title_patterns": [
+          "数字+结论",
+          "对比+悬念",
+          "问题+方案",
+          "深度分析"
+        ],
+        "content_focus": [
+          "技术深度",
+          "方法论",
+          "对比分析",
+          "数据支撑"
+        ],
+        "forbidden_patterns": [
+          "纯功能列表",
+          "无数据支撑的观点",
+          "硬广"
+        ]
+      },
+      "strategy_recommendations": {
+        "immediate": [
+          "技术对比：Dify vs JovaAI",
+          "企业AI落地30天指南"
+        ],
+        "secondary": [
+          "AItoB产业趋势判断"
+        ]
+      }
+    },
+    {
+      "platform": "baijiahao",
+      "strategy_version": "v1",
+      "generated_at": "2026-06-17T03:21:15.727Z",
+      "scrape_summary": {
+        "status": "completed",
+        "results_captured": 3,
+        "results_failed": 0
+      },
+      "competitor_content_analysis": {
+        "patterns_found": [
+          {
+            "competitor": "Dify",
+            "typicalAngle": "技术对比测评类（Dify vs 其他）",
+            "reason": "开源生态活跃，开发者社区庞大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "Coze（扣子）",
+            "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+            "reason": "字节跳动背景，资源丰富",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "LangChain",
+            "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+            "reason": "开发者生态最强大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "CrewAI",
+            "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+            "reason": "多智能体概念清晰，易理解",
+            "engagementLevel": "high"
+          }
+        ],
+        "content_gaps": [
+          {
+            "gap": "企业级AI落地方法论视角",
+            "reason": "竞品多讲技术，少讲企业落地路径",
+            "opportunity": "JovaAI可以用真实案例填补这个空白"
+          },
+          {
+            "gap": "vs竞品的客观技术对比",
+            "reason": "市场缺乏中立深度的对比分析",
+            "opportunity": "用数据和场景说话，而非软文"
+          },
+          {
+            "gap": "AItoB产业趋势判断",
+            "reason": "竞品多聚焦工具，少谈产业格局",
+            "opportunity": "建立行业解释权，吸引老板群体"
+          }
+        ],
+        "recommended_angles": [
+          {
+            "angle": "技术对比：Dify vs JovaAI",
+            "platforms": [
+              "知乎",
+              "百家号",
+              "今日头条"
+            ],
+            "contentType": "对比测评",
+            "priority": "high"
+          },
+          {
+            "angle": "企业AI落地30天指南",
+            "platforms": [
+              "知乎",
+              "公众号"
+            ],
+            "contentType": "方法论",
+            "priority": "high"
+          },
+          {
+            "angle": "AItoB产业趋势判断",
+            "platforms": [
+              "知乎",
+              "雪球"
+            ],
+            "contentType": "观点分析",
+            "priority": "medium"
+          }
+        ]
+      },
+      "platform_content_strategy": {
+        "best_posting_frequency": "每周3-5篇，保持更新频率",
+        "optimal_length": "800-1500字",
+        "title_patterns": [
+          "热点关键词+实用",
+          "数字+效果",
+          "疑问句"
+        ],
+        "content_focus": [
+          "热点资讯",
+          "实用技巧",
+          "行业动态"
+        ],
+        "forbidden_patterns": [
+          "纯功能列表",
+          "无数据支撑的观点",
+          "硬广"
+        ]
+      },
+      "strategy_recommendations": {
+        "immediate": [
+          "技术对比：Dify vs JovaAI",
+          "企业AI落地30天指南"
+        ],
+        "secondary": [
+          "AItoB产业趋势判断"
+        ]
+      }
+    },
+    {
+      "platform": "toutiao",
+      "strategy_version": "v1",
+      "generated_at": "2026-06-17T03:21:25.317Z",
+      "scrape_summary": {
+        "status": "completed",
+        "results_captured": 3,
+        "results_failed": 0
+      },
+      "competitor_content_analysis": {
+        "patterns_found": [
+          {
+            "competitor": "Dify",
+            "typicalAngle": "技术对比测评类（Dify vs 其他）",
+            "reason": "开源生态活跃，开发者社区庞大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "Coze（扣子）",
+            "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+            "reason": "字节跳动背景，资源丰富",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "LangChain",
+            "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+            "reason": "开发者生态最强大",
+            "engagementLevel": "high"
+          },
+          {
+            "competitor": "CrewAI",
+            "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+            "reason": "多智能体概念清晰，易理解",
+            "engagementLevel": "high"
+          }
+        ],
+        "content_gaps": [
+          {
+            "gap": "企业级AI落地方法论视角",
+            "reason": "竞品多讲技术，少讲企业落地路径",
+            "opportunity": "JovaAI可以用真实案例填补这个空白"
+          },
+          {
+            "gap": "vs竞品的客观技术对比",
+            "reason": "市场缺乏中立深度的对比分析",
+            "opportunity": "用数据和场景说话，而非软文"
+          },
+          {
+            "gap": "AItoB产业趋势判断",
+            "reason": "竞品多聚焦工具，少谈产业格局",
+            "opportunity": "建立行业解释权，吸引老板群体"
+          }
+        ],
+        "recommended_angles": [
+          {
+            "angle": "技术对比：Dify vs JovaAI",
+            "platforms": [
+              "知乎",
+              "百家号",
+              "今日头条"
+            ],
+            "contentType": "对比测评",
+            "priority": "high"
+          },
+          {
+            "angle": "企业AI落地30天指南",
+            "platforms": [
+              "知乎",
+              "公众号"
+            ],
+            "contentType": "方法论",
+            "priority": "high"
+          },
+          {
+            "angle": "AItoB产业趋势判断",
+            "platforms": [
+              "知乎",
+              "雪球"
+            ],
+            "contentType": "观点分析",
+            "priority": "medium"
+          }
+        ]
+      },
+      "platform_content_strategy": {
+        "best_posting_frequency": "每天1-2篇，热点追踪",
+        "optimal_length": "1000-2000字",
+        "title_patterns": [
+          "热点+通俗",
+          "数字+揭秘",
+          "疑问引发好奇"
+        ],
+        "content_focus": [
+          "通俗易懂",
+          "热点速递",
+          "场景化"
+        ],
+        "forbidden_patterns": [
+          "纯功能列表",
+          "无数据支撑的观点",
+          "硬广"
+        ]
+      },
+      "strategy_recommendations": {
+        "immediate": [
+          "技术对比：Dify vs JovaAI",
+          "企业AI落地30天指南"
+        ],
+        "secondary": [
+          "AItoB产业趋势判断"
+        ]
+      }
+    }
+  ],
+  "action_items": [
+    {
+      "angle": "技术对比：Dify vs JovaAI",
+      "platforms": "zhihu"
+    },
+    {
+      "angle": "企业AI落地30天指南",
+      "platforms": "zhihu"
+    },
+    {
+      "angle": "技术对比：Dify vs JovaAI",
+      "platforms": "zhihu"
+    },
+    {
+      "angle": "企业AI落地30天指南",
+      "platforms": "zhihu"
+    },
+    {
+      "angle": "技术对比：Dify vs JovaAI",
+      "platforms": "zhihu"
+    },
+    {
+      "angle": "企业AI落地30天指南",
+      "platforms": "zhihu"
+    }
+  ]
+}

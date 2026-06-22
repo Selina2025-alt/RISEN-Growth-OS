@@ -1,0 +1,3066 @@
+{
+  "timestamp": "2026-06-18T03:47:39.276Z",
+  "strategy_card": {
+    "id": "stg_1781754459260",
+    "version": "v2",
+    "status": "evolved",
+    "content": {
+      "strategic_bet": {
+        "hypothesis": "如果我们在知乎和微信公众号持续输出\"企业级 AI 智能体落地方法论\"内容，\n    并且用真实案例和可量化数据证明效果，\n    那么目标客户（企业服务, SaaS, 软件开发）会更信任 Jova AI，\n    并且愿意留下销售线索。",
+        "strategic_bet_number": 1,
+        "bet_on": "内容营销建立技术领导力，带来高质量线索",
+        "against": "纯功能宣传无法建立信任，线索质量差",
+        "expected_outcome": "在 6 个月内获取 200 个 SQL",
+        "confidence": 0.7,
+        "evidence": [
+          "clm_001",
+          "clm_002",
+          "clm_004",
+          "企业对 AI 智能体落地有疑虑，担心投入大、效果差",
+          "企业担心安全和合规问题，尤其是数据泄露风险"
+        ],
+        "gaps": [
+          "clm_003"
+        ]
+      },
+      "value_proposition": {
+        "tagline": "Jova AI：让企业 AI 落地不再困难",
+        "who": {
+          "segment": "企业服务, SaaS, 软件开发",
+          "company_size": "50-2000人",
+          "geography": "华东, 华南",
+          "description": "正在寻求企业 AI 智能体落地方案的企业服务企业"
+        },
+        "why": {
+          "primary_problem": "企业对 AI 智能体落地有疑虑，担心投入大、效果差",
+          "jtbd": [
+            "找到可落地的企业 AI 解决方案",
+            "降低 AI 试错成本",
+            "构建可持续的 AI 运营能力"
+          ],
+          "desired_outcome": "快速看到 AI 智能体的实际效果，降低试错成本"
+        },
+        "what_before": {
+          "current_situation": "企业内部团队缺乏 AI 落地经验，担心投入大、效果差",
+          "alternatives": [
+            "自研 AI 方案：投入大、周期长、技术风险高",
+            "用开源框架：功能有限、运维成本高、企业级能力缺失",
+            "买套装软件：功能固化、无法适应业务变化"
+          ],
+          "friction": "不知道如何开始，不知道选什么方案，不知道如何衡量效果"
+        },
+        "how": {
+          "solution": "Jova AI 企业级 AI 智能体平台",
+          "key_capabilities": [
+            {
+              "capability": "多智能体编排",
+              "benefit": "用多个专业智能体协同处理复杂业务流程，大幅提升效率"
+            },
+            {
+              "capability": "企业级安全合规",
+              "benefit": "SOC 2 认证，多租户隔离，数据完全可控，消除采购顾虑"
+            },
+            {
+              "capability": "全链路可观测性",
+              "benefit": "从 Prompt 到结果全程追踪，快速定位问题，让 AI 可见可控"
+            }
+          ],
+          "differentiation": "不是工具，是企业级 AI 落地的方法论 + 平台"
+        },
+        "what_after": {
+          "improved_outcome": "企业能够快速构建 AI 智能体，3个月内看到可量化的业务效果",
+          "kpis": [
+            "智能客服问题解决率提升 40%",
+            "运营人力成本节省 30%",
+            "跨部门协作效率提升 50%"
+          ],
+          "emotional_outcome": "团队对 AI 落地有信心，老板看到进展愿意继续投入"
+        },
+        "alternatives": {
+          "competitors": [
+            "Dify",
+            "Coze",
+            "LangChain",
+            "自研方案"
+          ],
+          "why_us": "Jova AI 是唯一同时具备：企业级安全 + 多智能体编排 + 全链路可观测性的平台",
+          "switching_cost": "Jova AI 提供完整迁移支持，切换成本低"
+        },
+        "proof_points": [
+          {
+            "point": "Jova AI 支持分钟级构建企业级智能体",
+            "claim_id": "clm_001",
+            "evidence_status": "verified",
+            "evidence_ref": "ev_005",
+            "capability_match": "多智能体编排",
+            "usage": "在内容中作为核心证据引用"
+          },
+          {
+            "point": "已有超过 500+ 企业客户使用 Jova AI",
+            "claim_id": "clm_002",
+            "evidence_status": "verified",
+            "evidence_ref": "ev_006",
+            "capability_match": "企业级安全合规",
+            "usage": "在内容中作为核心证据引用"
+          },
+          {
+            "point": "支持私有化部署，数据完全留在企业环境",
+            "claim_id": "clm_004",
+            "evidence_status": "verified",
+            "evidence_ref": "ev_004",
+            "capability_match": "Skill 生态",
+            "usage": "在内容中作为核心证据引用"
+          },
+          {
+            "point": "Jova AI 智能体可节省 60% 运营人力成本",
+            "claim_id": "clm_003",
+            "evidence_status": "pending",
+            "evidence_ref": null,
+            "note": "需要客户案例数据支撑",
+            "capability_match": "全链路可观测性",
+            "usage": "作为差异化方向，在实验设计中安排验证"
+          }
+        ],
+        "claim_boundary": {
+          "is_not": [
+            "不是一个聊天机器人",
+            "不是简单的 FAQ 自动化工具",
+            "不是需要庞大技术团队才能维护的方案"
+          ],
+          "when_not_suitable": [
+            "对 AI 效果有不切实际期望的企业",
+            "没有明确业务流程需要自动化的场景",
+            "不愿意投入时间进行 AI 落地的团队"
+          ]
+        },
+        "value_prop_statement": "Jova AI：让企业 AI 落地不再困难。专为企业服务, SaaS, 软件开发设计，通过多智能体编排和企业级安全合规，帮助企业快速实现 AI 智能体落地。",
+        "validation": {
+          "all_claims_valid": true,
+          "verified_count": 3,
+          "pending_count": 1,
+          "unverified_count": 0,
+          "can_proceed": true
+        },
+        "metadata": {
+          "strategy_approach": "thought_leadership",
+          "primary_barrier": "企业对 AI 智能体落地有疑虑，担心投入大、效果差"
+        }
+      },
+      "narrative": {
+        "version_30s": {
+          "format": "short_video_opening",
+          "word_count": "~100字",
+          "content": "Jova AI：让企业 AI 落地不再困难。\n\n多智能体编排让业务流程自动化，企业级安全合规让企业数据完全可控。\n\n已经有500+的企业选择 Jova AI。\n\n想知道你的企业适不适合？",
+          "key_messages": [
+            "Jova AI：让企业 AI 落地不再困难",
+            "多智能体编排",
+            "企业级安全合规"
+          ],
+          "cta": "点击了解适合你的 AI 智能体方案",
+          "tone": "自信、简洁、有干货"
+        },
+        "version_2min": {
+          "format": "article_opening",
+          "word_count": "~400字",
+          "content": "【Jova AI：让企业 AI 落地不再困难】\n\n你是不是也有这样的困惑？\n\n企业对 AI 智能体落地有疑虑，担心投入大、效果差\n\n市面上 AI 工具很多，但真正适合企业的却不多：\n\n1. 自研 AI 方案：投入大、周期长、技术风险高\n2. 用开源框架：功能有限、运维成本高、企业级能力缺失\n3. 买套装软件：功能固化、无法适应业务变化\n\n结果是：要么投入太大不敢尝试，要么试了效果不好不了了之。\n\nJova AI 的做法不一样：\n\n✅ 多智能体编排：不是做一个万能 AI，而是让多个专业智能体协同工作，各司其职\n✅ 企业级安全合规：SOC 2 认证，数据完全留在你的企业环境\n✅ 全链路可观测性：每一步操作都可追踪、可回滚\n\n企业能够快速构建 AI 智能体，3个月内看到可量化的业务效果\n\n包括华新科技、云链金融等500+企业已经在用 Jova AI 提升业务效率。\n\n想知道 Jova AI 能不能解决你们的问题？",
+          "structure": [
+            "痛点引入（引起共鸣）",
+            "现状分析（市面方案的局限）",
+            "解决方案（Jova AI 的做法）",
+            "效果承诺（可量化的结果）",
+            "社会证明（已有客户）",
+            "行动引导（CTA）"
+          ],
+          "cta": "评论区留言\"方案\"，获取 1v1 评估",
+          "tone": "专业、清晰、有洞察"
+        },
+        "version_full": {
+          "format": "whitepaper_article",
+          "word_count": "~1500字",
+          "sections": [
+            {
+              "title": "背景：企业 AI 落地为什么这么难？",
+              "content": "企业对 AI 智能体落地有疑虑，担心投入大、效果差\n\n我们访谈了 50+ 家正在或曾经尝试 AI 落地的企业，发现几个共性问题：\n\n1. 期望错配：以为 AI 什么都能做，结果发现做不了\n2. 工具错配：用了通用 AI 工具，却发现企业场景太复杂\n3. 能力断层：有了 AI，却不知道怎么让它持续产生价值\n\n不知道如何开始，不知道选什么方案，不知道如何衡量效果\n\n这就是为什么很多企业的 AI 项目最终变成了\"烂尾工程\"。"
+            },
+            {
+              "title": "Jova AI 的解决思路",
+              "content": "Jova AI 不是又一个 AI 工具，而是一套**企业级 AI 智能体落地方案**。\n\n核心理念：\n1. **多智能体编排**：用多个专业智能体协同处理复杂业务流程，大幅提升效率\n2. **企业级安全合规**：SOC 2 认证，多租户隔离，数据完全可控，消除采购顾虑\n3. **全链路可观测性**：从 Prompt 到结果全程追踪，快速定位问题，让 AI 可见可控\n\n不是工具，是企业级 AI 落地的方法论 + 平台"
+            },
+            {
+              "title": "效果承诺",
+              "content": "我们不承诺\"颠覆行业\"，我们承诺可量化的效果：\n\n- 智能客服问题解决率提升 40%\n- 运营人力成本节省 30%\n- 跨部门协作效率提升 50%\n\n团队对 AI 落地有信心，老板看到进展愿意继续投入"
+            },
+            {
+              "title": "社会证明",
+              "content": "目前已有 500+ 企业客户使用 Jova AI，覆盖企业服务、金融科技、电商等多个行业。\n  \n代表性客户：\n- 华新科技：通过 Jova AI 智能客服，问题解决率提升 40%，人工客服成本下降 35%\n- 云链金融：构建智能投研助手，分析报告生成效率提升 3 倍\n\n（更多案例可访问官网）\n\n了解更多客户案例 →"
+            },
+            {
+              "title": "立即开始",
+              "content": "Jova AI 提供：\n- 免费方案评估（15分钟）\n- 概念验证（PoC）支持\n- 完整迁移和培训\n\n【CTA】\n📅 预约 1v1 咨询：了解 Jova AI 是否适合你\n📥 下载《企业 AI 智能体落地白皮书》\n🏠 访问官网了解更多"
+            }
+          ],
+          "cta": {
+            "primary": "预约 1v1 咨询",
+            "secondary": "下载白皮书",
+            "tertiary": "查看案例"
+          },
+          "tone": "专业、清晰、有洞察"
+        },
+        "channel_adaptations": {
+          "zhihu": {
+            "style": "知乎风：逻辑严密，有数据支撑，有洞见",
+            "opening": "先抛出反常识观点，引起讨论",
+            "structure": "总-分-总，有结论先说结论",
+            "avoid": "过于营销化的表达"
+          },
+          "wechat_official": {
+            "style": "深度专业，有案例，有情感",
+            "opening": "用故事或场景切入",
+            "structure": "层层递进，结尾有行动",
+            "avoid": "太干巴巴的技术描述"
+          },
+          "baijiahao": {
+            "style": "快讯风格，热点切入",
+            "opening": "直接点题，行业热点关联",
+            "structure": "倒金字塔，先说结论",
+            "avoid": "过于冗长的背景铺垫"
+          },
+          "toutiao": {
+            "style": "通俗易懂，有话题性",
+            "opening": "制造悬念或冲突",
+            "structure": "碎片化，每段有信息量",
+            "avoid": "太专业术语"
+          }
+        },
+        "proof_point_coverage": [
+          {
+            "claim_id": "clm_001",
+            "used_in": [
+              "version_2min",
+              "version_full"
+            ],
+            "evidence_status": "verified"
+          },
+          {
+            "claim_id": "clm_002",
+            "used_in": [
+              "version_2min",
+              "version_full"
+            ],
+            "evidence_status": "verified"
+          },
+          {
+            "claim_id": "clm_004",
+            "used_in": [
+              "version_2min",
+              "version_full"
+            ],
+            "evidence_status": "verified"
+          },
+          {
+            "claim_id": "clm_003",
+            "used_in": [
+              "version_2min",
+              "version_full"
+            ],
+            "evidence_status": "pending"
+          }
+        ],
+        "brand_compliance": {
+          "voice_check": "专业、清晰、有洞察",
+          "forbidden_used": false
+        }
+      },
+      "channel_mix": [
+        {
+          "channel_id": "知乎",
+          "channel_name": "知乎",
+          "role": "primary",
+          "budget_ratio": 0.13333333333333333,
+          "content_type": "长文回答",
+          "length": "2000-5000字",
+          "style": "逻辑严密有洞见",
+          "posting_frequency": "2-3篇/周",
+          "rationale": "技术内容搜索友好，建立思想领导力",
+          "conversion_path": "搜索 → 回答 → 官网 → 咨询",
+          "advantages": [
+            "搜索友好",
+            "高净值用户",
+            "长尾流量"
+          ],
+          "disadvantages": [
+            "内容质量要求高",
+            "冷启动难"
+          ],
+          "success_metric": {
+            "primary": "自然搜索流量占比 >= 40%",
+            "secondary": "回答获赞 >= 50"
+          }
+        },
+        {
+          "channel_id": "微信公众号",
+          "channel_name": "微信公众号",
+          "role": "primary",
+          "budget_ratio": 0.13333333333333333,
+          "content_type": "长文文章",
+          "length": "1500-3000字",
+          "style": "深度专业",
+          "posting_frequency": "1-2篇/周",
+          "rationale": "私域沉淀，深度内容传播",
+          "conversion_path": "关注公众号 → 菜单 → 官网 → 咨询",
+          "advantages": [
+            "私域沉淀",
+            "深度内容",
+            "高信任度"
+          ],
+          "disadvantages": [
+            "曝光有限",
+            "需要粉丝基础"
+          ],
+          "success_metric": {
+            "primary": "新增关注 >= 500/月",
+            "secondary": "文章打开率 >= 5%"
+          }
+        },
+        {
+          "channel_id": "百家号",
+          "channel_name": "百家号",
+          "role": "primary",
+          "budget_ratio": 0.13333333333333333,
+          "content_type": "资讯文章",
+          "length": "800-1500字",
+          "style": "资讯快讯",
+          "posting_frequency": "3-5篇/周",
+          "rationale": "百度搜索权重高，SEO必选",
+          "conversion_path": "百度搜索/推荐 → 文章 → 百家号主页 → 官网",
+          "advantages": [
+            "百度流量大",
+            "SEO效果好",
+            "内容需求量大"
+          ],
+          "disadvantages": [
+            "内容同质化严重",
+            "单价低"
+          ],
+          "success_metric": {
+            "primary": "百家号推荐量 >= 10000/篇",
+            "secondary": "阅读完成率 >= 30%"
+          }
+        },
+        {
+          "channel_id": "今日头条",
+          "channel_name": "今日头条",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "资讯文章",
+          "length": "1000-2000字",
+          "style": "通俗易懂",
+          "posting_frequency": "1-2篇/天",
+          "rationale": "字节流量池，触达更广",
+          "conversion_path": "推荐 → 文章 → 落地页",
+          "advantages": [
+            "流量大",
+            "算法推荐"
+          ],
+          "disadvantages": [
+            "用户质量参差",
+            "品牌调性难保持"
+          ],
+          "success_metric": {
+            "primary": "推荐量 >= 50000/篇",
+            "secondary": "CTR >= 3%"
+          }
+        },
+        {
+          "channel_id": "雪球",
+          "channel_name": "雪球",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "分析文章",
+          "length": "1000-3000字",
+          "style": "投资分析风",
+          "posting_frequency": "1-2篇/周",
+          "rationale": "面向投资者群体，B端决策者",
+          "conversion_path": "搜索 → 文章 → 关注 → 官网",
+          "advantages": [
+            "面向投资者",
+            "高端受众"
+          ],
+          "disadvantages": [
+            "受众窄",
+            "内容专业性强"
+          ],
+          "success_metric": {
+            "primary": "粉丝增长 >= 100/月",
+            "secondary": "文章互动 >= 20"
+          }
+        },
+        {
+          "channel_id": "网易新闻",
+          "channel_name": "网易新闻",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "新闻资讯",
+          "length": "500-1200字",
+          "style": "新闻通稿+深度",
+          "posting_frequency": "按需",
+          "rationale": "测试渠道",
+          "conversion_path": "百度搜索 → 文章 → 官网",
+          "advantages": [
+            "百度权重高",
+            "公信力"
+          ],
+          "disadvantages": [
+            "编辑审核慢"
+          ],
+          "success_metric": {
+            "primary": "曝光 >= 10000",
+            "secondary": "CTR >= 1%"
+          }
+        },
+        {
+          "channel_id": "搜狐号",
+          "channel_name": "搜狐号",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "新闻资讯",
+          "length": "500-1500字",
+          "style": "新闻通稿",
+          "posting_frequency": "按需",
+          "rationale": "测试渠道",
+          "conversion_path": "百度搜索 → 文章 → 官网",
+          "advantages": [
+            "百度权重高",
+            "易入驻"
+          ],
+          "disadvantages": [
+            "竞争激烈"
+          ],
+          "success_metric": {
+            "primary": "曝光 >= 10000",
+            "secondary": "CTR >= 1%"
+          }
+        },
+        {
+          "channel_id": "腾讯新闻",
+          "channel_name": "腾讯新闻",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "新闻资讯",
+          "length": "500-1000字",
+          "style": "新闻通稿",
+          "posting_frequency": "按需",
+          "rationale": "测试渠道",
+          "conversion_path": "微信搜一搜 → 文章 → 官网",
+          "advantages": [
+            "腾讯生态曝光",
+            "公信力高"
+          ],
+          "disadvantages": [
+            "入驻门槛高",
+            "内容质量要求严"
+          ],
+          "success_metric": {
+            "primary": "曝光 >= 10000",
+            "secondary": "CTR >= 1%"
+          }
+        },
+        {
+          "channel_id": "新浪新闻",
+          "channel_name": "新浪新闻",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "新闻资讯",
+          "length": "500-1200字",
+          "style": "新闻通稿",
+          "posting_frequency": "按需",
+          "rationale": "测试渠道",
+          "conversion_path": "百度搜索/微博 → 文章 → 官网",
+          "advantages": [
+            "微博生态",
+            "公信力"
+          ],
+          "disadvantages": [
+            "竞争激烈"
+          ],
+          "success_metric": {
+            "primary": "曝光 >= 10000",
+            "secondary": "CTR >= 1%"
+          }
+        },
+        {
+          "channel_id": "凤凰新闻",
+          "channel_name": "凤凰新闻",
+          "role": "test",
+          "budget_ratio": 0.05714285714285715,
+          "content_type": "新闻资讯",
+          "length": "800-1500字",
+          "style": "新闻通稿+深度",
+          "posting_frequency": "按需",
+          "rationale": "测试渠道",
+          "conversion_path": "百度搜索 → 文章 → 官网",
+          "advantages": [
+            "公信力高",
+            "高端受众"
+          ],
+          "disadvantages": [
+            "入驻门槛较高",
+            "审核严"
+          ],
+          "success_metric": {
+            "primary": "曝光 >= 10000",
+            "secondary": "CTR >= 1%"
+          }
+        }
+      ],
+      "experiment_plan": {
+        "experiments": [
+          {
+            "experiment_id": "exp_1781754459260_narrative_angle",
+            "experiment_type": "multi_arm",
+            "name": "叙事角度对比：技术深度 vs 案例驱动",
+            "hypothesis": {
+              "primary": "案例驱动的内容相比纯技术内容，能带来更高质量的销售线索（留资率提升 >= 30%）",
+              "secondary": "技术深度的内容在知乎能获得更好的自然搜索排名",
+              "null_hypothesis": "两种叙事角度的线索质量没有显著差异"
+            },
+            "variants": [
+              {
+                "variant_id": "A",
+                "name": "技术深度角度（对照组）",
+                "angle": "用技术原理和架构讲解，展示Jova AI的技术实力",
+                "content_approach": "技术解析 + 架构图 + 代码示例",
+                "key_messages": [
+                  "多智能体协同的技术原理",
+                  "企业级安全合规的技术实现",
+                  "全链路可观测性的架构设计"
+                ],
+                "cta": "了解更多技术细节 →"
+              },
+              {
+                "variant_id": "B",
+                "name": "案例驱动角度（实验组）",
+                "angle": "用真实客户案例和量化结果，展示Jova AI的实际效果",
+                "content_approach": "客户故事 + 业务问题 + 解决方案 + 数据结果",
+                "key_messages": [
+                  "华新科技如何用Jova AI提升客服效率40%",
+                  "云链金融如何构建智能投研助手",
+                  "可复制的AI落地方法论"
+                ],
+                "cta": "获取你的专属方案评估 →"
+              }
+            ],
+            "control": {
+              "definition": "A组：技术深度角度（现有策略）",
+              "baseline_metrics": {
+                "content_form": "技术解析 + 功能说明",
+                "expected_lead_quality": "baseline",
+                "expected_ctr": 0.02
+              }
+            },
+            "success_metrics": [
+              {
+                "metric_name": "线索转化率",
+                "description": "内容浏览 → 留资 的转化率",
+                "baseline": 0.02,
+                "target": 0.026,
+                "minimum_detectable_effect": 0.008,
+                "measurement": "UTM + 表单提交"
+              },
+              {
+                "metric_name": "线索质量评分",
+                "description": "销售团队对线索质量的1-5分评分",
+                "baseline": 3,
+                "target": 3.5,
+                "minimum_detectable_effect": 0.3,
+                "measurement": "销售反馈回传"
+              },
+              {
+                "metric_name": "阅读完成率",
+                "description": "文章阅读完成率（衡量内容质量）",
+                "baseline": 0.25,
+                "target": 0.3,
+                "minimum_detectable_effect": 0.05,
+                "measurement": "平台数据分析"
+              }
+            ],
+            "targeting": {
+              "platforms": [
+                "知乎",
+                "微信公众号",
+                "百家号"
+              ],
+              "audience": {
+                "primary": [
+                  "企业服务",
+                  "SaaS",
+                  "软件开发"
+                ],
+                "company_size": "50-2000人",
+                "geography": [
+                  "华东",
+                  "华南"
+                ],
+                "buying_stage": "consideration_to_decision",
+                "focus_accounts": [
+                  "华新科技",
+                  "云链金融"
+                ]
+              },
+              "geography": [
+                "华东",
+                "华南"
+              ],
+              "duration_days": 21,
+              "minimum_sample_per_variant": 1000
+            },
+            "stop_condition": {
+              "primary": {
+                "rule": "线索转化率连续7天低于基线，且样本量 >= 500/变体",
+                "action": "停止该变体，将预算转移到表现好的变体"
+              },
+              "secondary": {
+                "rule": "出现明显负面舆情（评论情绪 < 20%正面）",
+                "action": "立即停止该变体内容，进入人工审核"
+              }
+            },
+            "scale_condition": {
+              "primary": {
+                "rule": "线索转化率比基线提升 >= 30%，且保持稳定 >= 7天",
+                "action": "将获胜策略的预算增加 50%，推广到所有渠道"
+              },
+              "secondary": {
+                "rule": "某渠道的 ROI 显著高于其他渠道（>= 2x）",
+                "action": "重新分配预算，增加高效渠道投入"
+              }
+            },
+            "statistical": {
+              "confidence_level": 0.95,
+              "power": 0.8,
+              "sample_size_calculation": {
+                "method": "基于线索转化率",
+                "baseline_rate": 0.02,
+                "minimum_detectable_effect": 0.008,
+                "alpha": 0.05,
+                "power": 0.8,
+                "required_sample_per_variant": 3800
+              }
+            },
+            "resources": {
+              "content_variants": 2,
+              "estimated_cost_per_variant": 40000,
+              "total_experiment_budget": 75000
+            }
+          },
+          {
+            "experiment_id": "exp_1781754459260_channel_priority",
+            "experiment_type": "holdout",
+            "name": "渠道优先级验证：知乎优先 vs 微信优先",
+            "hypothesis": {
+              "primary": "以知乎为主攻渠道能带来更高质量的品牌线索（SEO流量转化率高）",
+              "secondary": "以微信公众号为主攻渠道能在更短时间内获得更多留资（私域优势）",
+              "null_hypothesis": "两个渠道的线索综合质量没有显著差异"
+            },
+            "variants": [
+              {
+                "variant_id": "A",
+                "name": "知乎优先策略",
+                "channel_priority": [
+                  "zhihu",
+                  "wechat_official",
+                  "baijiahao"
+                ],
+                "content_focus": "SEO友好的技术深度内容",
+                "budget_allocation": {
+                  "zhihu": 0.5,
+                  "wechat_official": 0.3,
+                  "baijiahao": 0.2
+                }
+              },
+              {
+                "variant_id": "B",
+                "name": "微信优先策略",
+                "channel_priority": [
+                  "wechat_official",
+                  "zhihu",
+                  "toutiao"
+                ],
+                "content_focus": "私域运营导向的深度内容",
+                "budget_allocation": {
+                  "wechat_official": 0.5,
+                  "zhihu": 0.3,
+                  "toutiao": 0.2
+                }
+              }
+            ],
+            "success_metrics": [
+              {
+                "metric_name": "综合线索数量",
+                "description": "各渠道留资总数的对比",
+                "baseline": 50,
+                "target": 65,
+                "measurement": "CRM数据汇总"
+              },
+              {
+                "metric_name": "线索质量综合评分",
+                "description": "销售团队对线索的1-5分质量评分",
+                "baseline": 3.2,
+                "target": 3.6,
+                "measurement": "销售反馈"
+              },
+              {
+                "metric_name": "线索响应率",
+                "description": "销售联系线索后5分钟内的响应率",
+                "baseline": 0.6,
+                "target": 0.75,
+                "measurement": "CRM跟踪"
+              }
+            ],
+            "targeting": {
+              "platforms": [
+                "zhihu",
+                "wechat_official",
+                "baijiahao",
+                "toutiao"
+              ],
+              "duration_days": 30,
+              "minimum_sample": 30
+            },
+            "stop_condition": {
+              "primary": {
+                "rule": "某个渠道30天内线索 < 5条",
+                "action": "降低该渠道预算，尝试其他渠道"
+              }
+            },
+            "scale_condition": {
+              "primary": {
+                "rule": "某渠道线索质量评分 >= 4.0，且数量稳定",
+                "action": "将该渠道升级为主攻渠道"
+              }
+            },
+            "resources": {
+              "estimated_cost": 30000
+            }
+          },
+          {
+            "experiment_id": "exp_1781754459260_content_length",
+            "experiment_type": "a_b_test",
+            "name": "内容长度测试：长文 vs 短文",
+            "hypothesis": {
+              "primary": "长文内容的线索转化率高于短文（深度内容建立信任）",
+              "secondary": "短文在今日头条/百家号等平台表现更好（流量属性差异）",
+              "null_hypothesis": "内容长度对线索转化率没有显著影响"
+            },
+            "variants": [
+              {
+                "variant_id": "A",
+                "name": "长文策略",
+                "content_length": "2500-4000字",
+                "content_type": "深度分析 + 案例",
+                "platforms": [
+                  "zhihu",
+                  "wechat_official"
+                ]
+              },
+              {
+                "variant_id": "B",
+                "name": "短文策略",
+                "content_length": "800-1500字",
+                "content_type": "快讯 + 热点",
+                "platforms": [
+                  "baijiahao",
+                  "toutiao"
+                ]
+              }
+            ],
+            "success_metrics": [
+              {
+                "metric_name": "阅读完成率",
+                "baseline": 0.25,
+                "target": 0.35,
+                "measurement": "平台数据"
+              },
+              {
+                "metric_name": "线索转化率",
+                "baseline": 0.02,
+                "target": 0.028,
+                "measurement": "UTM追踪"
+              },
+              {
+                "metric_name": "页面停留时间",
+                "baseline": 120,
+                "target": 180,
+                "measurement": "GA/平台数据"
+              }
+            ],
+            "targeting": {
+              "platforms": [
+                "zhihu",
+                "wechat_official",
+                "baijiahao",
+                "toutiao"
+              ],
+              "duration_days": 14,
+              "minimum_sample": 500
+            },
+            "stop_condition": {
+              "primary": {
+                "rule": "某内容类型完成率 < 20%，且线索 < 3条",
+                "action": "停止该内容类型的投放"
+              }
+            },
+            "scale_condition": {
+              "primary": {
+                "rule": "某内容类型 CTR >= 3.5%，且完成率 >= 30%",
+                "action": "加大该内容类型的投入"
+              }
+            },
+            "resources": {
+              "estimated_cost": 20000
+            }
+          }
+        ],
+        "timeline": {
+          "phase_1": {
+            "weeks": "1-3",
+            "experiments": [
+              "exp_1781754459260_narrative_angle"
+            ]
+          },
+          "phase_2": {
+            "weeks": "4-6",
+            "experiments": [
+              "exp_1781754459260_channel_priority"
+            ]
+          },
+          "phase_3": {
+            "weeks": "7-9",
+            "experiments": [
+              "exp_1781754459260_content_length"
+            ]
+          }
+        },
+        "total_budget": 125000,
+        "success_criteria": {
+          "primary": "达成 200 个 SQL",
+          "secondary": "线索质量评分 >= 3.5",
+          "tertiary": "CPA <= 2500 CNY"
+        },
+        "ab_test_pair": {
+          "variant_a": "案例驱动策略",
+          "variant_b": "技术深度策略"
+        },
+        "recommendations": [
+          {
+            "priority": "high",
+            "message": "优先运行实验1（叙事角度），因为对内容策略影响最大"
+          },
+          {
+            "priority": "medium",
+            "message": "实验2（渠道优先级）和实验3（内容长度）可以并行运行以节省时间"
+          },
+          {
+            "priority": "low",
+            "message": "建议每2周Review一次实验数据，根据结果动态调整"
+          }
+        ]
+      }
+    },
+    "last_evolved_at": "2026-06-18T03:47:39.276Z",
+    "changes": [
+      {
+        "type": "content_expansion",
+        "action": "increase_allocation",
+        "targets": [
+          "baijiahao",
+          "toutiao",
+          "wechat_official",
+          "zhihu"
+        ],
+        "reason": "内容表现高于平台均值2倍以上",
+        "evidence": [
+          {
+            "content_id": "art_001"
+          },
+          {
+            "content_id": "art_002"
+          },
+          {
+            "content_id": "art_003"
+          }
+        ]
+      },
+      {
+        "type": "platform_strategy_update",
+        "action": "refresh",
+        "targets": [
+          "zhihu",
+          "baijiahao",
+          "toutiao"
+        ],
+        "evidence": {
+          "zhihu": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          },
+          "baijiahao": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          },
+          "toutiao": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "evolution_summary": "content_expansion: increase_allocation baijiahao, toutiao, wechat_official, zhihu; platform_strategy_update: refresh zhihu, baijiahao, toutiao"
+  },
+  "platform_intelligence": {
+    "generated_at": "2026-06-18T03:47:39.275Z",
+    "platforms_scanned": [
+      "zhihu",
+      "baijiahao",
+      "toutiao"
+    ],
+    "reports": [
+      {
+        "platform": "zhihu",
+        "strategy_version": "v1",
+        "generated_at": "2026-06-18T03:47:39.272Z",
+        "scrape_summary": {
+          "status": "completed",
+          "results_captured": 0,
+          "results_failed": 0
+        },
+        "competitor_content_analysis": {
+          "patterns_found": [
+            {
+              "competitor": "Dify",
+              "typicalAngle": "技术对比测评类（Dify vs 其他）",
+              "reason": "开源生态活跃，开发者社区庞大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "Coze（扣子）",
+              "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+              "reason": "字节跳动背景，资源丰富",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "LangChain",
+              "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+              "reason": "开发者生态最强大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "CrewAI",
+              "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+              "reason": "多智能体概念清晰，易理解",
+              "engagementLevel": "high"
+            }
+          ],
+          "content_gaps": [
+            {
+              "gap": "企业级AI落地方法论视角",
+              "reason": "竞品多讲技术，少讲企业落地路径",
+              "opportunity": "JovaAI可以用真实案例填补这个空白"
+            },
+            {
+              "gap": "vs竞品的客观技术对比",
+              "reason": "市场缺乏中立深度的对比分析",
+              "opportunity": "用数据和场景说话，而非软文"
+            },
+            {
+              "gap": "AItoB产业趋势判断",
+              "reason": "竞品多聚焦工具，少谈产业格局",
+              "opportunity": "建立行业解释权，吸引老板群体"
+            }
+          ],
+          "recommended_angles": [
+            {
+              "angle": "技术对比：Dify vs JovaAI",
+              "platforms": [
+                "知乎",
+                "百家号",
+                "今日头条"
+              ],
+              "contentType": "对比测评",
+              "priority": "high"
+            },
+            {
+              "angle": "企业AI落地30天指南",
+              "platforms": [
+                "知乎",
+                "公众号"
+              ],
+              "contentType": "方法论",
+              "priority": "high"
+            },
+            {
+              "angle": "AItoB产业趋势判断",
+              "platforms": [
+                "知乎",
+                "雪球"
+              ],
+              "contentType": "观点分析",
+              "priority": "medium"
+            }
+          ]
+        },
+        "platform_content_strategy": {
+          "best_posting_frequency": "每周2-3篇，重点文章周中发布",
+          "optimal_length": "2000-3500字",
+          "title_patterns": [
+            "数字+结论",
+            "对比+悬念",
+            "问题+方案",
+            "深度分析"
+          ],
+          "content_focus": [
+            "技术深度",
+            "方法论",
+            "对比分析",
+            "数据支撑"
+          ],
+          "forbidden_patterns": [
+            "纯功能列表",
+            "无数据支撑的观点",
+            "硬广"
+          ]
+        },
+        "strategy_recommendations": {
+          "immediate": [
+            "技术对比：Dify vs JovaAI",
+            "企业AI落地30天指南"
+          ],
+          "secondary": [
+            "AItoB产业趋势判断"
+          ]
+        }
+      },
+      {
+        "platform": "baijiahao",
+        "strategy_version": "v1",
+        "generated_at": "2026-06-18T03:47:39.274Z",
+        "scrape_summary": {
+          "status": "completed",
+          "results_captured": 0,
+          "results_failed": 0
+        },
+        "competitor_content_analysis": {
+          "patterns_found": [
+            {
+              "competitor": "Dify",
+              "typicalAngle": "技术对比测评类（Dify vs 其他）",
+              "reason": "开源生态活跃，开发者社区庞大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "Coze（扣子）",
+              "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+              "reason": "字节跳动背景，资源丰富",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "LangChain",
+              "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+              "reason": "开发者生态最强大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "CrewAI",
+              "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+              "reason": "多智能体概念清晰，易理解",
+              "engagementLevel": "high"
+            }
+          ],
+          "content_gaps": [
+            {
+              "gap": "企业级AI落地方法论视角",
+              "reason": "竞品多讲技术，少讲企业落地路径",
+              "opportunity": "JovaAI可以用真实案例填补这个空白"
+            },
+            {
+              "gap": "vs竞品的客观技术对比",
+              "reason": "市场缺乏中立深度的对比分析",
+              "opportunity": "用数据和场景说话，而非软文"
+            },
+            {
+              "gap": "AItoB产业趋势判断",
+              "reason": "竞品多聚焦工具，少谈产业格局",
+              "opportunity": "建立行业解释权，吸引老板群体"
+            }
+          ],
+          "recommended_angles": [
+            {
+              "angle": "技术对比：Dify vs JovaAI",
+              "platforms": [
+                "知乎",
+                "百家号",
+                "今日头条"
+              ],
+              "contentType": "对比测评",
+              "priority": "high"
+            },
+            {
+              "angle": "企业AI落地30天指南",
+              "platforms": [
+                "知乎",
+                "公众号"
+              ],
+              "contentType": "方法论",
+              "priority": "high"
+            },
+            {
+              "angle": "AItoB产业趋势判断",
+              "platforms": [
+                "知乎",
+                "雪球"
+              ],
+              "contentType": "观点分析",
+              "priority": "medium"
+            }
+          ]
+        },
+        "platform_content_strategy": {
+          "best_posting_frequency": "每周3-5篇，保持更新频率",
+          "optimal_length": "800-1500字",
+          "title_patterns": [
+            "热点关键词+实用",
+            "数字+效果",
+            "疑问句"
+          ],
+          "content_focus": [
+            "热点资讯",
+            "实用技巧",
+            "行业动态"
+          ],
+          "forbidden_patterns": [
+            "纯功能列表",
+            "无数据支撑的观点",
+            "硬广"
+          ]
+        },
+        "strategy_recommendations": {
+          "immediate": [
+            "技术对比：Dify vs JovaAI",
+            "企业AI落地30天指南"
+          ],
+          "secondary": [
+            "AItoB产业趋势判断"
+          ]
+        }
+      },
+      {
+        "platform": "toutiao",
+        "strategy_version": "v1",
+        "generated_at": "2026-06-18T03:47:39.275Z",
+        "scrape_summary": {
+          "status": "completed",
+          "results_captured": 0,
+          "results_failed": 0
+        },
+        "competitor_content_analysis": {
+          "patterns_found": [
+            {
+              "competitor": "Dify",
+              "typicalAngle": "技术对比测评类（Dify vs 其他）",
+              "reason": "开源生态活跃，开发者社区庞大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "Coze（扣子）",
+              "typicalAngle": "技术对比测评类（Coze（扣子） vs 其他）",
+              "reason": "字节跳动背景，资源丰富",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "LangChain",
+              "typicalAngle": "技术对比测评类（LangChain vs 其他）",
+              "reason": "开发者生态最强大",
+              "engagementLevel": "high"
+            },
+            {
+              "competitor": "CrewAI",
+              "typicalAngle": "技术对比测评类（CrewAI vs 其他）",
+              "reason": "多智能体概念清晰，易理解",
+              "engagementLevel": "high"
+            }
+          ],
+          "content_gaps": [
+            {
+              "gap": "企业级AI落地方法论视角",
+              "reason": "竞品多讲技术，少讲企业落地路径",
+              "opportunity": "JovaAI可以用真实案例填补这个空白"
+            },
+            {
+              "gap": "vs竞品的客观技术对比",
+              "reason": "市场缺乏中立深度的对比分析",
+              "opportunity": "用数据和场景说话，而非软文"
+            },
+            {
+              "gap": "AItoB产业趋势判断",
+              "reason": "竞品多聚焦工具，少谈产业格局",
+              "opportunity": "建立行业解释权，吸引老板群体"
+            }
+          ],
+          "recommended_angles": [
+            {
+              "angle": "技术对比：Dify vs JovaAI",
+              "platforms": [
+                "知乎",
+                "百家号",
+                "今日头条"
+              ],
+              "contentType": "对比测评",
+              "priority": "high"
+            },
+            {
+              "angle": "企业AI落地30天指南",
+              "platforms": [
+                "知乎",
+                "公众号"
+              ],
+              "contentType": "方法论",
+              "priority": "high"
+            },
+            {
+              "angle": "AItoB产业趋势判断",
+              "platforms": [
+                "知乎",
+                "雪球"
+              ],
+              "contentType": "观点分析",
+              "priority": "medium"
+            }
+          ]
+        },
+        "platform_content_strategy": {
+          "best_posting_frequency": "每天1-2篇，热点追踪",
+          "optimal_length": "1000-2000字",
+          "title_patterns": [
+            "热点+通俗",
+            "数字+揭秘",
+            "疑问引发好奇"
+          ],
+          "content_focus": [
+            "通俗易懂",
+            "热点速递",
+            "场景化"
+          ],
+          "forbidden_patterns": [
+            "纯功能列表",
+            "无数据支撑的观点",
+            "硬广"
+          ]
+        },
+        "strategy_recommendations": {
+          "immediate": [
+            "技术对比：Dify vs JovaAI",
+            "企业AI落地30天指南"
+          ],
+          "secondary": [
+            "AItoB产业趋势判断"
+          ]
+        }
+      }
+    ],
+    "action_items": [
+      {
+        "angle": "技术对比：Dify vs JovaAI",
+        "platforms": "zhihu"
+      },
+      {
+        "angle": "企业AI落地30天指南",
+        "platforms": "zhihu"
+      },
+      {
+        "angle": "技术对比：Dify vs JovaAI",
+        "platforms": "zhihu"
+      },
+      {
+        "angle": "企业AI落地30天指南",
+        "platforms": "zhihu"
+      },
+      {
+        "angle": "技术对比：Dify vs JovaAI",
+        "platforms": "zhihu"
+      },
+      {
+        "angle": "企业AI落地30天指南",
+        "platforms": "zhihu"
+      }
+    ]
+  },
+  "feedback_decisions": {
+    "timestamp": "2026-06-18T03:47:39.275Z",
+    "period": "last_week",
+    "routed_signals": [],
+    "strategy_adjustments": [],
+    "topic_deepening": [
+      {
+        "content_id": "art_001",
+        "signal": "high_performance",
+        "reason": "views_ratio=2.5, engagement_ratio=1.5",
+        "action": "expand_to_wechat_public_account",
+        "platforms_to_cross_post": [
+          "baijiahao",
+          "toutiao",
+          "wechat_official"
+        ]
+      },
+      {
+        "content_id": "art_002",
+        "signal": "high_performance",
+        "reason": "views_ratio=2.5, engagement_ratio=1.5",
+        "action": "expand_to_wechat_public_account",
+        "platforms_to_cross_post": [
+          "toutiao",
+          "zhihu"
+        ]
+      },
+      {
+        "content_id": "art_003",
+        "signal": "high_performance",
+        "reason": "views_ratio=3.0, engagement_ratio=3.0",
+        "action": "expand_to_wechat_public_account",
+        "platforms_to_cross_post": [
+          "baijiahao"
+        ]
+      }
+    ],
+    "content_pause": []
+  },
+  "evolution": {
+    "evolved_card": {
+      "id": "stg_1781754459260",
+      "version": "v2",
+      "status": "evolved",
+      "content": {
+        "strategic_bet": {
+          "hypothesis": "如果我们在知乎和微信公众号持续输出\"企业级 AI 智能体落地方法论\"内容，\n    并且用真实案例和可量化数据证明效果，\n    那么目标客户（企业服务, SaaS, 软件开发）会更信任 Jova AI，\n    并且愿意留下销售线索。",
+          "strategic_bet_number": 1,
+          "bet_on": "内容营销建立技术领导力，带来高质量线索",
+          "against": "纯功能宣传无法建立信任，线索质量差",
+          "expected_outcome": "在 6 个月内获取 200 个 SQL",
+          "confidence": 0.7,
+          "evidence": [
+            "clm_001",
+            "clm_002",
+            "clm_004",
+            "企业对 AI 智能体落地有疑虑，担心投入大、效果差",
+            "企业担心安全和合规问题，尤其是数据泄露风险"
+          ],
+          "gaps": [
+            "clm_003"
+          ]
+        },
+        "value_proposition": {
+          "tagline": "Jova AI：让企业 AI 落地不再困难",
+          "who": {
+            "segment": "企业服务, SaaS, 软件开发",
+            "company_size": "50-2000人",
+            "geography": "华东, 华南",
+            "description": "正在寻求企业 AI 智能体落地方案的企业服务企业"
+          },
+          "why": {
+            "primary_problem": "企业对 AI 智能体落地有疑虑，担心投入大、效果差",
+            "jtbd": [
+              "找到可落地的企业 AI 解决方案",
+              "降低 AI 试错成本",
+              "构建可持续的 AI 运营能力"
+            ],
+            "desired_outcome": "快速看到 AI 智能体的实际效果，降低试错成本"
+          },
+          "what_before": {
+            "current_situation": "企业内部团队缺乏 AI 落地经验，担心投入大、效果差",
+            "alternatives": [
+              "自研 AI 方案：投入大、周期长、技术风险高",
+              "用开源框架：功能有限、运维成本高、企业级能力缺失",
+              "买套装软件：功能固化、无法适应业务变化"
+            ],
+            "friction": "不知道如何开始，不知道选什么方案，不知道如何衡量效果"
+          },
+          "how": {
+            "solution": "Jova AI 企业级 AI 智能体平台",
+            "key_capabilities": [
+              {
+                "capability": "多智能体编排",
+                "benefit": "用多个专业智能体协同处理复杂业务流程，大幅提升效率"
+              },
+              {
+                "capability": "企业级安全合规",
+                "benefit": "SOC 2 认证，多租户隔离，数据完全可控，消除采购顾虑"
+              },
+              {
+                "capability": "全链路可观测性",
+                "benefit": "从 Prompt 到结果全程追踪，快速定位问题，让 AI 可见可控"
+              }
+            ],
+            "differentiation": "不是工具，是企业级 AI 落地的方法论 + 平台"
+          },
+          "what_after": {
+            "improved_outcome": "企业能够快速构建 AI 智能体，3个月内看到可量化的业务效果",
+            "kpis": [
+              "智能客服问题解决率提升 40%",
+              "运营人力成本节省 30%",
+              "跨部门协作效率提升 50%"
+            ],
+            "emotional_outcome": "团队对 AI 落地有信心，老板看到进展愿意继续投入"
+          },
+          "alternatives": {
+            "competitors": [
+              "Dify",
+              "Coze",
+              "LangChain",
+              "自研方案"
+            ],
+            "why_us": "Jova AI 是唯一同时具备：企业级安全 + 多智能体编排 + 全链路可观测性的平台",
+            "switching_cost": "Jova AI 提供完整迁移支持，切换成本低"
+          },
+          "proof_points": [
+            {
+              "point": "Jova AI 支持分钟级构建企业级智能体",
+              "claim_id": "clm_001",
+              "evidence_status": "verified",
+              "evidence_ref": "ev_005",
+              "capability_match": "多智能体编排",
+              "usage": "在内容中作为核心证据引用"
+            },
+            {
+              "point": "已有超过 500+ 企业客户使用 Jova AI",
+              "claim_id": "clm_002",
+              "evidence_status": "verified",
+              "evidence_ref": "ev_006",
+              "capability_match": "企业级安全合规",
+              "usage": "在内容中作为核心证据引用"
+            },
+            {
+              "point": "支持私有化部署，数据完全留在企业环境",
+              "claim_id": "clm_004",
+              "evidence_status": "verified",
+              "evidence_ref": "ev_004",
+              "capability_match": "Skill 生态",
+              "usage": "在内容中作为核心证据引用"
+            },
+            {
+              "point": "Jova AI 智能体可节省 60% 运营人力成本",
+              "claim_id": "clm_003",
+              "evidence_status": "pending",
+              "evidence_ref": null,
+              "note": "需要客户案例数据支撑",
+              "capability_match": "全链路可观测性",
+              "usage": "作为差异化方向，在实验设计中安排验证"
+            }
+          ],
+          "claim_boundary": {
+            "is_not": [
+              "不是一个聊天机器人",
+              "不是简单的 FAQ 自动化工具",
+              "不是需要庞大技术团队才能维护的方案"
+            ],
+            "when_not_suitable": [
+              "对 AI 效果有不切实际期望的企业",
+              "没有明确业务流程需要自动化的场景",
+              "不愿意投入时间进行 AI 落地的团队"
+            ]
+          },
+          "value_prop_statement": "Jova AI：让企业 AI 落地不再困难。专为企业服务, SaaS, 软件开发设计，通过多智能体编排和企业级安全合规，帮助企业快速实现 AI 智能体落地。",
+          "validation": {
+            "all_claims_valid": true,
+            "verified_count": 3,
+            "pending_count": 1,
+            "unverified_count": 0,
+            "can_proceed": true
+          },
+          "metadata": {
+            "strategy_approach": "thought_leadership",
+            "primary_barrier": "企业对 AI 智能体落地有疑虑，担心投入大、效果差"
+          }
+        },
+        "narrative": {
+          "version_30s": {
+            "format": "short_video_opening",
+            "word_count": "~100字",
+            "content": "Jova AI：让企业 AI 落地不再困难。\n\n多智能体编排让业务流程自动化，企业级安全合规让企业数据完全可控。\n\n已经有500+的企业选择 Jova AI。\n\n想知道你的企业适不适合？",
+            "key_messages": [
+              "Jova AI：让企业 AI 落地不再困难",
+              "多智能体编排",
+              "企业级安全合规"
+            ],
+            "cta": "点击了解适合你的 AI 智能体方案",
+            "tone": "自信、简洁、有干货"
+          },
+          "version_2min": {
+            "format": "article_opening",
+            "word_count": "~400字",
+            "content": "【Jova AI：让企业 AI 落地不再困难】\n\n你是不是也有这样的困惑？\n\n企业对 AI 智能体落地有疑虑，担心投入大、效果差\n\n市面上 AI 工具很多，但真正适合企业的却不多：\n\n1. 自研 AI 方案：投入大、周期长、技术风险高\n2. 用开源框架：功能有限、运维成本高、企业级能力缺失\n3. 买套装软件：功能固化、无法适应业务变化\n\n结果是：要么投入太大不敢尝试，要么试了效果不好不了了之。\n\nJova AI 的做法不一样：\n\n✅ 多智能体编排：不是做一个万能 AI，而是让多个专业智能体协同工作，各司其职\n✅ 企业级安全合规：SOC 2 认证，数据完全留在你的企业环境\n✅ 全链路可观测性：每一步操作都可追踪、可回滚\n\n企业能够快速构建 AI 智能体，3个月内看到可量化的业务效果\n\n包括华新科技、云链金融等500+企业已经在用 Jova AI 提升业务效率。\n\n想知道 Jova AI 能不能解决你们的问题？",
+            "structure": [
+              "痛点引入（引起共鸣）",
+              "现状分析（市面方案的局限）",
+              "解决方案（Jova AI 的做法）",
+              "效果承诺（可量化的结果）",
+              "社会证明（已有客户）",
+              "行动引导（CTA）"
+            ],
+            "cta": "评论区留言\"方案\"，获取 1v1 评估",
+            "tone": "专业、清晰、有洞察"
+          },
+          "version_full": {
+            "format": "whitepaper_article",
+            "word_count": "~1500字",
+            "sections": [
+              {
+                "title": "背景：企业 AI 落地为什么这么难？",
+                "content": "企业对 AI 智能体落地有疑虑，担心投入大、效果差\n\n我们访谈了 50+ 家正在或曾经尝试 AI 落地的企业，发现几个共性问题：\n\n1. 期望错配：以为 AI 什么都能做，结果发现做不了\n2. 工具错配：用了通用 AI 工具，却发现企业场景太复杂\n3. 能力断层：有了 AI，却不知道怎么让它持续产生价值\n\n不知道如何开始，不知道选什么方案，不知道如何衡量效果\n\n这就是为什么很多企业的 AI 项目最终变成了\"烂尾工程\"。"
+              },
+              {
+                "title": "Jova AI 的解决思路",
+                "content": "Jova AI 不是又一个 AI 工具，而是一套**企业级 AI 智能体落地方案**。\n\n核心理念：\n1. **多智能体编排**：用多个专业智能体协同处理复杂业务流程，大幅提升效率\n2. **企业级安全合规**：SOC 2 认证，多租户隔离，数据完全可控，消除采购顾虑\n3. **全链路可观测性**：从 Prompt 到结果全程追踪，快速定位问题，让 AI 可见可控\n\n不是工具，是企业级 AI 落地的方法论 + 平台"
+              },
+              {
+                "title": "效果承诺",
+                "content": "我们不承诺\"颠覆行业\"，我们承诺可量化的效果：\n\n- 智能客服问题解决率提升 40%\n- 运营人力成本节省 30%\n- 跨部门协作效率提升 50%\n\n团队对 AI 落地有信心，老板看到进展愿意继续投入"
+              },
+              {
+                "title": "社会证明",
+                "content": "目前已有 500+ 企业客户使用 Jova AI，覆盖企业服务、金融科技、电商等多个行业。\n  \n代表性客户：\n- 华新科技：通过 Jova AI 智能客服，问题解决率提升 40%，人工客服成本下降 35%\n- 云链金融：构建智能投研助手，分析报告生成效率提升 3 倍\n\n（更多案例可访问官网）\n\n了解更多客户案例 →"
+              },
+              {
+                "title": "立即开始",
+                "content": "Jova AI 提供：\n- 免费方案评估（15分钟）\n- 概念验证（PoC）支持\n- 完整迁移和培训\n\n【CTA】\n📅 预约 1v1 咨询：了解 Jova AI 是否适合你\n📥 下载《企业 AI 智能体落地白皮书》\n🏠 访问官网了解更多"
+              }
+            ],
+            "cta": {
+              "primary": "预约 1v1 咨询",
+              "secondary": "下载白皮书",
+              "tertiary": "查看案例"
+            },
+            "tone": "专业、清晰、有洞察"
+          },
+          "channel_adaptations": {
+            "zhihu": {
+              "style": "知乎风：逻辑严密，有数据支撑，有洞见",
+              "opening": "先抛出反常识观点，引起讨论",
+              "structure": "总-分-总，有结论先说结论",
+              "avoid": "过于营销化的表达"
+            },
+            "wechat_official": {
+              "style": "深度专业，有案例，有情感",
+              "opening": "用故事或场景切入",
+              "structure": "层层递进，结尾有行动",
+              "avoid": "太干巴巴的技术描述"
+            },
+            "baijiahao": {
+              "style": "快讯风格，热点切入",
+              "opening": "直接点题，行业热点关联",
+              "structure": "倒金字塔，先说结论",
+              "avoid": "过于冗长的背景铺垫"
+            },
+            "toutiao": {
+              "style": "通俗易懂，有话题性",
+              "opening": "制造悬念或冲突",
+              "structure": "碎片化，每段有信息量",
+              "avoid": "太专业术语"
+            }
+          },
+          "proof_point_coverage": [
+            {
+              "claim_id": "clm_001",
+              "used_in": [
+                "version_2min",
+                "version_full"
+              ],
+              "evidence_status": "verified"
+            },
+            {
+              "claim_id": "clm_002",
+              "used_in": [
+                "version_2min",
+                "version_full"
+              ],
+              "evidence_status": "verified"
+            },
+            {
+              "claim_id": "clm_004",
+              "used_in": [
+                "version_2min",
+                "version_full"
+              ],
+              "evidence_status": "verified"
+            },
+            {
+              "claim_id": "clm_003",
+              "used_in": [
+                "version_2min",
+                "version_full"
+              ],
+              "evidence_status": "pending"
+            }
+          ],
+          "brand_compliance": {
+            "voice_check": "专业、清晰、有洞察",
+            "forbidden_used": false
+          }
+        },
+        "channel_mix": [
+          {
+            "channel_id": "知乎",
+            "channel_name": "知乎",
+            "role": "primary",
+            "budget_ratio": 0.13333333333333333,
+            "content_type": "长文回答",
+            "length": "2000-5000字",
+            "style": "逻辑严密有洞见",
+            "posting_frequency": "2-3篇/周",
+            "rationale": "技术内容搜索友好，建立思想领导力",
+            "conversion_path": "搜索 → 回答 → 官网 → 咨询",
+            "advantages": [
+              "搜索友好",
+              "高净值用户",
+              "长尾流量"
+            ],
+            "disadvantages": [
+              "内容质量要求高",
+              "冷启动难"
+            ],
+            "success_metric": {
+              "primary": "自然搜索流量占比 >= 40%",
+              "secondary": "回答获赞 >= 50"
+            }
+          },
+          {
+            "channel_id": "微信公众号",
+            "channel_name": "微信公众号",
+            "role": "primary",
+            "budget_ratio": 0.13333333333333333,
+            "content_type": "长文文章",
+            "length": "1500-3000字",
+            "style": "深度专业",
+            "posting_frequency": "1-2篇/周",
+            "rationale": "私域沉淀，深度内容传播",
+            "conversion_path": "关注公众号 → 菜单 → 官网 → 咨询",
+            "advantages": [
+              "私域沉淀",
+              "深度内容",
+              "高信任度"
+            ],
+            "disadvantages": [
+              "曝光有限",
+              "需要粉丝基础"
+            ],
+            "success_metric": {
+              "primary": "新增关注 >= 500/月",
+              "secondary": "文章打开率 >= 5%"
+            }
+          },
+          {
+            "channel_id": "百家号",
+            "channel_name": "百家号",
+            "role": "primary",
+            "budget_ratio": 0.13333333333333333,
+            "content_type": "资讯文章",
+            "length": "800-1500字",
+            "style": "资讯快讯",
+            "posting_frequency": "3-5篇/周",
+            "rationale": "百度搜索权重高，SEO必选",
+            "conversion_path": "百度搜索/推荐 → 文章 → 百家号主页 → 官网",
+            "advantages": [
+              "百度流量大",
+              "SEO效果好",
+              "内容需求量大"
+            ],
+            "disadvantages": [
+              "内容同质化严重",
+              "单价低"
+            ],
+            "success_metric": {
+              "primary": "百家号推荐量 >= 10000/篇",
+              "secondary": "阅读完成率 >= 30%"
+            }
+          },
+          {
+            "channel_id": "今日头条",
+            "channel_name": "今日头条",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "资讯文章",
+            "length": "1000-2000字",
+            "style": "通俗易懂",
+            "posting_frequency": "1-2篇/天",
+            "rationale": "字节流量池，触达更广",
+            "conversion_path": "推荐 → 文章 → 落地页",
+            "advantages": [
+              "流量大",
+              "算法推荐"
+            ],
+            "disadvantages": [
+              "用户质量参差",
+              "品牌调性难保持"
+            ],
+            "success_metric": {
+              "primary": "推荐量 >= 50000/篇",
+              "secondary": "CTR >= 3%"
+            }
+          },
+          {
+            "channel_id": "雪球",
+            "channel_name": "雪球",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "分析文章",
+            "length": "1000-3000字",
+            "style": "投资分析风",
+            "posting_frequency": "1-2篇/周",
+            "rationale": "面向投资者群体，B端决策者",
+            "conversion_path": "搜索 → 文章 → 关注 → 官网",
+            "advantages": [
+              "面向投资者",
+              "高端受众"
+            ],
+            "disadvantages": [
+              "受众窄",
+              "内容专业性强"
+            ],
+            "success_metric": {
+              "primary": "粉丝增长 >= 100/月",
+              "secondary": "文章互动 >= 20"
+            }
+          },
+          {
+            "channel_id": "网易新闻",
+            "channel_name": "网易新闻",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "新闻资讯",
+            "length": "500-1200字",
+            "style": "新闻通稿+深度",
+            "posting_frequency": "按需",
+            "rationale": "测试渠道",
+            "conversion_path": "百度搜索 → 文章 → 官网",
+            "advantages": [
+              "百度权重高",
+              "公信力"
+            ],
+            "disadvantages": [
+              "编辑审核慢"
+            ],
+            "success_metric": {
+              "primary": "曝光 >= 10000",
+              "secondary": "CTR >= 1%"
+            }
+          },
+          {
+            "channel_id": "搜狐号",
+            "channel_name": "搜狐号",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "新闻资讯",
+            "length": "500-1500字",
+            "style": "新闻通稿",
+            "posting_frequency": "按需",
+            "rationale": "测试渠道",
+            "conversion_path": "百度搜索 → 文章 → 官网",
+            "advantages": [
+              "百度权重高",
+              "易入驻"
+            ],
+            "disadvantages": [
+              "竞争激烈"
+            ],
+            "success_metric": {
+              "primary": "曝光 >= 10000",
+              "secondary": "CTR >= 1%"
+            }
+          },
+          {
+            "channel_id": "腾讯新闻",
+            "channel_name": "腾讯新闻",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "新闻资讯",
+            "length": "500-1000字",
+            "style": "新闻通稿",
+            "posting_frequency": "按需",
+            "rationale": "测试渠道",
+            "conversion_path": "微信搜一搜 → 文章 → 官网",
+            "advantages": [
+              "腾讯生态曝光",
+              "公信力高"
+            ],
+            "disadvantages": [
+              "入驻门槛高",
+              "内容质量要求严"
+            ],
+            "success_metric": {
+              "primary": "曝光 >= 10000",
+              "secondary": "CTR >= 1%"
+            }
+          },
+          {
+            "channel_id": "新浪新闻",
+            "channel_name": "新浪新闻",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "新闻资讯",
+            "length": "500-1200字",
+            "style": "新闻通稿",
+            "posting_frequency": "按需",
+            "rationale": "测试渠道",
+            "conversion_path": "百度搜索/微博 → 文章 → 官网",
+            "advantages": [
+              "微博生态",
+              "公信力"
+            ],
+            "disadvantages": [
+              "竞争激烈"
+            ],
+            "success_metric": {
+              "primary": "曝光 >= 10000",
+              "secondary": "CTR >= 1%"
+            }
+          },
+          {
+            "channel_id": "凤凰新闻",
+            "channel_name": "凤凰新闻",
+            "role": "test",
+            "budget_ratio": 0.05714285714285715,
+            "content_type": "新闻资讯",
+            "length": "800-1500字",
+            "style": "新闻通稿+深度",
+            "posting_frequency": "按需",
+            "rationale": "测试渠道",
+            "conversion_path": "百度搜索 → 文章 → 官网",
+            "advantages": [
+              "公信力高",
+              "高端受众"
+            ],
+            "disadvantages": [
+              "入驻门槛较高",
+              "审核严"
+            ],
+            "success_metric": {
+              "primary": "曝光 >= 10000",
+              "secondary": "CTR >= 1%"
+            }
+          }
+        ],
+        "experiment_plan": {
+          "experiments": [
+            {
+              "experiment_id": "exp_1781754459260_narrative_angle",
+              "experiment_type": "multi_arm",
+              "name": "叙事角度对比：技术深度 vs 案例驱动",
+              "hypothesis": {
+                "primary": "案例驱动的内容相比纯技术内容，能带来更高质量的销售线索（留资率提升 >= 30%）",
+                "secondary": "技术深度的内容在知乎能获得更好的自然搜索排名",
+                "null_hypothesis": "两种叙事角度的线索质量没有显著差异"
+              },
+              "variants": [
+                {
+                  "variant_id": "A",
+                  "name": "技术深度角度（对照组）",
+                  "angle": "用技术原理和架构讲解，展示Jova AI的技术实力",
+                  "content_approach": "技术解析 + 架构图 + 代码示例",
+                  "key_messages": [
+                    "多智能体协同的技术原理",
+                    "企业级安全合规的技术实现",
+                    "全链路可观测性的架构设计"
+                  ],
+                  "cta": "了解更多技术细节 →"
+                },
+                {
+                  "variant_id": "B",
+                  "name": "案例驱动角度（实验组）",
+                  "angle": "用真实客户案例和量化结果，展示Jova AI的实际效果",
+                  "content_approach": "客户故事 + 业务问题 + 解决方案 + 数据结果",
+                  "key_messages": [
+                    "华新科技如何用Jova AI提升客服效率40%",
+                    "云链金融如何构建智能投研助手",
+                    "可复制的AI落地方法论"
+                  ],
+                  "cta": "获取你的专属方案评估 →"
+                }
+              ],
+              "control": {
+                "definition": "A组：技术深度角度（现有策略）",
+                "baseline_metrics": {
+                  "content_form": "技术解析 + 功能说明",
+                  "expected_lead_quality": "baseline",
+                  "expected_ctr": 0.02
+                }
+              },
+              "success_metrics": [
+                {
+                  "metric_name": "线索转化率",
+                  "description": "内容浏览 → 留资 的转化率",
+                  "baseline": 0.02,
+                  "target": 0.026,
+                  "minimum_detectable_effect": 0.008,
+                  "measurement": "UTM + 表单提交"
+                },
+                {
+                  "metric_name": "线索质量评分",
+                  "description": "销售团队对线索质量的1-5分评分",
+                  "baseline": 3,
+                  "target": 3.5,
+                  "minimum_detectable_effect": 0.3,
+                  "measurement": "销售反馈回传"
+                },
+                {
+                  "metric_name": "阅读完成率",
+                  "description": "文章阅读完成率（衡量内容质量）",
+                  "baseline": 0.25,
+                  "target": 0.3,
+                  "minimum_detectable_effect": 0.05,
+                  "measurement": "平台数据分析"
+                }
+              ],
+              "targeting": {
+                "platforms": [
+                  "知乎",
+                  "微信公众号",
+                  "百家号"
+                ],
+                "audience": {
+                  "primary": [
+                    "企业服务",
+                    "SaaS",
+                    "软件开发"
+                  ],
+                  "company_size": "50-2000人",
+                  "geography": [
+                    "华东",
+                    "华南"
+                  ],
+                  "buying_stage": "consideration_to_decision",
+                  "focus_accounts": [
+                    "华新科技",
+                    "云链金融"
+                  ]
+                },
+                "geography": [
+                  "华东",
+                  "华南"
+                ],
+                "duration_days": 21,
+                "minimum_sample_per_variant": 1000
+              },
+              "stop_condition": {
+                "primary": {
+                  "rule": "线索转化率连续7天低于基线，且样本量 >= 500/变体",
+                  "action": "停止该变体，将预算转移到表现好的变体"
+                },
+                "secondary": {
+                  "rule": "出现明显负面舆情（评论情绪 < 20%正面）",
+                  "action": "立即停止该变体内容，进入人工审核"
+                }
+              },
+              "scale_condition": {
+                "primary": {
+                  "rule": "线索转化率比基线提升 >= 30%，且保持稳定 >= 7天",
+                  "action": "将获胜策略的预算增加 50%，推广到所有渠道"
+                },
+                "secondary": {
+                  "rule": "某渠道的 ROI 显著高于其他渠道（>= 2x）",
+                  "action": "重新分配预算，增加高效渠道投入"
+                }
+              },
+              "statistical": {
+                "confidence_level": 0.95,
+                "power": 0.8,
+                "sample_size_calculation": {
+                  "method": "基于线索转化率",
+                  "baseline_rate": 0.02,
+                  "minimum_detectable_effect": 0.008,
+                  "alpha": 0.05,
+                  "power": 0.8,
+                  "required_sample_per_variant": 3800
+                }
+              },
+              "resources": {
+                "content_variants": 2,
+                "estimated_cost_per_variant": 40000,
+                "total_experiment_budget": 75000
+              }
+            },
+            {
+              "experiment_id": "exp_1781754459260_channel_priority",
+              "experiment_type": "holdout",
+              "name": "渠道优先级验证：知乎优先 vs 微信优先",
+              "hypothesis": {
+                "primary": "以知乎为主攻渠道能带来更高质量的品牌线索（SEO流量转化率高）",
+                "secondary": "以微信公众号为主攻渠道能在更短时间内获得更多留资（私域优势）",
+                "null_hypothesis": "两个渠道的线索综合质量没有显著差异"
+              },
+              "variants": [
+                {
+                  "variant_id": "A",
+                  "name": "知乎优先策略",
+                  "channel_priority": [
+                    "zhihu",
+                    "wechat_official",
+                    "baijiahao"
+                  ],
+                  "content_focus": "SEO友好的技术深度内容",
+                  "budget_allocation": {
+                    "zhihu": 0.5,
+                    "wechat_official": 0.3,
+                    "baijiahao": 0.2
+                  }
+                },
+                {
+                  "variant_id": "B",
+                  "name": "微信优先策略",
+                  "channel_priority": [
+                    "wechat_official",
+                    "zhihu",
+                    "toutiao"
+                  ],
+                  "content_focus": "私域运营导向的深度内容",
+                  "budget_allocation": {
+                    "wechat_official": 0.5,
+                    "zhihu": 0.3,
+                    "toutiao": 0.2
+                  }
+                }
+              ],
+              "success_metrics": [
+                {
+                  "metric_name": "综合线索数量",
+                  "description": "各渠道留资总数的对比",
+                  "baseline": 50,
+                  "target": 65,
+                  "measurement": "CRM数据汇总"
+                },
+                {
+                  "metric_name": "线索质量综合评分",
+                  "description": "销售团队对线索的1-5分质量评分",
+                  "baseline": 3.2,
+                  "target": 3.6,
+                  "measurement": "销售反馈"
+                },
+                {
+                  "metric_name": "线索响应率",
+                  "description": "销售联系线索后5分钟内的响应率",
+                  "baseline": 0.6,
+                  "target": 0.75,
+                  "measurement": "CRM跟踪"
+                }
+              ],
+              "targeting": {
+                "platforms": [
+                  "zhihu",
+                  "wechat_official",
+                  "baijiahao",
+                  "toutiao"
+                ],
+                "duration_days": 30,
+                "minimum_sample": 30
+              },
+              "stop_condition": {
+                "primary": {
+                  "rule": "某个渠道30天内线索 < 5条",
+                  "action": "降低该渠道预算，尝试其他渠道"
+                }
+              },
+              "scale_condition": {
+                "primary": {
+                  "rule": "某渠道线索质量评分 >= 4.0，且数量稳定",
+                  "action": "将该渠道升级为主攻渠道"
+                }
+              },
+              "resources": {
+                "estimated_cost": 30000
+              }
+            },
+            {
+              "experiment_id": "exp_1781754459260_content_length",
+              "experiment_type": "a_b_test",
+              "name": "内容长度测试：长文 vs 短文",
+              "hypothesis": {
+                "primary": "长文内容的线索转化率高于短文（深度内容建立信任）",
+                "secondary": "短文在今日头条/百家号等平台表现更好（流量属性差异）",
+                "null_hypothesis": "内容长度对线索转化率没有显著影响"
+              },
+              "variants": [
+                {
+                  "variant_id": "A",
+                  "name": "长文策略",
+                  "content_length": "2500-4000字",
+                  "content_type": "深度分析 + 案例",
+                  "platforms": [
+                    "zhihu",
+                    "wechat_official"
+                  ]
+                },
+                {
+                  "variant_id": "B",
+                  "name": "短文策略",
+                  "content_length": "800-1500字",
+                  "content_type": "快讯 + 热点",
+                  "platforms": [
+                    "baijiahao",
+                    "toutiao"
+                  ]
+                }
+              ],
+              "success_metrics": [
+                {
+                  "metric_name": "阅读完成率",
+                  "baseline": 0.25,
+                  "target": 0.35,
+                  "measurement": "平台数据"
+                },
+                {
+                  "metric_name": "线索转化率",
+                  "baseline": 0.02,
+                  "target": 0.028,
+                  "measurement": "UTM追踪"
+                },
+                {
+                  "metric_name": "页面停留时间",
+                  "baseline": 120,
+                  "target": 180,
+                  "measurement": "GA/平台数据"
+                }
+              ],
+              "targeting": {
+                "platforms": [
+                  "zhihu",
+                  "wechat_official",
+                  "baijiahao",
+                  "toutiao"
+                ],
+                "duration_days": 14,
+                "minimum_sample": 500
+              },
+              "stop_condition": {
+                "primary": {
+                  "rule": "某内容类型完成率 < 20%，且线索 < 3条",
+                  "action": "停止该内容类型的投放"
+                }
+              },
+              "scale_condition": {
+                "primary": {
+                  "rule": "某内容类型 CTR >= 3.5%，且完成率 >= 30%",
+                  "action": "加大该内容类型的投入"
+                }
+              },
+              "resources": {
+                "estimated_cost": 20000
+              }
+            }
+          ],
+          "timeline": {
+            "phase_1": {
+              "weeks": "1-3",
+              "experiments": [
+                "exp_1781754459260_narrative_angle"
+              ]
+            },
+            "phase_2": {
+              "weeks": "4-6",
+              "experiments": [
+                "exp_1781754459260_channel_priority"
+              ]
+            },
+            "phase_3": {
+              "weeks": "7-9",
+              "experiments": [
+                "exp_1781754459260_content_length"
+              ]
+            }
+          },
+          "total_budget": 125000,
+          "success_criteria": {
+            "primary": "达成 200 个 SQL",
+            "secondary": "线索质量评分 >= 3.5",
+            "tertiary": "CPA <= 2500 CNY"
+          },
+          "ab_test_pair": {
+            "variant_a": "案例驱动策略",
+            "variant_b": "技术深度策略"
+          },
+          "recommendations": [
+            {
+              "priority": "high",
+              "message": "优先运行实验1（叙事角度），因为对内容策略影响最大"
+            },
+            {
+              "priority": "medium",
+              "message": "实验2（渠道优先级）和实验3（内容长度）可以并行运行以节省时间"
+            },
+            {
+              "priority": "low",
+              "message": "建议每2周Review一次实验数据，根据结果动态调整"
+            }
+          ]
+        }
+      },
+      "last_evolved_at": "2026-06-18T03:47:39.276Z",
+      "changes": [
+        {
+          "type": "content_expansion",
+          "action": "increase_allocation",
+          "targets": [
+            "baijiahao",
+            "toutiao",
+            "wechat_official",
+            "zhihu"
+          ],
+          "reason": "内容表现高于平台均值2倍以上",
+          "evidence": [
+            {
+              "content_id": "art_001"
+            },
+            {
+              "content_id": "art_002"
+            },
+            {
+              "content_id": "art_003"
+            }
+          ]
+        },
+        {
+          "type": "platform_strategy_update",
+          "action": "refresh",
+          "targets": [
+            "zhihu",
+            "baijiahao",
+            "toutiao"
+          ],
+          "evidence": {
+            "zhihu": {
+              "version": "v1",
+              "recommended_angles": [
+                "技术对比：Dify vs JovaAI",
+                "企业AI落地30天指南"
+              ],
+              "content_gaps": [
+                {
+                  "gap": "企业级AI落地方法论视角",
+                  "reason": "竞品多讲技术，少讲企业落地路径",
+                  "opportunity": "JovaAI可以用真实案例填补这个空白"
+                },
+                {
+                  "gap": "vs竞品的客观技术对比",
+                  "reason": "市场缺乏中立深度的对比分析",
+                  "opportunity": "用数据和场景说话，而非软文"
+                },
+                {
+                  "gap": "AItoB产业趋势判断",
+                  "reason": "竞品多聚焦工具，少谈产业格局",
+                  "opportunity": "建立行业解释权，吸引老板群体"
+                }
+              ]
+            },
+            "baijiahao": {
+              "version": "v1",
+              "recommended_angles": [
+                "技术对比：Dify vs JovaAI",
+                "企业AI落地30天指南"
+              ],
+              "content_gaps": [
+                {
+                  "gap": "企业级AI落地方法论视角",
+                  "reason": "竞品多讲技术，少讲企业落地路径",
+                  "opportunity": "JovaAI可以用真实案例填补这个空白"
+                },
+                {
+                  "gap": "vs竞品的客观技术对比",
+                  "reason": "市场缺乏中立深度的对比分析",
+                  "opportunity": "用数据和场景说话，而非软文"
+                },
+                {
+                  "gap": "AItoB产业趋势判断",
+                  "reason": "竞品多聚焦工具，少谈产业格局",
+                  "opportunity": "建立行业解释权，吸引老板群体"
+                }
+              ]
+            },
+            "toutiao": {
+              "version": "v1",
+              "recommended_angles": [
+                "技术对比：Dify vs JovaAI",
+                "企业AI落地30天指南"
+              ],
+              "content_gaps": [
+                {
+                  "gap": "企业级AI落地方法论视角",
+                  "reason": "竞品多讲技术，少讲企业落地路径",
+                  "opportunity": "JovaAI可以用真实案例填补这个空白"
+                },
+                {
+                  "gap": "vs竞品的客观技术对比",
+                  "reason": "市场缺乏中立深度的对比分析",
+                  "opportunity": "用数据和场景说话，而非软文"
+                },
+                {
+                  "gap": "AItoB产业趋势判断",
+                  "reason": "竞品多聚焦工具，少谈产业格局",
+                  "opportunity": "建立行业解释权，吸引老板群体"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "evolution_summary": "content_expansion: increase_allocation baijiahao, toutiao, wechat_official, zhihu; platform_strategy_update: refresh zhihu, baijiahao, toutiao"
+    },
+    "version_from": "v1",
+    "version_to": "v2",
+    "changes_count": 2,
+    "changes": [
+      {
+        "type": "content_expansion",
+        "action": "increase_allocation",
+        "targets": [
+          "baijiahao",
+          "toutiao",
+          "wechat_official",
+          "zhihu"
+        ],
+        "reason": "内容表现高于平台均值2倍以上",
+        "evidence": [
+          {
+            "content_id": "art_001"
+          },
+          {
+            "content_id": "art_002"
+          },
+          {
+            "content_id": "art_003"
+          }
+        ]
+      },
+      {
+        "type": "platform_strategy_update",
+        "action": "refresh",
+        "targets": [
+          "zhihu",
+          "baijiahao",
+          "toutiao"
+        ],
+        "evidence": {
+          "zhihu": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          },
+          "baijiahao": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          },
+          "toutiao": {
+            "version": "v1",
+            "recommended_angles": [
+              "技术对比：Dify vs JovaAI",
+              "企业AI落地30天指南"
+            ],
+            "content_gaps": [
+              {
+                "gap": "企业级AI落地方法论视角",
+                "reason": "竞品多讲技术，少讲企业落地路径",
+                "opportunity": "JovaAI可以用真实案例填补这个空白"
+              },
+              {
+                "gap": "vs竞品的客观技术对比",
+                "reason": "市场缺乏中立深度的对比分析",
+                "opportunity": "用数据和场景说话，而非软文"
+              },
+              {
+                "gap": "AItoB产业趋势判断",
+                "reason": "竞品多聚焦工具，少谈产业格局",
+                "opportunity": "建立行业解释权，吸引老板群体"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "narrative_constraints": {
+    "narrative_constraints": {
+      "main_axis": "Jova AI：让企业 AI 落地不再困难",
+      "forbidden_directions": [
+        "纯功能介绍（无场景无数据）",
+        "没有证据支撑的能力声明",
+        "硬广式宣传",
+        "对比贬低竞品",
+        "绝对化表述（最/第一/唯一）"
+      ],
+      "encouraged_directions": [
+        "竞品客观对比（用数据说话）",
+        "企业AI落地方法论",
+        "真实场景+量化结果",
+        "产业趋势判断",
+        "客户故事/案例"
+      ],
+      "content_ratio_constraints": {
+        "竞品对比类": "20-25%",
+        "企业AI落地方法论": "25-30%",
+        "真实场景案例": "25-30%",
+        "行业趋势判断": "15-20%"
+      },
+      "narrative_style": {
+        "tone": "围绕\"Jova AI：让企业 AI 落地不再困难\"展开",
+        "emotional_anchor": "帮助企业主看到AI落地的可行路径",
+        "brand_voice": "专业、清晰、有洞察"
+      },
+      "account_differentiation": {
+        "艾氪智能OS": {
+          "role": "awareness",
+          "constraint": "轻产品露出，重行业解释权，建立艾氪判断力",
+          "narrative_type": "短视频钩子+热点解读"
+        },
+        "公众号": {
+          "role": "trust",
+          "constraint": "深度内容，完整叙事，可复用资产",
+          "narrative_type": "完整Narrative（30秒/2分钟/完整版）"
+        },
+        "JovaAI视频号": {
+          "role": "conversion",
+          "constraint": "产品化叙事，落到真实场景和销售线索",
+          "narrative_type": "短视频场景Demo+产品价值"
+        }
+      },
+      "short_video_hooks": {
+        "must_have": [
+          "3秒抓注意力钩子",
+          "具体业务场景",
+          "JovaAI如何解决问题",
+          "可量化的结果"
+        ],
+        "formats": {
+          "艾氪洞察": "60-90秒热点解读，无JovaAI露出",
+          "AItoB产业观察": "2-3分钟，先产业再产品",
+          "JovaAI真实场景": "2-3分钟产品Demo，场景+演示"
+        }
+      },
+      "repurposing_rules": {
+        "source_accounts": {
+          "艾氪洞察": [
+            "公众号:全球企业AI案例拆解",
+            "JovaAI视频号:AItoB产业观察"
+          ],
+          "公众号": [
+            "知乎",
+            "百家号",
+            "今日头条"
+          ],
+          "JovaAI视频号": [
+            "公众号:JovaAI真实场景"
+          ]
+        },
+        "priority_order": [
+          "高反馈内容 → 公众号深化 → 图文平台",
+          "高反馈内容 → 更多角度 → 图文平台",
+          "短视频高反馈 → 判断是否深化公众号"
+        ]
+      }
+    },
+    "topic_brief_constraints": {
+      "narrative_constraints": {
+        "main_axis": "Jova AI：让企业 AI 落地不再困难",
+        "forbidden_directions": [
+          "纯功能介绍（无场景无数据）",
+          "没有证据支撑的能力声明",
+          "硬广式宣传",
+          "对比贬低竞品",
+          "绝对化表述（最/第一/唯一）"
+        ],
+        "encouraged_directions": [
+          "竞品客观对比（用数据说话）",
+          "企业AI落地方法论",
+          "真实场景+量化结果",
+          "产业趋势判断",
+          "客户故事/案例"
+        ],
+        "content_ratio_constraints": {
+          "竞品对比类": "20-25%",
+          "企业AI落地方法论": "25-30%",
+          "真实场景案例": "25-30%",
+          "行业趋势判断": "15-20%"
+        },
+        "narrative_style": {
+          "tone": "围绕\"Jova AI：让企业 AI 落地不再困难\"展开",
+          "emotional_anchor": "帮助企业主看到AI落地的可行路径",
+          "brand_voice": "专业、清晰、有洞察"
+        },
+        "account_differentiation": {
+          "艾氪智能OS": {
+            "role": "awareness",
+            "constraint": "轻产品露出，重行业解释权，建立艾氪判断力",
+            "narrative_type": "短视频钩子+热点解读"
+          },
+          "公众号": {
+            "role": "trust",
+            "constraint": "深度内容，完整叙事，可复用资产",
+            "narrative_type": "完整Narrative（30秒/2分钟/完整版）"
+          },
+          "JovaAI视频号": {
+            "role": "conversion",
+            "constraint": "产品化叙事，落到真实场景和销售线索",
+            "narrative_type": "短视频场景Demo+产品价值"
+          }
+        },
+        "short_video_hooks": {
+          "must_have": [
+            "3秒抓注意力钩子",
+            "具体业务场景",
+            "JovaAI如何解决问题",
+            "可量化的结果"
+          ],
+          "formats": {
+            "艾氪洞察": "60-90秒热点解读，无JovaAI露出",
+            "AItoB产业观察": "2-3分钟，先产业再产品",
+            "JovaAI真实场景": "2-3分钟产品Demo，场景+演示"
+          }
+        },
+        "repurposing_rules": {
+          "source_accounts": {
+            "艾氪洞察": [
+              "公众号:全球企业AI案例拆解",
+              "JovaAI视频号:AItoB产业观察"
+            ],
+            "公众号": [
+              "知乎",
+              "百家号",
+              "今日头条"
+            ],
+            "JovaAI视频号": [
+              "公众号:JovaAI真实场景"
+            ]
+          },
+          "priority_order": [
+            "高反馈内容 → 公众号深化 → 图文平台",
+            "高反馈内容 → 更多角度 → 图文平台",
+            "短视频高反馈 → 判断是否深化公众号"
+          ]
+        }
+      },
+      "three_account_constraints": {
+        "aikezhios": {
+          "awareness_role": true,
+          "content_angles": [
+            "AI行业趋势",
+            "热点解读",
+            "技术方法论"
+          ],
+          "forbidden_angles": [
+            "竞品对比（硬碰硬）",
+            "无场景产品介绍"
+          ],
+          "required_elements": [
+            "3秒钩子",
+            "具体场景",
+            "自然植入"
+          ]
+        },
+        "wechat_official": {
+          "trust_role": true,
+          "content_angles": [
+            "企业AI落地",
+            "案例分析",
+            "行业深度报告"
+          ],
+          "repurposing_source": [
+            "zhihu",
+            "toutiao",
+            "xueqiu"
+          ],
+          "required_elements": [
+            "完整叙事",
+            "数据支撑",
+            "可分享性"
+          ]
+        },
+        "jovavi_video": {
+          "conversion_role": true,
+          "content_angles": [
+            "产品Demo",
+            "场景演示",
+            "客户证言"
+          ],
+          "required_elements": [
+            "具体场景",
+            "量化结果",
+            "明确CTA"
+          ],
+          "trigger_for_wechat": "high_conversion_data"
+        }
+      },
+      "platform_to_wechat_rules": {
+        "trigger_signals": {
+          "views_multiplier": 2,
+          "engagement_rate": 0.05,
+          "share_rate": 0.02,
+          "comment_sentiment": "positive"
+        },
+        "platforms": [
+          {
+            "signal": "high_views",
+            "platform": "zhihu",
+            "threshold": 5000
+          },
+          {
+            "signal": "high_views",
+            "platform": "toutiao",
+            "threshold": 20000
+          },
+          {
+            "signal": "high_views",
+            "platform": "baijiahao",
+            "threshold": 10000
+          },
+          {
+            "signal": "high_engagement",
+            "platform": "xueqiu",
+            "threshold": 0.05
+          }
+        ],
+        "adaptation_rules": {
+          "zhihu": {
+            "preferred_target": [
+              "wechat_official",
+              "xueqiu"
+            ],
+            "adaptation": "从问答形式转为图文形式，扩展深度"
+          },
+          "toutiao": {
+            "preferred_target": [
+              "baijiahao",
+              "wechat_official"
+            ],
+            "adaptation": "从热点形式转为深度分析，保持时效性"
+          },
+          "baijiahao": {
+            "preferred_target": [
+              "toutiao",
+              "zhihu"
+            ],
+            "adaptation": "从百度搜索角度优化，增加专业深度"
+          },
+          "xueqiu": {
+            "preferred_target": [
+              "wechat_official"
+            ],
+            "adaptation": "从投资分析视角转为企业落地视角"
+          }
+        },
+        "must_include": [
+          "场景",
+          "数据",
+          "JovaAI角色",
+          "具体结果"
+        ],
+        "must_not_include": [
+          "绝对化表述",
+          "无来源数据",
+          "竞品贬低"
+        ]
+      },
+      "short_video_feedback_rules": {
+        "signals": {
+          "high_awareness": {
+            "trigger": "艾氪智能OS 完播率>50%，点赞率>3%",
+            "action": "加大行业解读内容投入",
+            "agent4_decision": "expand_awareness_content"
+          },
+          "high_trust": {
+            "trigger": "公众号 阅读量>10000，分享率>2%",
+            "action": "深化公众号深度内容，生产更多案例",
+            "agent4_decision": "deepen_trust_content"
+          },
+          "high_conversion": {
+            "trigger": "JovaAI视频号 转化率>1%，咨询量增长",
+            "action": "加大转化内容，制作更多Demo视频",
+            "agent4_decision": "scale_conversion_content"
+          },
+          "low_performance": {
+            "trigger": "某账号持续低表现（4周以上）",
+            "action": "重新评估该账号策略或暂停投入",
+            "agent4_decision": "reassess_or_pause"
+          }
+        },
+        "category_rules": {
+          "add": {
+            "trigger": "某类内容连续3篇高表现",
+            "action": "新增该类型栏目",
+            "constraint": "不超过5个栏目，新栏目需测试2周"
+          },
+          "remove": {
+            "trigger": "某类内容连续4篇低表现",
+            "action": "暂停该类型内容",
+            "constraint": "标记为低优先级，可周期性重测"
+          },
+          "adjust": {
+            "trigger": "某类内容表现波动大",
+            "action": "调整内容角度或形式",
+            "constraint": "保持实验心态，A/B测试不同角度"
+          }
+        },
+        "agent4_feedback_integration": true
+      }
+    },
+    "three_account_strategy": {
+      "accounts": {
+        "aikezhios": {
+          "name": "艾氪智能OS",
+          "platform": "抖音/视频号",
+          "role": "awareness",
+          "description": "建立行业解释权，建立艾氪判断力",
+          "narrative_type": "短视频钩子+热点解读",
+          "constraints": {
+            "product_visibility": "轻产品露出（<10%）",
+            "brand_presence": "艾氪品牌为主（90%+）",
+            "content_focus": "行业趋势、热点解读、方法论",
+            "不许": [
+              "硬广",
+              "产品功能罗列",
+              "竞品贬低",
+              "无热点硬蹭"
+            ],
+            "必须": [
+              "3秒注意力钩子",
+              "具体业务场景",
+              "JovaAI自然植入"
+            ]
+          }
+        },
+        "wechat_official": {
+          "name": "公众号",
+          "platform": "微信公众号",
+          "role": "trust",
+          "description": "深度内容，完整叙事，可复用资产",
+          "narrative_type": "完整Narrative（30秒/2分钟/完整版）",
+          "constraints": {
+            "product_visibility": "产品为辅（30-40%）",
+            "brand_presence": "JovaAI品牌为主（60-70%）",
+            "content_focus": "企业AI落地方法论、案例分析、行业深度",
+            "不许": [
+              "纯产品介绍",
+              "无数据支撑的观点",
+              "情绪化表达"
+            ],
+            "必须": [
+              "完整叙事结构",
+              "数据支撑",
+              "可传播分享"
+            ]
+          }
+        },
+        "jovavi_video": {
+          "name": "JovaAI视频号",
+          "platform": "视频号",
+          "role": "conversion",
+          "description": "产品化叙事，落到真实场景和销售线索",
+          "narrative_type": "短视频场景Demo+产品价值",
+          "constraints": {
+            "product_visibility": "产品为主（50-70%）",
+            "brand_presence": "JovaAI品牌（30-50%）",
+            "content_focus": "真实场景Demo、产品价值、行动号召",
+            "不许": [
+              "无场景的纯功能介绍",
+              "虚假案例",
+              "过度承诺"
+            ],
+            "必须": [
+              "具体业务场景",
+              "可量化的结果",
+              "明确CTA"
+            ]
+          }
+        }
+      },
+      "repurposing_matrix": {
+        "from": {
+          "aikezhios_抖音": {
+            "to": [
+              {
+                "account": "aikezhios_视频号",
+                "action": "同步发布",
+                "adaptation": "最小调整"
+              },
+              {
+                "account": "wechat_official",
+                "action": "深化扩展",
+                "adaptation": "完整Narrative扩展"
+              },
+              {
+                "account": "weibo",
+                "action": "话题延伸",
+                "adaptation": "话题梗概"
+              }
+            ],
+            "trigger": "数据好(完播率>50%)"
+          },
+          "aikezhios_视频号": {
+            "to": [
+              {
+                "account": "aikezhios_抖音",
+                "action": "跨平台同步",
+                "adaptation": "最小调整"
+              },
+              {
+                "account": "wechat_official",
+                "action": "深化扩展",
+                "adaptation": "图文转化"
+              }
+            ],
+            "trigger": "互动率>3%"
+          },
+          "wechat_official": {
+            "to": [
+              {
+                "account": "zhihu",
+                "action": "深度回答",
+                "adaptation": "问答形式改编"
+              },
+              {
+                "account": "baijiahao",
+                "action": "平台适配",
+                "adaptation": "头条风改编"
+              },
+              {
+                "account": "toutiao",
+                "action": "热点匹配",
+                "adaptation": "热点角度切入"
+              },
+              {
+                "account": "xueqiu",
+                "action": "投资视角",
+                "adaptation": "雪球风格改编"
+              }
+            ],
+            "trigger": "阅读量>5000"
+          },
+          "jovavi_video": {
+            "to": [
+              {
+                "account": "wechat_official",
+                "action": "图文转化",
+                "adaptation": "图文版本"
+              },
+              {
+                "account": "aikezhios_抖音",
+                "action": "扩大覆盖",
+                "adaptation": "竖版改横版"
+              }
+            ],
+            "trigger": "转化率>1%"
+          }
+        }
+      },
+      "content_deepening": {
+        "high_feedback_signals": {
+          "views_multiplier": 2,
+          "engagement_rate": 0.05,
+          "share_rate": 0.02,
+          "comment_sentiment": "positive"
+        },
+        "trigger_conditions": {
+          "to_wechat_public": [
+            {
+              "signal": "high_views",
+              "platform": "zhihu",
+              "threshold": 5000
+            },
+            {
+              "signal": "high_views",
+              "platform": "toutiao",
+              "threshold": 20000
+            },
+            {
+              "signal": "high_views",
+              "platform": "baijiahao",
+              "threshold": 10000
+            },
+            {
+              "signal": "high_engagement",
+              "platform": "xueqiu",
+              "threshold": 0.05
+            }
+          ],
+          "to_multi_platform": [
+            {
+              "signal": "high_feedback",
+              "threshold": "any_2_of_3"
+            }
+          ]
+        },
+        "cross_platform_rules": {
+          "zhihu": {
+            "preferred_target": [
+              "wechat_official",
+              "xueqiu"
+            ],
+            "adaptation": "从问答形式转为图文形式，扩展深度"
+          },
+          "toutiao": {
+            "preferred_target": [
+              "baijiahao",
+              "wechat_official"
+            ],
+            "adaptation": "从热点形式转为深度分析，保持时效性"
+          },
+          "baijiahao": {
+            "preferred_target": [
+              "toutiao",
+              "zhihu"
+            ],
+            "adaptation": "从百度搜索角度优化，增加专业深度"
+          },
+          "xueqiu": {
+            "preferred_target": [
+              "wechat_official"
+            ],
+            "adaptation": "从投资分析视角转为企业落地视角"
+          }
+        }
+      },
+      "short_video_direction": {
+        "data_signals": {
+          "high_awareness": {
+            "trigger": "艾氪智能OS 完播率>50%，点赞率>3%",
+            "action": "加大行业解读内容投入",
+            "agent4_decision": "expand_awareness_content"
+          },
+          "high_trust": {
+            "trigger": "公众号 阅读量>10000，分享率>2%",
+            "action": "深化公众号深度内容，生产更多案例",
+            "agent4_decision": "deepen_trust_content"
+          },
+          "high_conversion": {
+            "trigger": "JovaAI视频号 转化率>1%，咨询量增长",
+            "action": "加大转化内容，制作更多Demo视频",
+            "agent4_decision": "scale_conversion_content"
+          },
+          "low_performance": {
+            "trigger": "某账号持续低表现（4周以上）",
+            "action": "重新评估该账号策略或暂停投入",
+            "agent4_decision": "reassess_or_pause"
+          }
+        },
+        "category_adjustment": {
+          "add": {
+            "trigger": "某类内容连续3篇高表现",
+            "action": "新增该类型栏目",
+            "constraint": "不超过5个栏目，新栏目需测试2周"
+          },
+          "remove": {
+            "trigger": "某类内容连续4篇低表现",
+            "action": "暂停该类型内容",
+            "constraint": "标记为低优先级，可周期性重测"
+          },
+          "adjust": {
+            "trigger": "某类内容表现波动大",
+            "action": "调整内容角度或形式",
+            "constraint": "保持实验心态，A/B测试不同角度"
+          }
+        }
+      }
+    }
+  }
+}

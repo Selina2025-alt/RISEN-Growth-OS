@@ -1,0 +1,166 @@
+{
+  "version_store": {
+    "v1": {
+      "version": "v1",
+      "created_at": "2026-06-17T03:48:04.801Z",
+      "trigger": "initial",
+      "trigger_reason": "初始版本",
+      "status": "superseded",
+      "card": {
+        "id": "stg_test",
+        "version": "v1",
+        "strategic_bet": "通过技术对比内容建立JovaAI技术领先认知",
+        "content": {
+          "value_proposition": {
+            "tagline": "JovaAI: 让企业AI落地不再困难"
+          },
+          "channel_mix": [
+            {
+              "platform": "zhihu",
+              "budget_pct": 0.2
+            },
+            {
+              "platform": "wechat",
+              "budget_pct": 0.25
+            }
+          ],
+          "experiment_plan": {
+            "total_budget": 100000
+          }
+        }
+      },
+      "fingerprint": "067f4194",
+      "previous_version": null,
+      "next_version": null,
+      "diff_from_previous": null,
+      "changes_summary": [],
+      "performance": null,
+      "rollback_available": false,
+      "can_rollback_to": [],
+      "metadata": {
+        "reason": "初始版本"
+      },
+      "superseded_at": "2026-06-17T03:48:04.801Z",
+      "superseded_by": "v2"
+    },
+    "v2": {
+      "version": "v2",
+      "created_at": "2026-06-17T03:48:04.801Z",
+      "trigger": "agent9_feedback",
+      "trigger_reason": "基于Agent 9反馈调整",
+      "status": "active",
+      "card": {
+        "id": "stg_test",
+        "version": "v2",
+        "strategic_bet": "通过企业AI落地方法论建立JovaAI行业权威认知",
+        "content": {
+          "value_proposition": {
+            "tagline": "JovaAI: 企业AI落地的完整指南"
+          },
+          "channel_mix": [
+            {
+              "platform": "zhihu",
+              "budget_pct": 0.3
+            },
+            {
+              "platform": "wechat",
+              "budget_pct": 0.25
+            }
+          ],
+          "experiment_plan": {
+            "total_budget": 150000
+          }
+        }
+      },
+      "fingerprint": "d598b04c",
+      "previous_version": "v1",
+      "next_version": null,
+      "diff_from_previous": {
+        "strategic_bet": {
+          "field": "strategic_bet",
+          "before": "通过技术对比内容建立JovaAI技术领先认知",
+          "after": "通过企业AI落地方法论建立JovaAI行业权威认知",
+          "changed": true
+        },
+        "value_proposition": {
+          "field": "value_proposition",
+          "before": "JovaAI: 让企业AI落地不再困难",
+          "after": "JovaAI: 企业AI落地的完整指南",
+          "changed": true
+        },
+        "channel_mix": {
+          "field": "channel_mix",
+          "before": [
+            "zhihu:0.2",
+            "wechat:0.25"
+          ],
+          "after": [
+            "zhihu:0.3",
+            "wechat:0.25"
+          ],
+          "changed": true
+        },
+        "budget": {
+          "field": "budget",
+          "before": 100000,
+          "after": 150000,
+          "changed": true
+        }
+      },
+      "changes_summary": [
+        {
+          "field": "strategic_bet",
+          "type": "modified",
+          "summary": "strategic_bet 已变更"
+        },
+        {
+          "field": "value_proposition",
+          "type": "modified",
+          "summary": "value_proposition 已变更"
+        },
+        {
+          "field": "channel_mix",
+          "type": "modified",
+          "summary": "channel_mix 已变更"
+        },
+        {
+          "field": "budget",
+          "type": "modified",
+          "summary": "budget 已变更"
+        }
+      ],
+      "performance": null,
+      "rollback_available": true,
+      "can_rollback_to": [
+        "v1"
+      ],
+      "metadata": {
+        "reason": "基于Agent 9反馈调整"
+      }
+    }
+  },
+  "current_version": "v2",
+  "history": [
+    {
+      "version": "v1",
+      "created_at": "2026-06-17T03:48:04.801Z",
+      "trigger": "initial",
+      "trigger_reason": "初始版本",
+      "status": "superseded",
+      "fingerprint": "067f4194",
+      "performance": null,
+      "rollback_available": false,
+      "superseded_by": "v2"
+    },
+    {
+      "version": "v2",
+      "created_at": "2026-06-17T03:48:04.801Z",
+      "trigger": "agent9_feedback",
+      "trigger_reason": "基于Agent 9反馈调整",
+      "status": "active",
+      "fingerprint": "d598b04c",
+      "performance": null,
+      "rollback_available": true
+    }
+  ]
+}

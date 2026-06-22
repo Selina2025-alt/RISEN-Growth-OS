@@ -1,0 +1,35 @@
+# Skill 路由配置
+# 格式：主笔 → [辅笔数组]
+
+deep_long_form:
+  primary: khazix-writer
+  aux:
+    - hv-analysis
+    - ljg-think
+  fallback: ljg-writes
+
+quick_social:
+  primary: huashu-douyin-script
+  aux:
+    - ljg-card
+  fallback: ljg-writes
+
+technical:
+  primary: ljg-writes
+  aux:
+    - hv-analysis
+    - ljg-rank
+  fallback: khazix-writer
+
+marketing:
+  primary: kai-write
+  aux:
+    - kai-topical-map
+  fallback: khazix-writer
+
+# 按 content_type 匹配模式
+content_type_map:
+  news: deep_long_form
+  analysis: technical
+  case_study: marketing
+  tutorial: technical
