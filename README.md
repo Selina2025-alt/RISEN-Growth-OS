@@ -51,10 +51,17 @@ agent4/
 **职责**：从多源热点中筛选高质量选题，生成 SearchIntentMap 和渠道路由。
 
 **核心能力**：
-- 三源热点融合：AIHOT + follow-builders + tech-news-digest
-- 10维选题评分（新鲜度 / 热度 / 匹配度 / 证据强度 / 平台适合度…）
-- SearchIntentMap 生成（informational / transactional / commercial / navigational）
-- 12平台分发路由（P0/P1/P2 优先级）
+- **三源热点融合**：AIHOT（REST API）+ follow-builders RSS + tech-news RSS
+- **10维选题评分**（新鲜度 / 热度 / 匹配度 / 证据强度 / 平台适合度 / ICP符合度 / 时效性 / 竞争度 / 商业价值 / 可执行性）
+- **SearchIntentMap 生成**（informational / transactional / commercial / navigational）
+- **12平台分发路由**（P0/P1/P2 优先级）
+
+**信号源测试状态（2026-06-22）**：
+| 信号源 | 端点 | 状态 |
+|--------|------|------|
+| aihot.virxact.com | /api/public/items | ✅ 200 OK（需带浏览器 UA） |
+| follow-builders RSS | 多源 RSS | ✅ 可用 |
+| tech-news RSS | HackerNews/TechCrunch 等 | ⚠️ 部分超时 |
 
 **输入**：Agent3 市场情报 + Agent4 叙事主轴 + 实时热点信号
 **输出**：
@@ -81,12 +88,29 @@ agent5/
 **职责**：接收选题 brief，融合公司知识库，生成完整高质量母文章。
 
 **核心能力**：
-- **选题-能力匹配**：子串 + ngram 相似度，判断选题与公司知识的关联强度
+- **选题-能力匹配**：基于 CapabilityCard 索引 + 语义匹配，判断选题与公司知识的关联强度
 - **软/硬植入决策**：hard（强品牌植入）/ soft（软植入）/ minimal（纯热点内容）三种策略
-- **主笔+辅笔 Skill 路由**：khazix-writer / ljg-writes / hv-analysis 等按内容类型分发
+- **多 Skill 路由**：khazix-writer / ljg-writes / kai-write / hv-analysis 等按内容类型分发，**通过 sessions_spawn 真实调用 Skills**
 - **Four U's 质量门**：Useful · User-focused · Clear · Actionable — 不达标打回重写
-- **知识持续更新**：5种触发机制（目录变化 / Agent2 / Agent3 / Agent1 Campaign / 用户上传）
+- **知识持续更新**：chokidar 监听 + 5种触发机制（目录变化 / Agent2 / Agent3 / Agent1 Campaign / 用户上传）
 - **Agent 9 反馈闭环**：CTR 数据动态调整 capability confidence
+
+**验证状态（2026-06-22）**：4条 Skill 链路全部验证通过
+| Skill | 风格 | 状态 |
+|--------|------|------|
+| khazix-writer | 卡兹克公众号长文 | ✅ |
+| ljg-writes | 框架式分析文 | ✅ |
+| kai-write | 营销转化文 | ✅ |
+| huashu-douyin-script | 抖音口播脚本 | ✅ |
+
+**知识库结构**：
+```
+knowledge/
+├── company/    # 公司文档（战略手册/创始人演讲/培训资料）
+├── product/    # 产品文档（功能列表/产品介绍）
+├── market/      # 市场文档（待填充）
+└── campaign/    # 活动文档（待填充）
+```
 
 **数据依赖**：
 ```
