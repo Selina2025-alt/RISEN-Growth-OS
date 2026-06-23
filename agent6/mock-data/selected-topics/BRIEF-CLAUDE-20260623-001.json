@@ -1,0 +1,45 @@
+{
+  "brief_id": "BRIEF-CLAUDE-20260623-001",
+  "brief_type": "Trend Brief",
+  "content_type": "tutorial",
+  "meta": {
+    "topic_id": "TOPIC-CLAUDE-20260623-001",
+    "topic_title": "Anthropic 工程负责人：Claude Code 让程序员更孤独",
+    "search_intent": null
+  },
+  "core_claims": [
+    "Claude Code 提升了编程效率，但减少了人与人之间的协作",
+    "AI 编程工具越强，程序员越需要主动维护社交连接",
+    "远程工作 + AI 编程 = 双重孤独叠加",
+    "解决方案：刻意构建 Code Review 文化 / Pair Programming"
+  ],
+  "evidence_support": {
+    "S_级": [
+      "Anthropic 工程负责人原话引用"
+    ],
+    "A_级": [
+      "IT之家相关报道"
+    ],
+    "B_级": [
+      "行业从业者反馈"
+    ]
+  },
+  "agent6_guidance": "这是典型的观点型选题，适合用「观点-论据-反转-结论」结构。开头引用工程负责人原话作为钩子，然后展开孤独感从何而来（信息茧房、协作减少），再给出反驳或平衡视角，最后给程序员实操建议。不要写成技术评测，要写成有温度的人文观察。字数1200-1800字。",
+  "risk_warnings": [
+    "原话引用需确保准确性",
+    "避免过度煽情，保持理性分析"
+  ],
+  "raw_sources": [
+    {
+      "id": "SIG-AIHOT-cmqpaflwr08cpslx6umzww19d",
+      "title": "Anthropic 工程负责人：Claude Code 让程序员更孤独",
+      "url": null,
+      "source": "aihot"
+    }
+  ],
+  "repurposing_notes": [
+    "适合发小红书程序员群体",
+    "知乎编程话题下的深度回答",
+    "可配合 Claude Code 使用技巧"
+  ]
+}

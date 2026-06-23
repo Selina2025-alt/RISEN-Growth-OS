@@ -1,0 +1,45 @@
+{
+  "brief_id": "BRIEF-CF-20260623-001",
+  "brief_type": "Trend Brief",
+  "content_type": "analysis",
+  "meta": {
+    "topic_id": "TOPIC-CF-20260623-001",
+    "topic_title": "Cloudflare 为 AI 智能体推出临时账户",
+    "search_intent": null
+  },
+  "core_claims": [
+    "Cloudflare 推出临时账户解决 AI 智能体的身份认证难题",
+    "无需注册即可让 AI 智能体在 Cloudflare 平台执行操作",
+    "降低了 AI 智能体访问企业级服务的门槛",
+    "这是基础设施层对 AI Agent 时代的安全响应"
+  ],
+  "evidence_support": {
+    "S_级": [
+      "Cloudflare 官方博客原文"
+    ],
+    "A_级": [
+      "The Decoder 相关报道"
+    ],
+    "B_级": [
+      "行业分析解读"
+    ]
+  },
+  "agent6_guidance": "技术+商业分析型选题。结构：1）场景引入：AI 智能体想调用企业服务，但注册验证是门槛——Cloudflare 怎么解决这个问题；2）产品逻辑：临时账户技术原理（Session-less Auth？Short-lived Token？）；3）安全边界：临时账户的风险（数据隔离、权限控制）；4）商业意义：对 Cloudflare AI 战略的影响。适合技术人员+产品人员双视角。字数1500-2000字。",
+  "risk_warnings": [
+    "技术细节以 Cloudflare 官方技术博客为准",
+    "安全分析需谨慎，避免给攻击者提供思路"
+  ],
+  "raw_sources": [
+    {
+      "id": "SIG-AIHOT-cmqkzxdp0009eslcw0jlr6pvl",
+      "title": "Cloudflare 为 AI 智能体推出临时账户",
+      "url": null,
+      "source": "aihot"
+    }
+  ],
+  "repurposing_notes": [
+    "知乎 AI 技术话题",
+    "公众号技术深度分析",
+    "可配合 Cloudflare Workers AI 使用场景"
+  ]
+}

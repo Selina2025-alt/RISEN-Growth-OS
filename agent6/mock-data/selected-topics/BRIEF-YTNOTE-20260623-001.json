@@ -1,0 +1,45 @@
+{
+  "brief_id": "BRIEF-YTNOTE-20260623-001",
+  "brief_type": "Trend Brief",
+  "content_type": "tutorial",
+  "meta": {
+    "topic_id": "TOPIC-YTNOTE-20260623-001",
+    "topic_title": "/youtube-notetaker：YT视频转Artifacts",
+    "search_intent": null
+  },
+  "core_claims": [
+    "YT Notetaker 自动将 YouTube 视频内容转成可交互的 Artifacts 笔记",
+    "解决了「看视频做笔记」的信息损耗问题",
+    "Artifacts 形式让笔记可以直接分享、复用",
+    "体现了 AI 原生工具的 UX 创新方向"
+  ],
+  "evidence_support": {
+    "S_级": [
+      "X: Elvis Saravia (@omarsar0) 原始推文"
+    ],
+    "A_级": [
+      "ProductHunt 相关产品页面"
+    ],
+    "B_级": [
+      "从业者使用反馈"
+    ]
+  },
+  "agent6_guidance": "工具评测型选题。结构：1）痛点引入：看长视频做笔记的麻烦；2）产品介绍：YT Notetaker 怎么用（1-2张图描述）；3）实际效果演示（如果有截图）；4）适用场景 vs 不适用场景；5）类似工具横向对比。要有实操感，读者看完知道要不要用。字数800-1500字。",
+  "risk_warnings": [
+    "产品可能尚在早期，具体功能以官方为准",
+    "避免替产品夸大宣传"
+  ],
+  "raw_sources": [
+    {
+      "id": "SIG-AIHOT-cmqkxgxrb003oslu7irf0vf59",
+      "title": "/youtube-notetaker：YT视频转Artifacts",
+      "url": null,
+      "source": "aihot"
+    }
+  ],
+  "repurposing_notes": [
+    "适合小红书工具推荐类笔记",
+    "B站视频脚本化改编",
+    "知乎工具推荐回答"
+  ]
+}

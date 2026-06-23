@@ -1,11 +1,7 @@
-node_modules/
-output/
-*.log
-.DS_Store
-.env
-*.tmp.*
-*.bak
+# ignore everything under knowledge/
 knowledge/
+
+# then re-add specific things we want to track
 !knowledge/docs/
 !knowledge/product/
 !knowledge/market/
@@ -13,3 +9,12 @@ knowledge/
 !knowledge/company/
 !knowledge/_index.json
 !knowledge/pending_keywords.json
+
+# output/ ignore pattern
+output/
+
+# tmp and temp files
+*.tmp
+*.log
+.DS_Store
+node_modules/

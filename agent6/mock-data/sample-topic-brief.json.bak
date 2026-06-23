@@ -1,0 +1,25 @@
+{
+  "topic_id": "T-20260618-001",
+  "topic_title": "企业如何通过AI实现数字化转型",
+  "content_type": "analysis",
+  "directions": [
+    {
+      "direction_id": "D1",
+      "angle": "从0到1搭建AI能力",
+      "content_forms": ["公众号长文", "知乎分析文"]
+    },
+    {
+      "direction_id": "D2",
+      "angle": "已有系统如何叠加AI",
+      "content_forms": ["案例分析"]
+    }
+  ],
+  "search_intent": {
+    "primary": ["企业数字化转型", "AI落地", "智能化升级"],
+    "secondary": ["大模型应用", "数字员工", "AI转型案例"],
+    "geo": [],
+    "intent_type": "commercial"
+  },
+  "evidence_score": 75,
+  "source": "mock"
+}

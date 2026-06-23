@@ -1,16 +1,38 @@
 {
   "keywords": [
-    { "keyword": "B2B科技企业", "source": "PRD-4.1", "confidence": 0.9 },
-    { "keyword": "专业服务企业", "source": "PRD-4.1", "confidence": 0.85 },
-    { "keyword": "跨境企业", "source": "PRD-4.1", "confidence": 0.8 },
-    { "keyword": "企业AI落地", "source": "PRD-3.1", "confidence": 0.9 },
-    { "keyword": "数字化转型", "source": "PRD-3.1", "confidence": 0.85 },
-    { "keyword": "智能体", "source": "PRD-3.1", "confidence": 0.8 },
-    { "keyword": "内容营销", "source": "PRD-4.1", "confidence": 0.75 },
-    { "keyword": "品牌传播", "source": "PRD-4.1", "confidence": 0.7 }
+    {
+      "keyword": "B2B科技企业",
+      "source": "PRD-4.1",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "专业服务企业",
+      "source": "PRD-4.1",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "跨境企业",
+      "source": "PRD-4.1",
+      "confidence": 0.8
+    },
+    {
+      "keyword": "企业AI落地",
+      "source": "PRD-3.1",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "数字化转型",
+      "source": "PRD-3.1",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "智能体",
+      "source": "PRD-3.1",
+      "confidence": 0.8
+    }
   ],
-  "updated_at": "2026-06-22",
-  "updated_by": "Phase 0 init",
+  "updated_at": "2026-06-23",
+  "updated_by": "manual: removed 内容营销, 品牌传播",
   "next_review": "2026-07-01",
   "review_trigger": "每次 PRD 大版本更新后手动更新",
   "note": "pending_keywords 与 topic-pool 的关系：pending_keywords 管长期战略方向（半静态），topic-pool 管当期实时热点选题（每次运行动态生成）。两者在 Agent 6 匹配时均参与参考。"

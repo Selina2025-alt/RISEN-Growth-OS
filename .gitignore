@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+*.log
+
+# knowledge/ directory: ignore everything except product/ and _index.json
+knowledge/*
+!knowledge/product/
+!knowledge/product/**
+!knowledge/_index.json
+
+agent4/node_modules/
+agent5/node_modules/
+agent6/node_modules/
