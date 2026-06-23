@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "KB-001",
+      "headline": "帮助企业快速搭建自有知识库，30天上线",
+      "applicable_topics": [
+        "企业知识管理",
+        "知识库搭建",
+        "AI知识库"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.8,
+      "capability_signals": [
+        {
+          "pattern": "30天",
+          "confidence": 0.9,
+          "strength": "strong"
+        },
+        {
+          "pattern": "知识库",
+          "confidence": 0.8,
+          "strength": "strong"
+        }
+      ],
+      "evidence": "knowledge/docs/产品介绍.md",
+      "created_at": "2026-06-18T00:00:00.000Z",
+      "priority_boost": 0
+    },
+    {
+      "id": "KB-002",
+      "headline": "多Agent协作引擎，支持企业流程自动化",
+      "applicable_topics": [
+        "Agent",
+        "工作流自动化",
+        "多Agent"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.8,
+      "capability_signals": [
+        {
+          "pattern": "Agent",
+          "confidence": 0.9,
+          "strength": "strong"
+        },
+        {
+          "pattern": "自动化",
+          "confidence": 0.7,
+          "strength": "strong"
+        }
+      ],
+      "evidence": "knowledge/product/功能列表.md",
+      "created_at": "2026-06-18T00:00:00.000Z",
+      "priority_boost": 0
+    },
+    {
+      "id": "KB-003",
+      "headline": "全渠道内容智能分发，一键同步12平台",
+      "applicable_topics": [
+        "内容分发",
+        "多平台",
+        "自媒体运营"
+      ],
+      "insertion_type": "soft",
+      "confidence": 0.7,
+      "capability_signals": [
+        {
+          "pattern": "内容分发",
+          "confidence": 0.8,
+          "strength": "strong"
+        },
+        {
+          "pattern": "多平台",
+          "confidence": 0.7,
+          "strength": "medium"
+        }
+      ],
+      "evidence": "knowledge/product/能力声明.md",
+      "created_at": "2026-06-18T00:00:00.000Z",
+      "priority_boost": 0
+    },
+    {
+      "id": "KB-e414",
+      "headline": "功能列表",
+      "applicable_topics": [
+        "Agent",
+        "12",
+        "PDF",
+        "Word",
+        "Markdo"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "product/功能列表.md",
+      "created_at": "2026-06-18T10:49:22.936Z",
+      "updated_at": "2026-06-18T10:49:22.936Z",
+      "priority_boost": 0
+    },
+    {
+      "id": "KB-c8fb",
+      "headline": "**艾氪智能战略手册 V7.0**",
+      "applicable_topics": [
+        "AI",
+        "JovaAI",
+        "_Toc23",
+        "OS",
+        "ICB"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "company/01_艾氪智能集团战略手册 V7.0.md",
+      "created_at": "2026-06-22T08:30:28.861Z",
+      "updated_at": "2026-06-22T08:30:28.861Z"
+    },
+    {
+      "id": "KB-adb7",
+      "headline": "艾氪介绍-中文版",
+      "applicable_topics": [
+        "AI",
+        "JovaAI",
+        "Agenti",
+        "OS",
+        "Studio"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "company/02_艾氪介绍-中文版.md",
+      "created_at": "2026-06-22T08:30:28.864Z",
+      "updated_at": "2026-06-22T08:30:28.864Z"
+    },
+    {
+      "id": "KB-5642",
+      "headline": "各位领导、各位嘉宾：",
+      "applicable_topics": [
+        "AI",
+        "to",
+        "OS",
+        "Agenti",
+        "ow"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "company/03_1 521创始人演讲-前面 TOC 和 toB 赛道的论证.md",
+      "created_at": "2026-06-22T08:30:28.868Z",
+      "updated_at": "2026-06-22T08:30:28.868Z"
+    },
+    {
+      "id": "KB-e2f6",
+      "headline": "各位领导、各位嘉宾：",
+      "applicable_topics": [
+        "AI",
+        "OS",
+        "Agenti",
+        "Jova",
+        "Agent"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "company/03_2 521创始人演讲.md",
+      "created_at": "2026-06-22T08:30:28.871Z",
+      "updated_at": "2026-06-22T08:30:28.871Z"
+    },
+    {
+      "id": "KB-d3ee",
+      "headline": "艾氪智能 JovaAI 产品进入路径培训资料",
+      "applicable_topics": [
+        "AI",
+        "JovaAI",
+        "10",
+        "SaaS",
+        "CIO"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "company/05_内部培训-用户路径.md",
+      "created_at": "2026-06-22T08:30:28.875Z",
+      "updated_at": "2026-06-22T08:30:28.875Z"
+    },
+    {
+      "id": "KB-3550",
+      "headline": "[COMPANY_NAME] 产品介绍",
+      "applicable_topics": [
+        "COMPAN",
+        "Y_NAME",
+        "30",
+        "Agent"
+      ],
+      "insertion_type": "hard",
+      "confidence": 0.6,
+      "capability_signals": [],
+      "evidence": "product/产品介绍.md",
+      "created_at": "2026-06-22T08:30:28.879Z",
+      "updated_at": "2026-06-22T08:30:28.879Z"
+    }
+  ],
+  "updated_at": "2026-06-23T03:51:28.398Z"
+}
