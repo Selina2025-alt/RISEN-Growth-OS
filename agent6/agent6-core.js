@@ -46,7 +46,18 @@ function replacePlaceholders(content, companyName) {
 async function invokeJovaSkill(skillId, params) {
   // 延迟加载 invoker（避免循环 require）
   const { invokeSkill } = require('./lib/jova-skill-invoker');
-  return invokeSkill(skillId, params);
+  try {
+    return await invokeSkill(skillId, params);
+  } catch (err) {
+    // sessions_spawn 在 node 直接调用时不可用，fallback 到 skill-prompt 方式
+    if (err.message && err.message.includes('sessions_spawn')) {
+      console.warn(`[agent6] ⚠️ sessions_spawn 不可用（standalone 模式），跳过 Skill 调用`);
+      console.warn(`[agent6] 💡 提示: 在 Jova 对话中调用 Agent 6 以使用真实 Skill`);
+      const prompt = buildSkillPrompt(skillId, params);
+      return `[STANDALONE MODE] Skill "${skillId}" prompt:\n\n${prompt.slice(0, 500)}...\n\n(在 Jova 环境中调用以获得完整文章产出)`;
+    }
+    throw err;
+  }
 }
 
 /**
@@ -247,24 +258,30 @@ async function main() {
     console.error('[agent6] ❌ pending_keywords.json 不存在，请先配置 knowledge/pending_keywords.json');
     process.exit(1);
   }
-  let pendingKeywords;
+  // pending_keywords.json 根是对象: { keywords: [...], updated_at: "...", ... }
+  // 数组在 .keywords 字段里
+  let pendingKeywordsArr;
   try {
-    pendingKeywords = JSON.parse(fs.readFileSync(PENDING_KW_PATH, 'utf8'));
+    const raw = JSON.parse(fs.readFileSync(PENDING_KW_PATH, 'utf8'));
+    if (Array.isArray(raw)) {
+      pendingKeywordsArr = raw;  // 根直接是数组（兼容旧格式）
+    } else if (Array.isArray(raw.keywords)) {
+      pendingKeywordsArr = raw.keywords;
+    } else {
+      pendingKeywordsArr = [];
+    }
   } catch (e) {
     console.error(`[agent6] ❌ pending_keywords.json 解析失败: ${e.message}`);
     process.exit(1);
   }
-  if (!Array.isArray(pendingKeywords)) {
-    console.error('[agent6] ❌ pending_keywords.json 根必须是数组');
-    process.exit(1);
-  }
-  if (pendingKeywords.length === 0) {
-    console.warn('[agent6] ⚠️  WARN: pending_keywords.json 为空数组，建议填充后再试');
-    console.warn('[agent6] ⚠️  参考: 从 PRD Section 3/4 提取关键词写入 knowledge/pending_keywords.json');
-    // 不阻断，继续执行（符合 v2.0 计划：WARN 不阻断）
+  if (pendingKeywordsArr.length === 0) {
+    console.warn('[agent6] ⚠️ WARN: pending_keywords.json 为空，建议填充后再试');
+    console.warn('[agent6] ⚠️ 参考: 从 PRD Section 3/4 提取关键词写入 knowledge/pending_keywords.json');
   } else {
-    console.log(`[agent6] ✓ pending_keywords.json 加载成功 (${pendingKeywords.length} 条关键词)`);
+    console.log(`[agent6] ✓ pending_keywords.json 加载成功 (${pendingKeywordsArr.length} 条关键词)`);
   }
+  // 传给 runAgent6 时用对象形式
+  const pendingKeywords = { keywords: pendingKeywordsArr };
 
   try {
     const article = await runAgent6({ topicBrief, pendingKeywords });
