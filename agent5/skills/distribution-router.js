@@ -8,6 +8,11 @@
 
 const { PLATFORMS } = require('./platform-scorer');
 
+const fs = require('fs');
+const path = require('path');
+
+const RULES_FILE_PATH = path.join(__dirname, '../mock-data/distribution-rules.json');
+
 const THREE_ACCOUNTS = {
   awareness: {
     id: 'aike短视频',
@@ -64,11 +69,37 @@ const REPURPOSING_RULES = {
  * @param {Object} opts.narrativeConstraint - Narrative约束（来自Agent4）
  * @param {Object} opts.distributionRules - 分发规则（可动态调整）
  */
+function loadRulesFromFile() {
+  if (fs.existsSync(RULES_FILE_PATH)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(RULES_FILE_PATH, 'utf8'));
+      console.error(`[distribution-router] ✅ 读取分发规则: ${RULES_FILE_PATH}`);
+      return raw;
+    } catch (e) {
+      console.warn(`[distribution-router] ⚠️ 规则文件解析失败，使用默认值: ${e.message}`);
+    }
+  } else {
+    console.warn(`[distribution-router] ⚠️ 规则文件不存在，使用默认值`);
+  }
+  return null;
+}
+
+function saveRulesToFile(rules) {
+  try {
+    const toSave = { ...rules, _updated: new Date().toISOString() };
+    fs.writeFileSync(RULES_FILE_PATH, JSON.stringify(toSave, null, 2), 'utf8');
+    console.error(`[distribution-router] ✅ 规则已保存: ${RULES_FILE_PATH}`);
+  } catch (e) {
+    console.error(`[distribution-router] ❌ 保存规则失败: ${e.message}`);
+  }
+}
+
 function routeDistribution(opts = {}) {
   const { topicScores = [], narrativeConstraint = {}, distributionRules = {} } = opts;
 
   // 合并默认规则和用户可调规则
-  const rules = deepMerge(getDefaultRules(), distributionRules);
+  const fileRules = loadRulesFromFile();
+  const rules = deepMerge(fileRules || getDefaultRules(), distributionRules);
 
   const routes = [];
 
@@ -289,6 +320,7 @@ function updateDistributionRules(currentRules, changes) {
     _updated: new Date().toISOString()
   });
 
+  saveRulesToFile(updated);
   return updated;
 }
 

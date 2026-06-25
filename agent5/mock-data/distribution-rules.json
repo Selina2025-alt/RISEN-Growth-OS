@@ -1,0 +1,85 @@
+{
+  "_comment": "分发规则配置文件 - 由 Agent5 运行时读取和写入",
+  "_version": "1.0.0",
+  "_updated": "2026-06-25T07:30:00.000Z",
+  "platform_weights": {
+    "aike短视频": {
+      "weight": 0.25,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P0"
+    },
+    "wechat_gzh": {
+      "weight": 0.20,
+      "max_daily": 1,
+      "max_weekly": 3,
+      "priority": "P0"
+    },
+    "jova_video": {
+      "weight": 0.15,
+      "max_daily": 1,
+      "max_weekly": 3,
+      "priority": "P0"
+    },
+    "zhihu": {
+      "weight": 0.13,
+      "max_daily": 2,
+      "max_weekly": 14,
+      "priority": "P1"
+    },
+    "baijiahao": {
+      "weight": 0.10,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P1"
+    },
+    "toutiao": {
+      "weight": 0.06,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "xueqiu": {
+      "weight": 0.06,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "netease": {
+      "weight": 0.05,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "sohu": {
+      "weight": 0.05,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "tencent": {
+      "weight": 0.05,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "sina": {
+      "weight": 0.05,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    },
+    "ifeng": {
+      "weight": 0.05,
+      "max_daily": 1,
+      "max_weekly": 7,
+      "priority": "P2"
+    }
+  },
+  "content_type_ratio": {
+    "案例拆解": 0.30,
+    "方法论": 0.25,
+    "行业洞察": 0.25,
+    "资讯快讯": 0.20
+  }
+}
