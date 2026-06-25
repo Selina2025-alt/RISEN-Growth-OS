@@ -96,7 +96,17 @@ async function collectAihot(limit = 8) {
 
   const items = data?.items || [];
   const catMap = { industry: '行业洞察', 'ai-products': '产品发布', paper: '论文研究', tip: '利他（教程）', product: '企业案例', people: '人物观点' };
-  return items.map((item, i) => ({
+  const now = Date.now();
+  const maxAgeMs = SIGNAL_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+  const filtered = items.filter(item => {
+    if (!item.publishedAt) return true; // 无时间字段时保留
+    const age = now - new Date(item.publishedAt).getTime();
+    return age <= maxAgeMs;
+  });
+  if (filtered.length < items.length) {
+    console.error(`[aihot] 过滤掉 ${items.length - filtered.length}/${items.length} 条超过${SIGNAL_MAX_AGE_DAYS}天的信号`);
+  }
+  return filtered.map((item, i) => ({
     id: `SIG-AIHOT-${item.id || shortHash(item.title || String(i))}`,
     type: 'aihot',
     title: item.title || item.title_en || `AI热点 ${i + 1}`,
@@ -138,7 +148,12 @@ async function collectFollowBuilders() {
     const { ok, body } = await fetch(f.url);
     if (!ok || !body) return [];
     anySuccess = true;
-    return parseRSS(body).map(item => ({
+    const parsed = parseRSS(body);
+    const withinAge = parsed.filter(item => isWithinMaxAge(item.pub));
+    if (parsed.length - withinAge.length > 0) {
+      console.error(`[follow-builders] [${f.name}] 过滤掉 ${parsed.length - withinAge.length}/${parsed.length} 条过期信号`);
+    }
+    return withinAge.map(item => ({
       id: `SIG-FB-${shortHash(item.link)}`,
       type: 'follow-builders',
       title: item.title,
@@ -168,6 +183,43 @@ async function collectFollowBuilders() {
   return results;
 }
 
+// ─── 时间过滤常量 ─────────────────────────────────────────────────
+
+const SIGNAL_MAX_AGE_DAYS = 30; // 只保留30天内的信号
+
+/**
+ * 解析 RFC 2822 / RFC 5322 格式的 RSS pubDate
+ * @param {string} dateStr - e.g. "Thu, 22 Jun 2026 10:00:00 GMT"
+ * @returns {Date|null}
+ */
+function parseRSSDate(dateStr) {
+  if (!dateStr) return null;
+  try {
+    // 优先尝试标准 HTTP date format (RFC 7231 / RFC 2822)
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) return d;
+    // 备用：手动解析
+    const months = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+    const m = String(dateStr).match(/(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})\s+(\d{1,2}):(\d{2}):(\d{2})/i);
+    if (m) {
+      return new Date(+m[3], months[m[2]], +m[1], +m[4], +m[5], +m[6]);
+    }
+    return null;
+  } catch { return null; }
+}
+
+/**
+ * 检查信号是否在有效期内
+ * @param {string|null} pubDateStr - RSS pubDate
+ * @returns {boolean}
+ */
+function isWithinMaxAge(pubDateStr) {
+  const pubDate = parseRSSDate(pubDateStr);
+  if (!pubDate) return true; // 无日期字段时保留（不过滤）
+  const maxAgeMs = SIGNAL_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+  return (Date.now() - pubDate.getTime()) <= maxAgeMs;
+}
+
 // ─── Tech News RSS（最后兜底）───────────────────────────────────
 
 async function collectTechNews() {
@@ -189,7 +241,13 @@ async function collectTechNews() {
     const { ok, body } = await fetch(f.url);
     if (!ok || !body) return [];
     anySuccess = true;
-    return parseRSS(body).map(item => ({
+    const parsed = parseRSS(body);
+    const withinAge = parsed.filter(item => isWithinMaxAge(item.pub));
+    const filteredOut = parsed.length - withinAge.length;
+    if (filteredOut > 0) {
+      console.error(`[tech-news] [${f.name}] 过滤掉 ${filteredOut}/${parsed.length} 条过期信号（>${SIGNAL_MAX_AGE_DAYS}天）`);
+    }
+    return withinAge.map(item => ({
       id: `SIG-TN-${shortHash(item.link)}`,
       type: 'tech-news',
       title: item.title,
@@ -212,7 +270,7 @@ async function collectTechNews() {
     recordTechNewsFailure();
     console.error(`[tech-news] ❌ 所有 feed 均失败 → 系统 down`);
   } else {
-    console.error(`[tech-news] ✓ ${results.length} 条信号`);
+    console.error(`[tech-news] ✓ ${results.length} 条信号（已过滤 ${SIGNAL_MAX_AGE_DAYS} 天外）`);
   }
 
   return results;

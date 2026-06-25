@@ -17,6 +17,55 @@ const { collectResources } = require('./skills/resource-collector');
 const fs = require('fs');
 const path = require('path');
 
+// ─── Agent4 数据文件路径 ───────────────────────────────────────────────
+
+const NARRATIVE_PATH = path.join(__dirname, '../agent4/mock-data/narrative-constraints-extended.json');
+const STRATEGY_CARD_PATH = path.join(__dirname, '../agent4/mock-data/output-strategy-card.json');
+const PLATFORM_REPORT_PATH = path.join(__dirname, '../agent4/mock-data/platform-intelligence-report.json');
+
+/**
+ * 尝试从 Agent4 读取真实输出，读取失败则 fallback 到硬编码默认值
+ * @returns {Object} { narrative, strategyCard, platformReport }
+ */
+function loadAgent4Outputs() {
+  const result = { narrative: DEFAULT_NARRATIVE, strategyCard: null, platformReport: null };
+
+  // 读取 Narrative 约束（P0.1 核心修复）
+  if (fs.existsSync(NARRATIVE_PATH)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(NARRATIVE_PATH, 'utf8'));
+      result.narrative = raw.narrative_constraints || DEFAULT_NARRATIVE;
+      console.log(`[Agent4] ✅ 读取 Narrative 约束: ${NARRATIVE_PATH}`);
+    } catch (e) {
+      console.warn(`[Agent4] ⚠️ Narrative 文件解析失败，使用默认值: ${e.message}`);
+    }
+  } else {
+    console.warn(`[Agent4] ⚠️ Narrative 文件不存在: ${NARRATIVE_PATH}，使用 DEFAULT_NARRATIVE`);
+  }
+
+  // 读取 Strategy Card（P1.3 扩展）
+  if (fs.existsSync(STRATEGY_CARD_PATH)) {
+    try {
+      result.strategyCard = JSON.parse(fs.readFileSync(STRATEGY_CARD_PATH, 'utf8'));
+      console.log(`[Agent4] ✅ 读取 Strategy Card: ${STRATEGY_CARD_PATH}`);
+    } catch (e) {
+      console.warn(`[Agent4] ⚠️ Strategy Card 解析失败: ${e.message}`);
+    }
+  }
+
+  // 读取平台情报报告（P1.3 扩展）
+  if (fs.existsSync(PLATFORM_REPORT_PATH)) {
+    try {
+      result.platformReport = JSON.parse(fs.readFileSync(PLATFORM_REPORT_PATH, 'utf8'));
+      console.log(`[Agent4] ✅ 读取平台情报报告: ${PLATFORM_REPORT_PATH}`);
+    } catch (e) {
+      console.warn(`[Agent4] ⚠️ 平台情报报告解析失败: ${e.message}`);
+    }
+  }
+
+  return result;
+}
+
 // ─── 默认输入（来自Agent4的Narrative约束）─────────────────────────────
 
 const DEFAULT_NARRATIVE = {
@@ -114,14 +163,22 @@ function getMockFeedbackSignals() {
 
 
 async function runAgent5(opts = {}) {
-  const narrative = opts.narrative || DEFAULT_NARRATIVE;
+  // 优先加载 Agent4 真实输出，失败则 fallback
+  const agent4Outputs = loadAgent4Outputs();
+  const narrative = opts.narrative || agent4Outputs.narrative;
   const forcedSignals = opts.signals;
   const distributionRules = opts.distributionRules || {};
   const horizonDays = opts.horizonDays || 7;
+  const strategyCard = opts.strategyCard || agent4Outputs.strategyCard;
+  const platformReport = opts.platformReport || agent4Outputs.platformReport;
   // Agent4回传的高反馈内容 → 驱动选题权重调整（不是调整大框架策略）
   const feedbackSignals = opts.feedbackSignals || getMockFeedbackSignals();
 
-  console.log('\n========== Agent 5 Pipeline Start ==========\n');
+  console.log(`\n========== Agent 5 Pipeline Start ==========\n`);
+  console.log(`[输入] Narrative来源: ${opts.narrative ? '外部传入' : (fs.existsSync(NARRATIVE_PATH) ? 'Agent4文件' : 'DEFAULT硬编码')}`);
+  console.log(`[输入] StrategyCard: ${strategyCard ? '有' : '无'}`);
+  console.log(`[输入] 平台情报: ${platformReport ? '有' : '无'}`);
+  console.log(`[输入] Feedback: ${opts.feedbackSignals ? '外部传入' : 'Mock数据'}`);
 
   // 采集信号（优先三技能真实采集，失败则mock）
   let signals;
@@ -192,13 +249,14 @@ async function runAgent5(opts = {}) {
   }
 
   // Step 5: Skill8 资源采集（针对第一个选题第一个方向）
-  console.log('\n[Skill8] 资源采集（演示）...');
+  console.log('\n[Skill8] 资源采集中...');
   const firstTopic = clusterResult.topics[0];
   const firstDir = firstTopic?.directions[0];
+  let resourcesResult = { sources: [], evidence: {}, knowledge_base: '' };
   if (firstTopic && firstDir) {
     try {
-      const resourceResult = await collectResources({
-        topic: { topic_id: firstTopic.topic_id, direction_id: firstDir.direction_id, title: firstTopic.title },
+      resourcesResult = await collectResources({
+        topic: { topic_id: firstTopic.topic_id, direction_id: firstDir.direction_id, title: firstTopic.title, summary: firstTopic.source_signals?.[0] || '' },
         researchPlan: {
           queries: ['Claude Code 企业落地', 'AI Agent 记忆模块'],
           youtube_queries: ['Claude Code 实际应用案例'],
@@ -206,11 +264,17 @@ async function runAgent5(opts = {}) {
           urls: []
         }
       });
-      console.log(`  → 采集 ${resourceResult.sources.length} 个来源`);
-      console.log(`  → 证据充分度: ${resourceResult.knowledge_base?.substring(0, 60)}`);
+      console.log(`  → 采集 ${resourcesResult.sources?.length || 0} 个来源`);
+      if (resourcesResult.errors?.length) {
+        for (const err of resourcesResult.errors) {
+          console.error(`  → [${err.type}] ${err.reason || err.error || JSON.stringify(err)}`);
+        }
+      }
     } catch (e) {
-      console.log(`  → 采集模拟完成（演示模式）`);
+      console.error(`  → 采集异常: ${e.message}，使用空结果`);
     }
+  } else {
+    console.log('  → 无选题方向，跳过资源采集');
   }
 
   // Step 6: Skill9 Topic Brief（Trend Brief）
@@ -218,7 +282,7 @@ async function runAgent5(opts = {}) {
   const briefResult = buildTopicBrief({
     topic: firstTopic,
     direction: firstDir,
-    resources: { sources: [], evidence: {}, knowledge_base: '' },
+    resources: resourcesResult,
     narrativeConstraint: narrative,
     distributionRoute: routeResult.routes[0] || {},
     topicScores: scoreResult          // 含 search_intent

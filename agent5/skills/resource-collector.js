@@ -66,6 +66,28 @@ async function collectResources(opts = {}) {
     }
   }
 
+  // ─── 外部采集全部失败时，从选题信号本身提取最低保障知识 ──────────────────
+  if (sources.length === 0 && topic && topic.title) {
+    const localSource = {
+      source_id: `LOCAL-${topic.topic_id || 'unknown'}`,
+      type: 'local_fallback',
+      title: topic.title || '',
+      url: topic.url || null,
+      author: '选题信号自带摘要',
+      published_at: topic.published_at || null,
+      excerpt: topic.summary || topic.description || '',
+      tier: 'B',
+      tier_label: 'B级：专业内容',
+      status: 'accepted',
+      topic_id: topic.topic_id,
+      relevance_score: 1.0,
+      knowledge_potential: 'medium'
+    };
+    sources.push(localSource);
+    errors.push({ type: 'fallback', reason: '外部API全部失败，使用选题信号摘要作为最低保障来源' });
+    console.error(`[resource-collector] ⚠️ 外部采集全部失败，使用选题信号摘要作为最低保障来源`);
+  }
+
   // 来源分级
   const tiered = assignTiers(sources);
 
