@@ -54,6 +54,17 @@ Agent 9 是整个 RISEN 的**反馈学习闭环**——把 Agent 6 产出的内�
 - 多租户隔离
 - Temporal 工作流
 
+### v0.2 实现范围（新增）
+
+**新增**（v0.2）：
+- 平台元数据驱动归因（`platform-meta.json`）
+- 适配器模式（数据来源对核心逻辑透明）
+- 6个 Mock 适配器（微信公众号/知乎/CSDN/Dev.to/GitHub/LinkedIn）
+- 平台感知版 Insight（包含 GEO 权重、内容形式维度）
+- 决策路由到 Agent 4/5/6/7/8
+- Agent 8 接口契约补充到 `FEEDBACK_CONTRACT.md`
+- M0 前置修复（Agent6 topic_id / Agent5 loadFeedbackFromAgent9）
+
 ---
 
 ## 三、决策回流路径（PRD 规定）
@@ -77,8 +88,10 @@ Agent 9 是整个 RISEN 的**反馈学习闭环**——把 Agent 6 产出的内�
 ```typescript
 interface ArticlePerformance {
   article_id: string;           // ART-{timestamp}-{random}
-  topic_id: string;             // 对应 Agent5 的 topic_id
-  direction_id: string;          // 对应 Agent5 的 direction_id
+  topic_id: string;             // 对应 Agent5 的 topic_id（必须，M0 修复）
+  direction_id: string;
+  __mock__: boolean;             // 是否为 Mock 数据（强制标注）
+  __source__: string;              // 'platform_api' | 'agent8' | 'mock'          // 对应 Agent5 的 direction_id
   platform: PlatformId;         // 平台标识
   published_at: string;          // ISO 8601
   metrics: {
