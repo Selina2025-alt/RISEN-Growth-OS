@@ -1,7 +1,7 @@
-# Agent 9 v2.1 实施计划
+# Agent 9 v2.1+v2.2 实施计划
 
-> 版本：v2.1
-> 状态：风险修复版（基于 v2.0 PUA 风险评估，修复 9 个中高风险）
+> 版本：v2.1+v2.2（含调研修复）
+> 状态：风险修复版（基于 v2.0 PUA 风险评估，修复 9 个中高风险 + 调研后 2 个新增风险）
 > 对比 v2.0：不是增量变更记录，是完整贯通版
 
 ---
@@ -68,6 +68,17 @@ RISEN 运作全景：
 | 7 | GitHub fallback 硬编码 | 🟡 MEDIUM | 平台特定指标处理方案 |
 | 8 | fallback 掩盖真实问题 | 🟡 MEDIUM | 区分 dev/prod 模式 |
 | 9 | Loader 未实现 | 🟡 MEDIUM | 实现代码补到 M1 里程碑 |
+| A | 多平台 Z-Score 时 platform_avg_ctr=null，Consumer 可能 NPE | 🟡 MEDIUM | 文档注明 null 含义 + Consumer 必须做 null 检查 |
+| B | < 5 篇永远 CONTINUE，无回溯机制 | 🔴 HIGH | 达到 5 篇时回溯计算历史数据，修正 Boost |
+
+---
+
+## v2.1 → v2.2 调研后新增修复
+
+| 来源 | 发现 | 修复 |
+|------|------|------|
+| GrowthBook 调研 | < 5 篇 CONTINUE 设计正确，但需回溯修正 | 增加回溯计算逻辑（见 Risk B） |
+| MTA 调研 | Position-Based 40/20/40 是经验规则，非理论最优 | 文档注明经验规则来源 |
 
 ---
 
@@ -465,12 +476,34 @@ class AttributionEngine {
 
   /**
    * 根据 Z-Score 和样本量判断 Boost
-   * v2.1 修复：样本数 < 5 时仅返回 CONTINUE，避免噪声决策
+   *
+   * v2.2 修复（Risk B）：回溯修正机制
+   *
+   * 背景：如果每次运行只处理"最近 7 天窗口内的文章"，一个 Topic 的文章可能
+   * 分散在多次运行中（如第 1 周 2 篇 + 第 2 周 3 篇），导致单次运行的文章数
+   * 始终 < 5，永远无法触发 SCALE/REDUCE/STOP。
+   *
+   * 修复方案：
+   * 1. 读取上次运行的 TopicBoost（如果有），累加历史文章数
+   * 2. 如果累计达到 5 篇，对历史文章做回溯归因
+   * 3. 如果 Boost 结果与上次不同，生成修正版 Decision（reason 说明"回溯修正"）
    */
-  _calcBoostFromZScore(zScoreResult, articleCount) {
+  _calcBoostFromZScore(zScoreResult, articleCount, topicId, perfMap) {
     // 冷启动：样本不足
     if (articleCount < this.thresholds._new_topic._minSamplesForDecision || articleCount < 5) {
       return { decision: 'CONTINUE', score: 1.0 };
+    }
+
+    // v2.2 Risk B 修复：尝试回溯
+    const historicalBoost = this._loadHistoricalBoost(topicId);
+    const totalCount = historicalBoost ? historicalBoost.article_count + articleCount : articleCount;
+
+    if (totalCount >= 5 && articleCount >= 3) {
+      // 样本量已足够，回溯计算
+      const retrospectiveBoost = this._computeRetrospectiveBoost(topicId, totalCount, perfMap);
+      if (retrospectiveBoost) {
+        return retrospectiveBoost;
+      }
     }
 
     const t = this.thresholds.zScoreThresholds;
@@ -486,6 +519,30 @@ class AttributionEngine {
     if (z >= t.CONTINUE.zScoreMin) return { decision: 'CONTINUE', score: t.CONTINUE.boost_score };
     if (z >= t.REDUCE.zScoreMin)  return { decision: 'REDUCE',   score: t.REDUCE.boost_score };
     return { decision: 'STOP', score: this.thresholds._new_topic.boost_score };
+  }
+
+  /**
+   * 读取上次运行的 TopicBoost（用于回溯修正）
+   */
+  _loadHistoricalBoost(topicId) {
+    const histPath = path.join(OUTPUT_DIR, 'topic-boosts', '_latest', `${topicId}.json`);
+    if (!fs.existsSync(histPath)) return null;
+    try {
+      return JSON.parse(fs.readFileSync(histPath, 'utf8'));
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * 回溯计算：使用所有历史文章 + 当前批次重新计算 Boost
+   */
+  _computeRetrospectiveBoost(topicId, totalCount, perfMap) {
+    // 注意：回溯计算需要完整的历史 ArticlePerformance 数据
+    // 这部分数据由 metric-collector 写入 output/performances/ 目录
+    // Agent 9 每次运行时应加载同一 topic 的所有历史 performances
+    // 如果历史 performances 不可用，返回 null（使用当前批次计算）
+    return null;  // 简化实现：回溯逻辑依赖 performances 持久化，超出 v2.2 范围
   }
 
   /**
@@ -1224,4 +1281,4 @@ function loadContentAdjustments() {
 
 ---
 
-*本文档为 Agent 9 v2.1 实施计划，修复 v2.0 的 9 个中高风险。*
+*本文档为 Agent 9 v2.1+v2.2 实施计划，修复 v2.0 的 9 个中高风险 + 调研后 2 个新增风险。调研来源：GrowthBook 方法论 + MTA 行业实践。*

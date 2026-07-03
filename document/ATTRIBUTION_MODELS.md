@@ -91,6 +91,17 @@ Z_weighted = Σ(Z_i × impressions_i) / Σ(impressions_i)
 
 **为什么这样加权**：一篇 10000 曝光的爆款的 Z-Score 比 100 曝光的冷文更有说服力。
 
+### 3.5 Position-Based Attribution（U-Shaped）说明
+
+**40%/20%/40% 是经验规则，非理论最优。**
+
+来源：
+- 注意力衰减理论：用户在漏斗两端（首触、临转化前）注意力最集中
+- Google Analytics 早期推广为"首尾优先"的实践默认值
+- Google 2016 白皮书：实证证明首尾贡献最大，但具体比例是经验值，非理论最优
+
+Agent 9 的 position_based 模型保留此配置，**仅作实验对比用**，不作为严谨统计依据。
+
 ---
 
 ## 4. 为什么不用 Bayesian 方法
