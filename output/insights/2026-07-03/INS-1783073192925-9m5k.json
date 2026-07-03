@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783073192925-9m5k",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-7786",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=100.00%，Z=0.00，总曝光=5,961，置信度=0.65，1篇内容",
+  "platforms": [
+    "github"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-03T10:06:32.925Z"
+}

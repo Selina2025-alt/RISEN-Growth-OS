@@ -1,0 +1,91 @@
+{
+  "version": "1.2",
+  "decisions": [
+    {
+      "id": "DEC-20260703-1806-9644",
+      "type": "topic_boost",
+      "source": "agent9",
+      "target": "agent5",
+      "topic_id": "TOPIC-3231",
+      "decision": "CONTINUE",
+      "boost_score": 1,
+      "reason": "CTR 接近平台基准，继续保持当前节奏",
+      "confidence": 0.65,
+      "recommended_action": "REVIEW",
+      "created_at": "2026-07-03T10:06:33.129Z",
+      "deduplication_key": "TOPIC-3231:CONTINUE",
+      "__retrospective__": false,
+      "history": []
+    },
+    {
+      "id": "DEC-20260703-1806-1642",
+      "type": "topic_boost",
+      "source": "agent9",
+      "target": "agent5",
+      "topic_id": "TOPIC-7880",
+      "decision": "CONTINUE",
+      "boost_score": 1,
+      "reason": "CTR 接近平台基准，继续保持当前节奏",
+      "confidence": 0.75,
+      "recommended_action": "REVIEW",
+      "created_at": "2026-07-03T10:06:33.129Z",
+      "deduplication_key": "TOPIC-7880:CONTINUE",
+      "__retrospective__": false,
+      "history": []
+    },
+    {
+      "id": "DEC-20260703-1806-7357",
+      "type": "topic_boost",
+      "source": "agent9",
+      "target": "agent5",
+      "topic_id": "TOPIC-1108",
+      "decision": "CONTINUE",
+      "boost_score": 1,
+      "reason": "CTR 接近平台基准，继续保持当前节奏",
+      "confidence": 0.75,
+      "recommended_action": "REVIEW",
+      "created_at": "2026-07-03T10:06:33.129Z",
+      "deduplication_key": "TOPIC-1108:CONTINUE",
+      "__retrospective__": false,
+      "history": []
+    },
+    {
+      "id": "DEC-20260703-1806-6302",
+      "type": "topic_boost",
+      "source": "agent9",
+      "target": "agent5",
+      "topic_id": "TOPIC-3643",
+      "decision": "CONTINUE",
+      "boost_score": 1,
+      "reason": "CTR 接近平台基准，继续保持当前节奏",
+      "confidence": 0.55,
+      "recommended_action": "REVIEW",
+      "created_at": "2026-07-03T10:06:33.129Z",
+      "deduplication_key": "TOPIC-3643:CONTINUE",
+      "__retrospective__": false,
+      "history": []
+    },
+    {
+      "id": "DEC-20260703-1806-0887",
+      "type": "topic_boost",
+      "source": "agent9",
+      "target": "agent5",
+      "topic_id": "TOPIC-8613",
+      "decision": "CONTINUE",
+      "boost_score": 1,
+      "reason": "CTR 接近平台基准，继续保持当前节奏",
+      "confidence": 0.75,
+      "recommended_action": "REVIEW",
+      "created_at": "2026-07-03T10:06:33.129Z",
+      "deduplication_key": "TOPIC-8613:CONTINUE",
+      "__retrospective__": false,
+      "history": []
+    }
+  ],
+  "metadata": {
+    "interface_version": "1.2",
+    "total_decisions": 5,
+    "computed_at": "2026-07-03T10:06:33.134Z",
+    "run_mode": "dev"
+  }
+}

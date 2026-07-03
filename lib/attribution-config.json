@@ -1,0 +1,79 @@
+{
+  "_version": "1.2",
+  "_updated": "2026-07-03T00:00:00+08:00",
+  "_note": "Boost 阈值基于 Z-Score，详见 ATTRIBUTION_MODELS.md",
+
+  "model": "linear",
+
+  "models": {
+    "linear": { "description": "权重均分，适合初期数据不足场景" },
+    "time_decay": {
+      "description": "近期内容权重更高，半衰期 7 天",
+      "params": { "halfLifeDays": 7 }
+    },
+    "position_based": {
+      "description": "首尾各 40% 权重",
+      "_disclaimer": "40/20/40 是经验规则，非理论最优（见 ATTRIBUTION_MODELS.md 3.5）",
+      "params": { "firstWeight": 0.4, "lastWeight": 0.4 }
+    }
+  },
+
+  "boostThresholds": {
+    "_methodology": "Z-Score = (avg_ctr - platform_avg_ctr) / platform_std_ctr",
+    "_source": "工程经验值，1年内替换为真实数据统计值",
+    "zScoreThresholds": {
+      "_note": "Z > 1.0 → 超过平台平均 1 个标准差，p≈0.16",
+      "SCALE":    { "zScoreMin": 1.0,  "boost_score": 1.2 },
+      "CONTINUE": { "zScoreMin": -0.5, "boost_score": 1.0 },
+      "REDUCE":   { "zScoreMin": -1.5, "boost_score": 0.8 },
+      "STOP":     { "zScoreMin": -999, "boost_score": 0.0 }
+    },
+    "_ratioFallback": {
+      "_note": "仅用于无 stdCTR 的平台（GitHub Star Rate）",
+      "SCALE":    { "ratio": 2.0, "boost_score": 1.2 },
+      "CONTINUE": { "ratio": 1.0, "boost_score": 1.0 },
+      "REDUCE":   { "ratio": 0.5, "boost_score": 0.8 }
+    },
+    "_new_topic": {
+      "boost_score": 1.0,
+      "decision": "CONTINUE",
+      "_note": "样本数 < 5 篇时强制中性 Boost"
+    },
+    "_minSamplesForDecision": 5
+  },
+
+  "contentFormThresholds": {
+    "_note": "v4.0 新增：对齐 Z-Score 标准",
+    "_methodology": "ratio = best_ctr / worst_ctr，阈值 1.2 对应 Z≈0.32",
+    "_reference": "见 ATTRIBUTION_MODELS.md 第 12.1 节",
+    "minRatio": 1.2
+  },
+
+  "platformBenchmarks": {
+    "_note": "avgCTR=平台平均 CTR，stdCTR=平台 CTR 标准差；来源见 PLATFORM_BENCHMARKS.md",
+    "wechat_gzh": { "avgCTR": 0.025, "stdCTR": 0.015 },
+    "zhihu":       { "avgCTR": 0.035, "stdCTR": 0.020 },
+    "csdn":        { "avgCTR": 0.030, "stdCTR": 0.018 },
+    "juejin":      { "avgCTR": 0.030, "stdCTR": 0.018 },
+    "dev-to":      { "avgCTR": 0.020, "stdCTR": 0.012 },
+    "linkedin":    { "avgCTR": 0.020, "stdCTR": 0.010 },
+    "github":      { "avgCTR": null,  "stdCTR": null, "_note": "GitHub 用 Star Rate" }
+  },
+
+  "confidence": {
+    "ranges": [
+      { "minImpressions": 100000, "confidence": 0.95 },
+      { "minImpressions": 50000,  "confidence": 0.85 },
+      { "minImpressions": 10000,  "confidence": 0.75 },
+      { "minImpressions": 5000,   "confidence": 0.65 },
+      { "minImpressions": 1000,   "confidence": 0.55 },
+      { "minImpressions": 0,     "confidence": 0.45 }
+    ]
+  },
+
+  "runMode": {
+    "_note": "区分开发模式和生产模式，避免 Mock 数据进入生产决策",
+    "dev": { "NODE_ENV": "development", "allowMock": true,  "warnOnMock": true },
+    "prod": { "NODE_ENV": "production",  "allowMock": false, "warnOnMock": false }
+  }
+}

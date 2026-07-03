@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783073192530-2054",
+  "topic_id": "TOPIC-5253",
+  "direction_id": null,
+  "platform": "zhihu",
+  "published_at": "2026-06-30T14:26:47.177Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 15419,
+    "clicks": 826,
+    "ctr": 0.053588681996617774,
+    "conversions": 11,
+    "cvr": 0.005032561684731469,
+    "shares": 66,
+    "likes": 123,
+    "comments": 41,
+    "avg_read_time": 299
+  },
+  "metadata": {
+    "content_form": "问答",
+    "topic_keywords": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783073192925-m73b",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-9226",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=3.74%，Z=1.74，总曝光=8,453，置信度=0.65，1篇内容",
+  "platforms": [
+    "linkedin"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-03T10:06:32.925Z"
+}
