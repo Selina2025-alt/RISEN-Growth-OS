@@ -208,6 +208,7 @@ async function runAgent6({ topicBrief, strategyContext, pendingKeywords }) {
   const article = {
     article_id: generateArticleId(),
     topic_id: topicBrief.topic_id,
+    direction_id: topicBrief.direction_id || null,
     content,
     content_structure: {
       hook: content.split('\n')[0],

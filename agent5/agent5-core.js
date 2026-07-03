@@ -150,6 +150,53 @@ async function collectSignalsFromAllSkills() {
  * Agent4 用它调整大框架策略；
  * Agent5 用它提升同类选题的权重（两个目标不同，都需要）
  */
+/**
+ * 从 Agent 9 读取 TopicBoost 数据
+ * 依赖：AGENT9_OUTPUT_DIR 环境变量（必须与 Agent 9 配置相同路径）
+ * 返回格式与 getMockFeedbackSignals() 兼容
+ */
+function loadFeedbackFromAgent9() {
+  const dir = process.env.AGENT9_OUTPUT_DIR;
+  if (!dir) {
+    console.warn('[Agent5] ⚠️  AGENT9_OUTPUT_DIR 未设置，Agent9 反馈不可用');
+    return null;
+  }
+  const latestDir = path.join(dir, 'topic-boosts', '_latest');
+  let files;
+  try {
+    if (!fs.existsSync(latestDir)) {
+      console.warn(`[Agent5] ⚠️  Agent9 数据目录不存在: ${latestDir}`);
+      return null;
+    }
+    files = fs.readdirSync(latestDir).filter(f => f.endsWith('.json'));
+  } catch (e) {
+    console.warn(`[Agent5] ⚠️  读取 Agent9 数据失败: ${e.message}`);
+    return null;
+  }
+  if (files.length === 0) return null;
+
+  const boosts = files.map(f => {
+    try {
+      const b = JSON.parse(fs.readFileSync(path.join(latestDir, f), 'utf8'));
+      return {
+        topic_keyword: b.topic_id,
+        engagement_score: b.boost_score,
+        decision: b.decision,
+        confidence: b.confidence,
+        data_source: '__agent9__',
+        computed_at: b.computed_at,
+        __retrospective__: b.__retrospective__ || false
+      };
+    } catch (e) {
+      return null;
+    }
+  }).filter(Boolean);
+
+  if (boosts.length === 0) return null;
+  console.log(`[Agent5] ✅ Agent9 反馈加载成功: ${boosts.length} 条 TopicBoost`);
+  return boosts;
+}
+
 function getMockFeedbackSignals() {
   return [
     { topic_keyword: 'Claude Code', engagement_score: 4.5, content_type: '行业洞察' },
@@ -171,8 +218,12 @@ async function runAgent5(opts = {}) {
   const horizonDays = opts.horizonDays || 7;
   const strategyCard = opts.strategyCard || agent4Outputs.strategyCard;
   const platformReport = opts.platformReport || agent4Outputs.platformReport;
-  // Agent4回传的高反馈内容 → 驱动选题权重调整（不是调整大框架策略）
-  const feedbackSignals = opts.feedbackSignals || getMockFeedbackSignals();
+  // Agent4回传的高反馈内容 → 驱动选题权重调整
+  // 优先读取 Agent9 真实反馈，fallback 到 Mock
+  const agent9Feedback = loadFeedbackFromAgent9();
+  const feedbackSignals = opts.feedbackSignals || agent9Feedback || getMockFeedbackSignals();
+  if (agent9Feedback) {
+    console.log(`[Agent5] ℹ️  使用 Agent9 真实反馈（${agent9Feedback.length}条）`);
 
   console.log(`\n========== Agent 5 Pipeline Start ==========\n`);
   console.log(`[输入] Narrative来源: ${opts.narrative ? '外部传入' : (fs.existsSync(NARRATIVE_PATH) ? 'Agent4文件' : 'DEFAULT硬编码')}`);

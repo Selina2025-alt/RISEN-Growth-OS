@@ -1,6 +1,9 @@
 # Agent 5 · 趋势与选题智能体
 ## 技术规格文档 V2.1
 
+> **V1.2 更新 (2026-06-25)**：新增 loadAgent4Outputs()接通Agent4数据管道；全信号源30天过滤；ResourceCollector本地Fallback；修复buildTopicBrief空resources Bug
+
+
 > 本文档是 Agent 5 的唯一权威技术规格。
 > 无需查阅其他文档，按本文档可直接实施完整系统。
 >
