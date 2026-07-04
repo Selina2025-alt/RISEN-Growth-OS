@@ -29,7 +29,7 @@
 
 **目标**：让 `agent6-core.js` 在标准流程中调用所有新增Skill，形成完整的数据流。
 
-**Pipeline新数据流设计**：
+**Pipeline新数据流设计（6 Phase）**：
 
 ```
 输入（Agent5 Topic Brief + Agent4 Strategy + Agent2 Brand + Agent3 ICP）
@@ -42,27 +42,35 @@
 └──────────────────────────────────────┘
          ↓
 ┌──────────────────────────────────────┐
-│ PHASE 2: 选题能力匹配                 │
+│ PHASE 2: 网络调研（新增）             │
+│   source-discovery-skill              │
+│   multi-source-research-skill         │
+└──────────────────────────────────────┘
+         ↓
+┌──────────────────────────────────────┐
+│ PHASE 3: 选题能力匹配                │
 │   topic-capability-matcher            │
 │   insertion-strategy-decider          │
 └──────────────────────────────────────┘
          ↓
 ┌──────────────────────────────────────┐
-│ PHASE 3: 写作Skills编排              │
+│ PHASE 4: 写作Skills编排              │
 │   skill-selector → 三元路由           │
 │   主笔Skill + auxSkills + SEO/GEO   │
+│   evidence-pack 预填充               │
 └──────────────────────────────────────┘
          ↓
 ┌──────────────────────────────────────┐
-│ PHASE 4: 后处理质量保障              │
-│   seo-structure-skill → meta优化      │
-│   geo-article-transformer → GEO改造  │
-│   geo-metrics-skill → 评分           │
-│   content-lineage-tracker → 血缘记录  │
+│ PHASE 5: 后处理（修正）              │
+│   geo-article-generator → GEO生成    │
+│   seo-structure-skill → meta优化     │
+│   geo-article-transformer → GEO改写 │
 └──────────────────────────────────────┘
          ↓
 ┌──────────────────────────────────────┐
-│ PHASE 5: 结构化输出                  │
+│ PHASE 6: 质量保障+输出              │
+│   geo-metrics-skill → 评分          │
+│   content-lineage-tracker → 血缘记录 │
 │   schema-org-generator → JSON-LD     │
 │   seo-keyword-research → 关键词策略   │
 └──────────────────────────────────────┘
@@ -214,57 +222,91 @@ T4.3 在每个Skill的 `run()` 入口添加"切换就绪度"自检
 
 ## 四、Iter-1 详细技术方案
 
+### 修正：Phase 归属调整
+
+原计划中 `seo-structure-skill` 和 `geo-article-transformer` 放在 Phase4（质量）存在问题——它们应作用于**已生成的初稿**，不是质量验证工具。正确的 Phase 归属：
+
+| Phase | Skill | 修正说明 |
+|-------|-------|---------|
+| context | brand-policy-reader | 新增 |
+| context | strategy-reader | 新增 |
+| context | icp-reader | 新增 |
+| **research** | **source-discovery-skill** | **新增（漏排）** |
+| **research** | **multi-source-research-skill** | **新增（漏排）** |
+| matching | topic-capability-matcher | 已有 |
+| matching | insertion-strategy-decider | 已有 |
+| **writing** | skill-selector | 已有(v2) |
+| **writing** | evidence-pack-skill | 新增（在写作前构建证据包） |
+| **post-write** | **geo-article-generator** | **修正：从quality移至post-write** |
+| **post-write** | **seo-structure-skill** | **修正：应在文章生成后执行** |
+| **post-write** | **geo-article-transformer** | **修正：改写已完成，不是质量验证** |
+| quality | geo-metrics-skill | 新增（评估 post-write 产出） |
+| quality | content-lineage-tracker | 新增 |
+| output | schema-org-generator | 新增 |
+| output | seo-keyword-research | 新增 |
+
+**修正后的6个Phase**：
+
+```
+Phase 1: 上下文加载（Reader × 3）
+Phase 2: 网络调研（source-discovery + multi-source-research）
+Phase 3: 选题匹配（topic-capability-matcher + insertion-strategy-decider）
+Phase 4: 写作编排（skill-selector + evidence-pack 预填充）
+Phase 5: 文章后处理（geo-generator + seo-structure + geo-transformer）
+Phase 6: 质量保障（geo-metrics + lineage-tracker）→ 输出
+```
+
 ### SkillOrchestrator 设计
 
 ```javascript
 // lib/skill-orchestrator.js
 class SkillOrchestrator {
-  constructor(skills) {
-    this.phases = {
-      context: [],    // Reader skills
-      matching: [],   // Topic-capability matching
-      writing: [],    // Main writer + aux
-      quality: [],    // Post-processing
-      output: [],    // Schema + keywords
-    };
+  constructor() {
+    // 6个Phase，每个Phase包含一组按顺序执行的Skill
+    this.phases = [
+      { name: 'context',    skills: ['brand-policy-reader', 'strategy-reader', 'icp-reader'] },
+      { name: 'research',    skills: ['source-discovery-skill', 'multi-source-research-skill'] },
+      { name: 'matching',    skills: ['topic-capability-matcher', 'insertion-strategy-decider'] },
+      { name: 'writing',     skills: ['skill-selector'] },  // skill-selector 内部编排主笔+aux
+      { name: 'post-write',  skills: ['geo-article-generator', 'seo-structure-skill', 'geo-article-transformer'] },
+      { name: 'quality',     skills: ['geo-metrics-skill', 'content-lineage-tracker'] },
+    ];
   }
 
-  async run(input, context) {
-    let data = { ...input };
-
-    for (const [phase, skills] of Object.entries(this.phases)) {
-      for (const skill of skills) {
-        data = await this.runSkill(skill, data, context);
+  async run(input) {
+    let ctx = { ...input };
+    for (const phase of this.phases) {
+      for (const skillId of phase.skills) {
+        ctx = await this.runSkill(skillId, ctx);
       }
     }
-
-    return data;
+    return ctx;
   }
 }
 ```
 
-### 现有Skill的phase归属
+### 修正说明：R2 Standalone Fallback
 
-| Phase | Skill | 已有/新增 |
-|-------|-------|---------|
-| context | brand-policy-reader | 新增 |
-| context | strategy-reader | 新增 |
-| context | icp-reader | 新增 |
-| matching | topic-capability-matcher | 已有 |
-| matching | insertion-strategy-decider | 已有 |
-| writing | skill-selector | 已有(v2) |
-| writing | seo-structure-skill | 新增 |
-| writing | geo-article-generator | 新增 |
-| writing | evidence-pack-skill | 新增 |
-| quality | geo-metrics-skill | 新增 |
-| quality | content-lineage-tracker | 新增 |
-| quality | geo-article-transformer | 新增 |
-| output | schema-org-generator | 新增 |
-| output | seo-keyword-research | 新增 |
+**现状**：`writing-stub.js` 已存在，`skill-selector.js` 已配置 `local-stub` 映射。R2 不是"创建新 stub"，而是**增强现有 stub 的输出质量**。
+
+T2.1：将 `writing-stub.js` 接入 `skill-selector.js` 的 `runWritingSkill` 作为显式 fallback
+T2.2：增强 `writing-stub.js` 的结构化模板（加入 evidence pack 片段 + SEO meta 字段）
+T2.3：输出标注"standalone fallback"水印，便于识别
 
 ---
 
-## 五、风险与依赖
+## 五、计划自身风险（自检）
+
+| 风险 | 说明 | 状态 |
+|------|------|------|
+| Phase归属错误 | 原计划把seo-structure/geo-transformer放在"质量Phase"，应在前处理Phase | ✅ 已修正 |
+| R2与现有代码重复 | `writing-stub.js`已存在且已配置在skill-selector中 | ✅ 已修正 |
+| Phase数量不一致 | 文档写5个，表格写5个，数据流图画6个 | ✅ 已修正为6个 |
+| source-discovery/multi-source-research漏排 | 原计划遗漏了调研Phase | ✅ 已修正 |
+
+---
+
+## 六、风险与依赖
 
 | 风险 | 影响 | 缓解措施 |
 |------|------|---------|
