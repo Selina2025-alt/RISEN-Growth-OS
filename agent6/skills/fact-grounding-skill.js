@@ -88,7 +88,7 @@ function mockGround(claims) {
  *    response = query_engine.query(claim)
  *
  * 示例：
- *   const { groundFacts } = require('./skills/fact-grounding-skill');
+ *   const { groundFacts } = require('./fact-grounding-skill');
  *   const results = await groundFacts({
  *     claims: ['多Agent协作可以提升效率30%'],
  *     knowledge_base_path: './knowledge_index.json'
