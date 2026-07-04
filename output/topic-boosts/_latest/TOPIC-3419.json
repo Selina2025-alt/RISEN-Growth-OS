@@ -1,0 +1,29 @@
+{
+  "topic_id": "TOPIC-3419",
+  "total_impressions": 7113,
+  "total_clicks": 49,
+  "total_conversions": 1,
+  "avg_ctr": 0.0069,
+  "avg_cvr": 0.0204,
+  "z_score": -1.408,
+  "platform_avg_ctr": 0.035,
+  "platform_std_ctr": 0.02,
+  "ratio_to_benchmark": null,
+  "model_used": "linear",
+  "decision": "CONTINUE",
+  "boost_score": 1,
+  "confidence": 0.65,
+  "source_articles": [
+    "ART-1783130172857-1994"
+  ],
+  "platforms": [
+    "zhihu"
+  ],
+  "computed_at": "2026-07-04T01:56:12.987Z",
+  "__mock__": true,
+  "__retrospective__": false,
+  "__config__": {
+    "model": "linear",
+    "config_version": "1.2"
+  }
+}

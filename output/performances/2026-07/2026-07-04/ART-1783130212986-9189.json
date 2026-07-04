@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130212986-9189",
+  "topic_id": "TOPIC-6048",
+  "direction_id": null,
+  "platform": "csdn",
+  "published_at": "2026-07-02T05:56:21.801Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 6798,
+    "clicks": 183,
+    "ctr": 0.026911179791869556,
+    "conversions": 2,
+    "cvr": 0.008698448777725978,
+    "shares": 3,
+    "likes": 14,
+    "comments": 1,
+    "avg_read_time": 168
+  },
+  "metadata": {
+    "content_form": "图文",
+    "topic_keywords": []
+  }
+}

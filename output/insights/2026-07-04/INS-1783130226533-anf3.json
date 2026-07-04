@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130226533-anf3",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-6106",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=4.03%，Z=0.57，总曝光=5,067，置信度=0.65，1篇内容",
+  "platforms": [
+    "csdn"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:57:06.533Z"
+}

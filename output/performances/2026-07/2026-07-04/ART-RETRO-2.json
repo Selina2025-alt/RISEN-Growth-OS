@@ -1,0 +1,21 @@
+{
+  "article_id": "ART-RETRO-2",
+  "topic_id": "TOPIC-1492",
+  "direction_id": null,
+  "platform": "wechat_gzh",
+  "published_at": "2026-07-04T10:00:00+08:00",
+  "__mock__": false,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 20000,
+    "clicks": 800,
+    "ctr": 0.04,
+    "conversions": 32,
+    "cvr": 0.04,
+    "shares": 40,
+    "likes": 80,
+    "comments": 16,
+    "avg_read_time": 180
+  },
+  "metadata": { "content_form": "图文", "topic_keywords": [] }
+}

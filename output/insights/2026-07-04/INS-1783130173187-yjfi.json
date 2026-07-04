@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130173187-yjfi",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-4258",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=4.85%，Z=0.68，总曝光=9,436，置信度=0.65，1篇内容",
+  "platforms": [
+    "zhihu"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:56:13.187Z"
+}

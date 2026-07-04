@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130212946-8158",
+  "topic_id": "TOPIC-4273",
+  "direction_id": null,
+  "platform": "zhihu",
+  "published_at": "2026-07-03T09:41:18.472Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 18228,
+    "clicks": 633,
+    "ctr": 0.03474068751092779,
+    "conversions": 8,
+    "cvr": 0.020982358530986154,
+    "shares": 50,
+    "likes": 94,
+    "comments": 31,
+    "avg_read_time": 222
+  },
+  "metadata": {
+    "content_form": "图文",
+    "topic_keywords": []
+  }
+}

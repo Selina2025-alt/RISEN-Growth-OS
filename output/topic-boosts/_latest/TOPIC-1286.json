@@ -1,0 +1,29 @@
+{
+  "topic_id": "TOPIC-1286",
+  "total_impressions": 1999,
+  "total_clicks": 1999,
+  "total_conversions": 10,
+  "avg_ctr": 1,
+  "avg_cvr": 0.005,
+  "z_score": null,
+  "platform_avg_ctr": null,
+  "platform_std_ctr": null,
+  "ratio_to_benchmark": 50,
+  "model_used": "linear",
+  "decision": "CONTINUE",
+  "boost_score": 1,
+  "confidence": 0.55,
+  "source_articles": [
+    "ART-1783130226205-8769"
+  ],
+  "platforms": [
+    "github"
+  ],
+  "computed_at": "2026-07-04T01:57:06.275Z",
+  "__mock__": true,
+  "__retrospective__": false,
+  "__config__": {
+    "model": "linear",
+    "config_version": "1.2"
+  }
+}

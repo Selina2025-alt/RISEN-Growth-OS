@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130152116-ki0n",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-9799",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=1.57%，Z=-0.36，总曝光=8,562，置信度=0.65，1篇内容",
+  "platforms": [
+    "dev-to"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:55:52.116Z"
+}

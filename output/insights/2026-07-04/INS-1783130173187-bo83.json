@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130173187-bo83",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-4375",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=5.06%，Z=1.71，总曝光=26,082，置信度=0.75，1篇内容",
+  "platforms": [
+    "wechat_gzh"
+  ],
+  "confidence": 0.75,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:56:13.187Z"
+}

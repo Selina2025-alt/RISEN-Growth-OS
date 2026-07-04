@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130151754-6572",
+  "topic_id": "TOPIC-9298",
+  "direction_id": null,
+  "platform": "dev-to",
+  "published_at": "2026-07-03T22:44:14.011Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 3478,
+    "clicks": 49,
+    "ctr": 0.01402696323809233,
+    "conversions": 1,
+    "cvr": 0.010308801714908604,
+    "shares": 4,
+    "likes": 9,
+    "comments": 1,
+    "avg_read_time": 177
+  },
+  "metadata": {
+    "content_form": "图文",
+    "topic_keywords": []
+  }
+}

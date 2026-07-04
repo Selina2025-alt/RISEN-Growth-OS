@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130226233-7331",
+  "topic_id": "TOPIC-6516",
+  "direction_id": null,
+  "platform": "linkedin",
+  "published_at": "2026-07-04T13:58:55.141Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 6744,
+    "clicks": 7,
+    "ctr": 0.001,
+    "conversions": 0,
+    "cvr": 0.03902448267692742,
+    "shares": 1,
+    "likes": 1,
+    "comments": 0,
+    "avg_read_time": 145
+  },
+  "metadata": {
+    "content_form": "短视频",
+    "topic_keywords": []
+  }
+}

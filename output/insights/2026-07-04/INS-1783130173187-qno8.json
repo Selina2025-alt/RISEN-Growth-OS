@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130173187-qno8",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-7408",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=5.86%，Z=1.59，总曝光=6,095，置信度=0.65，1篇内容",
+  "platforms": [
+    "csdn"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:56:13.187Z"
+}

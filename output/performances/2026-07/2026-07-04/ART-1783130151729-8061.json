@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130151729-8061",
+  "topic_id": "TOPIC-8945",
+  "direction_id": null,
+  "platform": "csdn",
+  "published_at": "2026-07-01T08:06:05.910Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 8575,
+    "clicks": 9,
+    "ctr": 0.001,
+    "conversions": 0,
+    "cvr": 0.00811037706866719,
+    "shares": 0,
+    "likes": 0,
+    "comments": 0,
+    "avg_read_time": 91
+  },
+  "metadata": {
+    "content_form": "问答",
+    "topic_keywords": []
+  }
+}

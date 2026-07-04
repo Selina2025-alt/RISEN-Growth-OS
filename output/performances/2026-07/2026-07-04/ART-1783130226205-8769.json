@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130226205-8769",
+  "topic_id": "TOPIC-1286",
+  "direction_id": null,
+  "platform": "github",
+  "published_at": "2026-07-03T17:00:48.091Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 1999,
+    "clicks": 1999,
+    "ctr": 0.004978334201634527,
+    "conversions": 10,
+    "cvr": 1,
+    "shares": 3,
+    "likes": 10,
+    "comments": 1,
+    "avg_read_time": 52
+  },
+  "metadata": {
+    "content_form": "图文",
+    "topic_keywords": []
+  }
+}

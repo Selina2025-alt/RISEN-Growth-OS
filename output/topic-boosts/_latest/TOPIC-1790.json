@@ -1,0 +1,29 @@
+{
+  "topic_id": "TOPIC-1790",
+  "total_impressions": 9471,
+  "total_clicks": 204,
+  "total_conversions": 5,
+  "avg_ctr": 0.0215,
+  "avg_cvr": 0.0245,
+  "z_score": -0.229,
+  "platform_avg_ctr": 0.025,
+  "platform_std_ctr": 0.015,
+  "ratio_to_benchmark": null,
+  "model_used": "linear",
+  "decision": "CONTINUE",
+  "boost_score": 1,
+  "confidence": 0.65,
+  "source_articles": [
+    "ART-1783130172811-7323"
+  ],
+  "platforms": [
+    "wechat_gzh"
+  ],
+  "computed_at": "2026-07-04T01:56:12.987Z",
+  "__mock__": true,
+  "__retrospective__": false,
+  "__config__": {
+    "model": "linear",
+    "config_version": "1.2"
+  }
+}

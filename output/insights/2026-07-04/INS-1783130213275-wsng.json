@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130213275-wsng",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-9510",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=5.61%，Z=2.08，总曝光=37,209，置信度=0.75，1篇内容",
+  "platforms": [
+    "wechat_gzh"
+  ],
+  "confidence": 0.75,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:56:53.285Z"
+}

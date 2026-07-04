@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130213011-5815",
+  "topic_id": "TOPIC-4755",
+  "direction_id": null,
+  "platform": "dev-to",
+  "published_at": "2026-07-01T01:46:18.380Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 3892,
+    "clicks": 45,
+    "ctr": 0.011674207216789731,
+    "conversions": 1,
+    "cvr": 0.005202499343398002,
+    "shares": 4,
+    "likes": 9,
+    "comments": 1,
+    "avg_read_time": 123
+  },
+  "metadata": {
+    "content_form": "视频",
+    "topic_keywords": []
+  }
+}

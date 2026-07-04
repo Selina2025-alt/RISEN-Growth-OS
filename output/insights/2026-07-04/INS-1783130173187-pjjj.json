@@ -1,0 +1,15 @@
+{
+  "id": "INS-1783130173187-pjjj",
+  "type": "topic_efficiency",
+  "topic_id": "TOPIC-3419",
+  "category": "topic",
+  "summary": "CTR 接近平台基准，继续观察",
+  "detail": "CTR=0.69%，Z=-1.41，总曝光=7,113，置信度=0.65，1篇内容",
+  "platforms": [
+    "zhihu"
+  ],
+  "confidence": 0.65,
+  "recommended_action": "REVIEW",
+  "target_agent": "agent5",
+  "computed_at": "2026-07-04T01:56:13.187Z"
+}

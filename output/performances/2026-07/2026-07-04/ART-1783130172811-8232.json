@@ -1,0 +1,24 @@
+{
+  "article_id": "ART-1783130172811-8232",
+  "topic_id": "TOPIC-3333",
+  "direction_id": null,
+  "platform": "wechat_gzh",
+  "published_at": "2026-07-01T18:50:15.431Z",
+  "__mock__": true,
+  "__source__": "mock",
+  "metrics": {
+    "impressions": 25709,
+    "clicks": 419,
+    "ctr": 0.01629190912426818,
+    "conversions": 13,
+    "cvr": 0.031286828834241255,
+    "shares": 20,
+    "likes": 41,
+    "comments": 8,
+    "avg_read_time": 150
+  },
+  "metadata": {
+    "content_form": "图文",
+    "topic_keywords": []
+  }
+}
