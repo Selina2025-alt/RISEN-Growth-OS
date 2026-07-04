@@ -224,6 +224,7 @@ async function runAgent5(opts = {}) {
   const feedbackSignals = opts.feedbackSignals || agent9Feedback || getMockFeedbackSignals();
   if (agent9Feedback) {
     console.log(`[Agent5] ℹ️  使用 Agent9 真实反馈（${agent9Feedback.length}条）`);
+  }
 
   console.log(`\n========== Agent 5 Pipeline Start ==========\n`);
   console.log(`[输入] Narrative来源: ${opts.narrative ? '外部传入' : (fs.existsSync(NARRATIVE_PATH) ? 'Agent4文件' : 'DEFAULT硬编码')}`);
@@ -457,4 +458,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { runAgent5, updateDistributionRules };
+module.exports = { runAgent5, updateDistributionRules, loadFeedbackFromAgent9 };
