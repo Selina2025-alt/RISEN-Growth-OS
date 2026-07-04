@@ -211,7 +211,7 @@ T4.3 在每个Skill的 `run()` 入口添加"切换就绪度"自检
 | 迭代 | 任务 | 优先级 | 工作量 | 状态 |
 |------|------|--------|--------|------|
 | **Iter-1**（本次） | R1: Skill接入Pipeline | 🔴 P0 | 中 | ✅ 已完成（fcddb60） |
-| **Iter-2** | R2: Standalone Fallback | 🟡 P1 | 小 | ⬜ |
+| **Iter-2**（本次） | R2: Standalone Fallback | 🟡 P1 | 小 | ✅ 已完成（4b4f91d） |
 | **Iter-3** | R3: 中文分词精度 | 🟡 P1 | 中 | ⬜ |
 | **Iter-4** | R4: Mock→真实验证流程 | 🟡 P1 | 中 | ⬜ |
 
