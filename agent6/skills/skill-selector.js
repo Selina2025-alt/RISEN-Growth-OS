@@ -31,9 +31,10 @@ const SKILL_REGISTRY = {
   'evidence-pack-skill':        { type: 'local', path: './evidence-pack-skill' },
 
   // ---- 待集成 P1 Skill（占位，fallback）----
-  'fact-grounding-skill':   'fallback:ljg-writes',    // 接入 llama_index 后替换
-  'source-discovery-skill': 'fallback:ljg-writes',    // 接入 RAGFlow 后替换
-  'brand-policy-reader':    'fallback:ljg-writes',    // 接入 Agent2 后替换
+  'fact-grounding-skill':   { type: 'local', path: './fact-grounding-skill' },
+  'source-discovery-skill': { type: 'local', path: './source-discovery-skill' },
+  'multi-source-research-skill': { type: 'local', path: './multi-source-research-skill' },
+  'brand-policy-reader':  { type: 'local', path: './brand-policy-reader' },
 
   // ---- 本地 Stub ----
   'local-stub': { type: 'local', path: './writing-stub' },
