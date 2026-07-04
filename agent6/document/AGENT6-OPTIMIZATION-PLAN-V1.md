@@ -1,6 +1,6 @@
 # Agent 6 完整优化实施计划
 
-**版本：V1.0 | 日期：2026-07-04 | 状态：待实施**
+**版本：V1.1 | 日期：2026-07-04 | 状态：✅ 阶段1-5全部完成（6个commit）**
 
 ---
 
@@ -778,13 +778,73 @@ Agent2 → Brand Policy + Evidence Graph  （待接 → brand-policy-reader）
 
 ---
 
-## 十、先做哪个
+## 十、实施结果（2026-07-04 完成）
 
-**建议从阶段1的 `seo-structure-skill` 入手，原因：**
-1. 纯自研，不依赖任何外部 Agent（Agent 2/3/8 还在开发）
-2. 不依赖 GitHub 集成项目（RAGFlow / llama_index 需要部署）
-3. 可以独立验证，不影响现有流程
-4. PRD 明确要求 SEO 输出，现有代码完全缺失
+### 已完成 ✅
+
+| 阶段 | 内容 | Commit | Skill数量 |
+|------|------|--------|---------|
+| 阶段1 P0 | seo-structure / geo-article-transformer / evidence-pack / geo-article-generator | `867be51` | 4个 |
+| 阶段2 | skill-selector v2 三元路由 + skill_routes.yml | `a2516f7` | 1个 |
+| 阶段3 P1 | source-discovery / fact-grounding / multi-source-research | `30117da` | 3个 |
+| 阶段4 | brand-policy-reader / strategy-reader / icp-reader | `0298739` | 3个 |
+| 阶段5 P2 | geo-metrics-skill / content-lineage-tracker | `0298739` | 2个 |
+
+**合计新增 13个 Skill 文件，全部无第三方依赖，可独立运行。**
+
+### GitHub 集成状态
+
+| Skill | 来源 | Mock→真实切换方式 |
+|-------|------|------------------|
+| source-discovery-skill | RAGFlow（Apache-2.0）| `MOCK_IMPLEMENTATION = false` |
+| fact-grounding-skill | llama_index（MIT）| 同上 |
+| multi-source-research-skill | DATAGEN（MIT）| 同上 |
+
+### Skill 总览（Agent6 全部 Skills）
+
+```
+Skills/
+├── P0 自研（阶段1）
+│   ├── seo-structure-skill.js          ✅
+│   ├── geo-article-transformer.js     ✅
+│   ├── evidence-pack-skill.js          ✅
+│   └── geo-article-generator.js        ✅
+├── P1 GitHub集成（阶段3）
+│   ├── source-discovery-skill.js      ✅ Mock
+│   ├── fact-grounding-skill.js         ✅ Mock
+│   └── multi-source-research-skill.js  ✅ Mock
+├── P1 上下文读取（阶段4）
+│   ├── brand-policy-reader.js          ✅ fallback
+│   ├── strategy-reader.js             ✅ fallback
+│   └── icp-reader.js                 ✅ fallback
+├── P2 质量保障（阶段5）
+│   ├── geo-metrics-skill.js          ✅
+│   └── content-lineage-tracker.js     ✅
+├── 核心基础（已有）
+│   ├── capability-index-builder.js    ✅
+│   ├── topic-capability-matcher.js    ✅
+│   ├── insertion-strategy-decider.js  ✅
+│   ├── knowledge-sync.js              ✅
+│   ├── knowledge-update-handler.js    ✅
+│   ├── skill-selector.js              ✅ v2
+│   ├── kai-gate.js                   ✅
+│   ├── validate-skill.js             ✅
+│   ├── feedback-loop.js              ✅
+│   ├── campaign-consumer.js           ✅
+│   └── diff-detector.js              ✅
+└── 待补（PRD要求）
+    ├── schema-org-generator.js         ⬜
+    └── seo-keyword-research.js        ⬜
+```
+
+### 三元路由验证（skill-selector v2）
+
+```
+analysis × zhihu × soft → technical | ljg-writes | aux:[ljg-learn,seo,transform,hv] | SEO✅ GEO✅
+analysis × zhihu × hard → technical | ljg-writes | aux:[...+evidence,brand]     | SEO✅ GEO✅
+case_study × xhs × soft → quick_social | huashu | aux:[geo-transform,ljg-card,seo] | SEO❌ GEO❌
+opinion × wechat_gzh × hard → deep_long_form | khazix | aux:[...+evidence,brand] | SEO❌ GEO✅
+```
 
 **启动命令：**
 ```bash
