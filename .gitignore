@@ -11,3 +11,6 @@ knowledge/*
 agent4/node_modules/
 agent5/node_modules/
 agent6/node_modules/
+
+# shared/ - 运行时共享数据（不提交）
+shared/
