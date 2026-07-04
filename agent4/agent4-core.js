@@ -20,6 +20,125 @@ const { designExperiment } = require('./skills/experiment-design');
 const { allocateBudget, generateExperimentTimeline } = require('./skills/budget-allocator');
 const { decide } = require('./skills/stop-scale-decision');
 const { createVersion, getCurrentVersion, getVersionHistory, compareVersions } = require('./skills/strategy-version-manager');
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * 从 Agent 9 读取反馈数据
+ * 路径：${AGENT9_OUTPUT_DIR}/decisions/from-agent9/agent4/latest.json
+ * 格式：Decision v1.2
+ */
+function loadFeedbackFromAgent9() {
+  const dir = process.env.AGENT9_OUTPUT_DIR;
+  if (!dir) {
+    console.warn('[Agent4] ⚠️  AGENT9_OUTPUT_DIR 未设置，Agent9 反馈不可用');
+    return null;
+  }
+  const latestPath = path.join(dir, 'decisions', 'from-agent9', 'agent4', 'latest.json');
+  if (!fs.existsSync(latestPath)) {
+    console.warn('[Agent4] ⚠️  Agent4 Decision 文件不存在，尝试读 agent5 数据');
+    // fallback：读 agent5 的决策（包含 topic_boost，可推断内容效果）
+    const agent5Path = path.join(dir, 'decisions', 'from-agent9', 'agent5', 'latest.json');
+    if (!fs.existsSync(agent5Path)) return null;
+    try {
+      const data = JSON.parse(fs.readFileSync(agent5Path, 'utf8'));
+      return { decisions: data.decisions || [], source: 'agent5' };
+    } catch { return null; }
+  }
+  try {
+    const data = JSON.parse(fs.readFileSync(latestPath, 'utf8'));
+    return { decisions: data.decisions || [], source: 'agent4' };
+  } catch (e) {
+    console.warn(`[Agent4] ⚠️  读取 Agent9 反馈失败: ${e.message}`);
+    return null;
+  }
+}
+
+/**
+ * 从 Agent 9 Decision 数据转换为 experimentResults 格式
+ * 用于 stop-scale-decision Skill
+ *
+ * 转换逻辑：
+ * - strategy_shift 类型决策 → 直接映射为 ROI 信号
+ * - topic_boost 决策 → 从 SCALE/REDUCE 推断内容效果
+ */
+function convertAgent9ToExperimentResults(agent9Feedback) {
+  if (!agent9Feedback || !agent9Feedback.decisions) return null;
+  const { decisions, source } = agent9Feedback;
+
+  // 优先用 agent4 专属的 strategy_shift
+  const strategyDecisions = decisions.filter(d => d.type === 'strategy_shift');
+  const topicDecisions = decisions.filter(d => d.type === 'topic_boost');
+
+  if (strategyDecisions.length > 0) {
+    const latest = strategyDecisions[strategyDecisions.length - 1];
+    // 从 reason 字段解析 ROI（格式如 "ROI 1.4 超过目标 1.2"）
+    const roiMatch = latest.reason?.match(/ROI\s*([\d.]+)/);
+    const actual_roi = roiMatch ? parseFloat(roiMatch[1]) : null;
+    return {
+      actual_roi: actual_roi || 1.0,
+      confidence: latest.confidence || 0.5,
+      sample_size: 100,
+      time_in_market_days: 7,
+      winning_variant: null,
+      metrics: { engagement_rate: 0.03 },
+      source: 'agent9_strategy_shift',
+      decision: latest.decision
+    };
+  }
+
+  if (topicDecisions.length > 0) {
+    // 从 topic_boost 分布推断整体内容效果
+    const scale = topicDecisions.filter(d => d.decision === 'SCALE').length;
+    const reduce = topicDecisions.filter(d => d.decision === 'REDUCE').length;
+    const total = topicDecisions.length;
+    const netSignal = (scale - reduce) / total; // -1 到 1
+    // netSignal > 0 → 内容有效，< 0 → 无效
+    const estimated_roi = 0.8 + netSignal * 0.8; // 映射到 0~1.6
+    return {
+      actual_roi: parseFloat(estimated_roi.toFixed(2)),
+      confidence: 0.6,
+      sample_size: total * 100,
+      time_in_market_days: 7,
+      winning_variant: null,
+      metrics: { engagement_rate: 0.03 + netSignal * 0.015 },
+      source: 'agent9_topic_boost',
+      decision: netSignal > 0.2 ? 'SCALE' : netSignal < -0.2 ? 'REDUCE' : 'CONTINUE'
+    };
+  }
+
+  return null;
+}
+
+/**
+ * 基于 Agent 9 信号动态更新策略内容
+ */
+function buildUpdatedStrategyFromAgent9(agent9Feedback, originalStrategy) {
+  const conversion = convertAgent9ToExperimentResults(agent9Feedback);
+  if (!conversion) return null;
+
+  const { decision, source } = conversion;
+  let updatedContent = { ...originalStrategy.content || {} };
+
+  if (decision === 'SCALE') {
+    updatedContent.strategic_bet = '内容表现优异，扩大产出规模验证规模化假设';
+  } else if (decision === 'REDUCE') {
+    updatedContent.strategic_bet = '内容效果低于预期，重新审视目标受众定位和内容形式';
+  } else {
+    updatedContent.strategic_bet = originalStrategy.content?.strategic_bet
+      || originalStrategy.strategic_bet?.bet_on
+      || '继续积累数据，验证内容方向有效性';
+  }
+
+  // 记录反馈来源
+  updatedContent._agent9_feedback = {
+    source,
+    decision,
+    computed_at: new Date().toISOString()
+  };
+
+  return updatedContent;
+}
 
 /**
  * 运行完整 Agent 4 Pipeline
@@ -89,23 +208,36 @@ async function runAgent4(campaignInput, passportInput, marketInput, options = {}
 
   // ===== Skill 7: 停止与放大 =====
   console.log('\n📌 Skill 7: 停止与放大');
-  // 构建 Strategy Card（含完整字段）
   const strategyCard = buildStrategyCard(strategyResult, vpResult, narrativeResult, channelResult, experimentResult, budgetResult, timeline);
   console.log(`  Strategy Card ID: ${strategyCard.id}`);
   console.log(`  状态: ${strategyCard.status}`);
   console.log(`  成功指标: ROI > ${strategyCard.content.success_threshold?.roi || 1.2}`);
   console.log(`  停止条件: ROI < ${strategyCard.content.stop_conditions?.roi_threshold || 0.6}`);
 
-  // 模拟 Agent 9 数据测试决策
-  const mockExperimentResult = {
-    actual_roi: 1.4,
-    confidence: 0.75,
-    sample_size: 800,
-    time_in_market_days: 10,
-    winning_variant: 'content_type_a',
-    metrics: { engagement_rate: 0.045 }
-  };
-  const stopScaleDecision = decide(mockExperimentResult, strategyCard);
+  // 从 Agent 9 读取真实反馈数据
+  const agent9Feedback = loadFeedbackFromAgent9();
+  let stopScaleDecision;
+
+  if (agent9Feedback) {
+    console.log(`  Agent9 数据来源: ${agent9Feedback.source}，共 ${agent9Feedback.decisions.length} 条决策`);
+    const experimentResults = convertAgent9ToExperimentResults(agent9Feedback);
+    if (experimentResults) {
+      console.log(`  Agent9 信号: decision=${experimentResults.decision}, estimated_roi=${experimentResults.actual_roi}, source=${experimentResults.source}`);
+      stopScaleDecision = decide(experimentResults, strategyCard);
+    } else {
+      console.log(`  ⚠️  Agent9 数据无法解析，使用 CONTINUE 默认决策`);
+      stopScaleDecision = {
+        primary_decision: { decision: 'CONTINUE', reason: '数据不足，维持现状' },
+        agent_routing: { target_agent: null }
+      };
+    }
+  } else {
+    console.log(`  ⚠️  无 Agent9 反馈数据，使用 CONTINUE 默认决策`);
+    stopScaleDecision = {
+      primary_decision: { decision: 'CONTINUE', reason: '无 Agent9 数据，维持现状' },
+      agent_routing: { target_agent: null }
+    };
+  }
   console.log(`  Agent9反馈决策: ${stopScaleDecision.primary_decision.decision}`);
   console.log(`  路由目标: ${stopScaleDecision.agent_routing.target_agent || '无'}`);
 
@@ -116,14 +248,25 @@ async function runAgent4(campaignInput, passportInput, marketInput, options = {}
   console.log(`  触发: ${versionResult.created.trigger}`);
   console.log(`  回滚可用: ${versionResult.created.rollback_available ? '✓' : '✗'}`);
 
-  // 模拟策略更新（基于Agent 9）
-  const updatedCard = JSON.parse(JSON.stringify(strategyCard));
-  updatedCard.version = 'v2';
-  updatedCard.content.strategic_bet = '通过企业AI落地方法论建立JovaAI行业权威认知';
-  const v2Result = createVersion(updatedCard, 'agent9_feedback', { reason: '基于Agent 9数据反馈优化' });
-  console.log(`  新版本: ${v2Result.created.version}`);
-  console.log(`  变更数: ${v2Result.created.changes_summary?.length || 0}项`);
-  console.log(`  触发: ${v2Result.created.trigger}`);
+  // 基于 Agent 9 真实反馈更新策略
+  if (agent9Feedback) {
+    const updatedContent = buildUpdatedStrategyFromAgent9(agent9Feedback, strategyCard);
+    if (updatedContent) {
+      const updatedCard = {
+        ...strategyCard,
+        version: 'v2',
+        content: updatedContent
+      };
+      const v2Result = createVersion(updatedCard, 'agent9_feedback', {
+        reason: `基于Agent 9 ${agent9Feedback.source} 数据反馈优化，decision=${stopScaleDecision.primary_decision.decision}`
+      });
+      console.log(`  新版本: ${v2Result.created.version}`);
+      console.log(`  变更数: ${v2Result.created.changes_summary?.length || 0}项`);
+      console.log(`  触发: ${v2Result.created.trigger}`);
+    }
+  } else {
+    console.log(`  无 Agent9 反馈，跳过策略更新`);
+  }
 
   console.log('\n' + '='.repeat(60));
   console.log('Agent 4 完整执行完成');
@@ -225,4 +368,4 @@ function buildStrategyCard(strategy, vp, narrative, channel, experiment, budget,
   };
 }
 
-module.exports = { runAgent4, buildStrategyCard };
+module.exports = { runAgent4, buildStrategyCard, loadFeedbackFromAgent9 };
