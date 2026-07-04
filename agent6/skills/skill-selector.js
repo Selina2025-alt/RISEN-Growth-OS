@@ -269,18 +269,34 @@ async function runSkill(skillId, params) {
 async function runSkillWithFallback(primarySkill, params) {
   const chain = [primarySkill, ...(FALLBACK_CHAIN[primarySkill] || [])];
 
+  // 如果没有可用的本地 fallback，往 chain 末尾追加 local-stub
+  const hasLocalFallback = chain.some(sid => {
+    const e = SKILL_REGISTRY[sid];
+    return e && typeof e !== 'string' && e.type === 'local';
+  });
+  if (!hasLocalFallback) chain.push('local-stub');
+
   let lastError;
   for (const skillId of chain) {
     try {
       return await runSkill(skillId, params);
     } catch (err) {
-      if (err.code === 'JOVA_SKILL_REQUIRED') throw err; // Jova Skill 报错直接抛
+      if (err.code === 'JOVA_SKILL_REQUIRED') {
+        // Jova Skill 不可用，尝试 chain 中下一个
+        console.warn(`[skill-selector] Jova Skill ${skillId} 不可用，尝试 fallback...`);
+        continue;
+      }
       lastError = err;
       console.warn(`[skill-selector] ${skillId} failed: ${err.message}, trying fallback...`);
     }
   }
 
-  throw lastError || new Error(`[skill-selector] all skills failed for ${primarySkill}`);
+  // 所有 skill 都失败了，尝试 local-stub 作为最后兜底
+  try {
+    return await runSkill('local-stub', params);
+  } catch (stubErr) {
+    throw lastError || stubErr;
+  }
 }
 
 // ============ CLI 路由测试 ============
