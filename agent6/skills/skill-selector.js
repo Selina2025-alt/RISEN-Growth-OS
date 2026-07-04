@@ -199,8 +199,7 @@ function selectWritingMode(topicBrief, insertionStrategy) {
  * 旧接口：getPrimarySkill
  */
 function getPrimarySkill(mode) {
-  if (!ROUTES) return 'khazix-writer';
-  const cfg = ROUTES.modes?.[mode];
+  const cfg = MODES[mode];
   return cfg?.primary || 'khazix-writer';
 }
 
@@ -208,8 +207,7 @@ function getPrimarySkill(mode) {
  * 旧接口：getAuxSkills
  */
 function getAuxSkills(mode) {
-  if (!ROUTES) return [];
-  const cfg = ROUTES.modes?.[mode];
+  const cfg = MODES[mode];
   return cfg?.aux || [];
 }
 
