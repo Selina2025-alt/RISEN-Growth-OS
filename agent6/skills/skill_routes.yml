@@ -1,35 +1,159 @@
-# Skill 路由配置
-# 格式：主笔 → [辅笔数组]
+# Skill 路由配置 v2
+# 三元路由：content_type × platform × insertion_type
+# 格式：content_type → mode → { primary, aux[], seo, geo, fallback }
 
-deep_long_form:
-  primary: khazix-writer
-  aux:
-    - hv-analysis
-    - ljg-think
-  fallback: ljg-writes
+# ============ 基础模式定义 ============
 
-quick_social:
-  primary: huashu-douyin-script
-  aux:
-    - ljg-card
-  fallback: ljg-writes
+modes:
+  deep_long_form:
+    primary: khazix-writer
+    aux:
+      - geo-article-generator      # ⭐ GEO文章生成（新增）
+      - hv-analysis               # 竞品横评
+      - ljg-think                # 概念深挖
+      - seo-structure-skill       # ⭐ SEO结构化（新增）
+    fallback: ljg-writes
+    description: 公众号深度长文/知乎分析文
 
-technical:
-  primary: ljg-writes
-  aux:
-    - hv-analysis
-    - ljg-rank
-  fallback: khazix-writer
+  technical:
+    primary: ljg-writes
+    aux:
+      - ljg-learn                # 概念解析
+      - seo-structure-skill       # ⭐ SEO结构化
+      - fact-grounding-skill      # ⭐ 事实核验（llama_index）
+    fallback: khazix-writer
+    description: 技术教程/CSDN/知乎
 
-marketing:
-  primary: kai-write
-  aux:
-    - kai-topical-map
-  fallback: khazix-writer
+  hot_chase:
+    primary: huashu-douyin-script
+    aux:
+      - geo-article-transformer   # ⭐ GEO快速改造（新增）
+      - ljg-card                # 视觉摘要
+      - seo-structure-skill      # 爆款标题
+    fallback: ljg-writes
+    description: 热点追击/抖音/微博
 
-# 按 content_type 匹配模式
+  case_study:
+    primary: kai-write
+    aux:
+      - hv-analysis              # 竞品分析
+      - ljg-rank               # 观点提炼
+      - evidence-pack-skill      # ⭐ 事实/观点分离（新增）
+      - geo-article-generator    # ⭐ GEO文章生成
+    fallback: khazix-writer
+    description: 案例包装/视频号/小红书
+
+  comparison:
+    primary: hv-analysis
+    aux:
+      - ljg-think              # 概念深挖
+      - seo-structure-skill      # SEO结构化
+      - evidence-pack-skill      # 证据包
+    fallback: ljg-writes
+    description: 竞品对比/知乎
+
+  opinion:
+    primary: khazix-writer
+    aux:
+      - ljg-learn              # 概念解析
+      - geo-article-transformer # GEO改造
+      - fact-grounding-skill    # 事实核验
+    fallback: khazix-writer
+    description: 观点文章
+
+  product_promo:
+    primary: kai-write
+    aux:
+      - evidence-pack-skill       # 事实支撑
+      - geo-article-generator   # GEO生成
+      - brand-policy-reader      # ⭐ 读Agent2 BrandPolicy
+    fallback: khazix-writer
+    description: 品牌硬推广
+
+# ============ ContentType → Mode 映射 ============
+
 content_type_map:
   news: deep_long_form
-  analysis: technical
-  case_study: marketing
+  analysis: deep_long_form
+  case_study: case_study
   tutorial: technical
+  opinion: opinion
+  comparison: comparison
+  product_promo: product_promo
+  hot_chase: hot_chase
+
+# ============ Platform → 强制覆盖 ============
+# platform_rules 优先级高于 content_type_map
+
+platform_rules:
+  zhihu:
+    mode: technical
+    require_seo: true
+    require_geo: true
+    min_length: 3000
+    include_faq: true
+    add_toc: true
+
+  wechat_gzh:
+    mode: deep_long_form
+    require_seo: false
+    require_geo: true
+    min_length: 2000
+    cta_required: true
+
+  csdn:
+    mode: technical
+    require_seo: true
+    require_geo: false
+    min_length: 1500
+    code_blocks: true
+    add_toc: true
+
+  xiaohongshu:
+    mode: quick_social
+    require_seo: false
+    require_geo: false
+    min_length: 800
+    use_emoji: true
+    max_length: 1000
+
+  juejin:
+    mode: technical
+    require_seo: true
+    require_geo: false
+    min_length: 2000
+    add_toc: true
+
+  bilibili:
+    mode: quick_social
+    require_seo: false
+    require_geo: false
+    min_length: 500
+    video_script: true
+
+# ============ InsertionType → Aux 增强 ============
+# insertion_rules 在基础 aux 上追加或替换
+
+insertion_rules:
+  hard:
+    # 硬植入：加强证据+品牌
+    aux_add:
+      - evidence-pack-skill
+      - brand-policy-reader
+    seo_multiplier: 1.2
+    geo_multiplier: 1.0
+
+  soft:
+    # 软植入：加强GEO+洞察
+    aux_add:
+      - geo-article-transformer
+      - hv-analysis
+    seo_multiplier: 1.0
+    geo_multiplier: 1.3
+
+  minimal:
+    # 最小植入：纯内容质量
+    aux_add:
+      - ljg-learn
+    seo_multiplier: 0.8
+    geo_multiplier: 0.8
