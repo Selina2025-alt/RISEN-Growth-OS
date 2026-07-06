@@ -1,6 +1,7 @@
-# Agent 9 SPEC — 收入归因与增长学习智能体
+# Agent 9 · 收入归因与增长学习智能体
+## 技术规格文档 v5.0（测试验证版）
 
-> 版本：v5.0（对应 AGENT9_PLAN_V5.0.md）
+> **版本：v5.0 | 更新日期：2026-07-06 | 状态：✅ 测试验证通过**
 > 状态：实现完成
 > 所属：RISEN 瑞森全球智能增长操作系统
 
@@ -300,4 +301,34 @@ export AGENT9_OUTPUT_DIR=${SHARED_OUTPUT_DIR}
 
 ---
 
-*本文档跟随 AGENT9_PLAN_V5.0.md 更新，v5.0 为最终实现版。*
+---
+
+## 十一、测试验证（2026-07-06）
+
+### 验证命令
+
+```bash
+cd risen-agent9 && node agent9-core.js
+```
+
+### 验证清单
+
+- [x] 指标采集：24条Performance
+- [x] Z-Score归因：SCALE=0 | CONTINUE=24 | REDUCE=0 | STOP=0
+- [x] TopicBoost：169条
+- [x] Decision下发：5条（含历史链）
+- [x] Insight生成：2条
+
+### 实际输出
+
+```
+采集: 24条 Performance（wechat/zhihu/csdn/dev-to/github/linkedin）
+归因: SCALE=0 | CONTINUE=24 | REDUCE=0 | STOP=0
+Decision: 5条 topic_boost
+Insight: 2条
+Agent5回流: 5条决策已进入 output/decisions/from-agent9/agent5/latest.json
+```
+
+---
+
+*本文档版本：v5.0 | 更新日期：2026-07-06*
